@@ -1,0 +1,12 @@
+{
+  "name": "keyword-library-tools",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Local tooling to help fill images/ for the Keyword Library. Not part of the published site.",
+  "scripts": {
+    "capture": "node capture.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.48.0"
+  }
+}

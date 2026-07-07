@@ -1,0 +1,12 @@
+[
+  {
+    "keyword": "ScrollTrigger",
+    "url": "https://gsap.com/docs/v3/Plugins/ScrollTrigger/",
+    "selector": ".demo-widget, .codepen, iframe",
+    "wait": 2000
+  },
+  {
+    "keyword": "elastic ease",
+    "search": "gsap elastic ease animation example"
+  }
+]

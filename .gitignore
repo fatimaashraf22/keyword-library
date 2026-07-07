@@ -1,0 +1,10 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Screenshot tool dependencies (not needed to run the site itself)
+scripts/node_modules/
+scripts/package-lock.json

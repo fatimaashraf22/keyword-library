@@ -1,0 +1,4 @@
+[
+  { "keyword": "stagger", "url": "https://gsap.com/resources/getting-started/Staggers", "waitUntil": "domcontentloaded", "wait": 3000 },
+  { "keyword": "ScrollTrigger", "url": "https://gsap.com/docs/v3/Plugins/ScrollTrigger/", "waitUntil": "domcontentloaded", "wait": 3000 }
+]

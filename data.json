@@ -1,0 +1,945 @@
+[
+  {
+    "keyword": "volumetric lighting",
+    "category": "cinematic",
+    "media": "images/volumetric-lighting.jpg",
+    "note": "God rays / light shafts cutting through atmosphere (fog, dust, haze). Adds depth and mood. Also called 'light shafts' or 'crepuscular rays'.",
+    "tags": [
+      "lighting",
+      "atmosphere",
+      "cinematic",
+      "mood"
+    ],
+    "heading": "Lighting"
+  },
+  {
+    "keyword": "rim lighting",
+    "category": "cinematic",
+    "media": "images/rim-lighting.jpg",
+    "note": "A bright outline of light along the edge of a subject, separating it from the background. Great for portraits and hero shots.",
+    "tags": [
+      "lighting",
+      "portrait",
+      "edge",
+      "contrast"
+    ],
+    "heading": "Lighting"
+  },
+  {
+    "keyword": "chiaroscuro",
+    "category": "cinematic",
+    "media": "images/chiaroscuro.jpg",
+    "note": "Strong contrast between light and dark, deep shadows. Renaissance-painting drama. Use for moody, high-contrast scenes.",
+    "tags": [
+      "lighting",
+      "contrast",
+      "dramatic",
+      "painterly"
+    ],
+    "heading": "Lighting"
+  },
+  {
+    "keyword": "tilt-shift",
+    "category": "cinematic",
+    "media": "images/tilt-shift.jpg",
+    "note": "Shallow selective focus that makes real scenes look like tiny miniatures. Blurs top and bottom, sharp middle band.",
+    "tags": [
+      "lens",
+      "miniature",
+      "focus",
+      "depth"
+    ],
+    "heading": "Lens Effects"
+  },
+  {
+    "keyword": "bokeh",
+    "category": "cinematic",
+    "media": "images/bokeh.jpg",
+    "note": "Soft out-of-focus background with rounded light blobs. Signals a wide aperture / shallow depth of field.",
+    "tags": [
+      "lens",
+      "depth of field",
+      "background",
+      "soft"
+    ],
+    "heading": "Lens Effects"
+  },
+  {
+    "keyword": "claymation / gothic clay",
+    "category": "styles",
+    "media": "images/claymation-gothic-clay.jpg",
+    "note": "Stop-motion clay look — sculpted, matte, slightly imperfect surfaces. Gothic clay leans dark and Tim-Burton-ish.",
+    "tags": [
+      "style",
+      "claymation",
+      "stop-motion",
+      "gothic"
+    ],
+    "heading": "Aesthetic Styles"
+  },
+  {
+    "keyword": "photorealistic",
+    "category": "styles",
+    "media": "images/photorealistic.jpg",
+    "note": "Looks like a real photograph — accurate light, texture, and detail. Opposite of stylized/illustrated.",
+    "tags": [
+      "style",
+      "realistic",
+      "photo"
+    ],
+    "heading": "Aesthetic Styles"
+  },
+  {
+    "keyword": "steampunk",
+    "category": "styles",
+    "media": "images/steampunk.jpg",
+    "note": "Victorian-era tech aesthetic: brass, gears, steam, cogs, leather. Retro-futuristic.",
+    "tags": [
+      "style",
+      "retro-futuristic",
+      "victorian"
+    ],
+    "heading": "Aesthetic Styles"
+  },
+  {
+    "keyword": "cyberpunk",
+    "category": "styles",
+    "media": "images/cyberpunk.jpg",
+    "note": "Neon-lit dystopian future — high tech, low life. Rain, holograms, saturated pinks/blues/purples.",
+    "tags": [
+      "style",
+      "neon",
+      "futuristic",
+      "dystopian"
+    ],
+    "heading": "Aesthetic Styles"
+  },
+  {
+    "keyword": "cinematic",
+    "category": "styles",
+    "media": "images/cinematic.jpg",
+    "note": "Film-still look: dramatic lighting, wide aspect feel, color grading, depth. Reads like a movie frame.",
+    "tags": [
+      "style",
+      "film",
+      "dramatic"
+    ],
+    "heading": "Aesthetic Styles"
+  },
+  {
+    "keyword": "old cartoon",
+    "category": "styles",
+    "media": "images/old-cartoon.jpg",
+    "note": "Vintage hand-drawn animation style — 1930s–50s rubber-hose cartoons, aged paper feel.",
+    "tags": [
+      "style",
+      "cartoon",
+      "vintage",
+      "hand-drawn"
+    ],
+    "heading": "Aesthetic Styles"
+  },
+  {
+    "keyword": "pop art",
+    "category": "styles",
+    "media": "images/pop-art.jpg",
+    "note": "Bold flat colors, halftone dots, comic outlines. Warhol / Lichtenstein energy.",
+    "tags": [
+      "style",
+      "bold",
+      "graphic",
+      "retro"
+    ],
+    "heading": "Art Movements & Eras"
+  },
+  {
+    "keyword": "surrealism",
+    "category": "styles",
+    "media": "images/surrealism.jpg",
+    "note": "Dreamlike, impossible juxtapositions and melting logic. Think Dalí.",
+    "tags": [
+      "style",
+      "dreamlike",
+      "abstract"
+    ],
+    "heading": "Art Movements & Eras"
+  },
+  {
+    "keyword": "impressionism",
+    "category": "styles",
+    "media": "images/impressionism.jpg",
+    "note": "Loose visible brushstrokes, soft edges, emphasis on light and atmosphere over detail. Monet-style.",
+    "tags": [
+      "style",
+      "painterly",
+      "brushstrokes"
+    ],
+    "heading": "Art Movements & Eras"
+  },
+  {
+    "keyword": "street art / graffiti",
+    "category": "styles",
+    "media": "images/street-art-graffiti.jpg",
+    "note": "Spray-paint, stencils, bold urban lettering and murals. Banksy / wildstyle energy.",
+    "tags": [
+      "style",
+      "urban",
+      "spray paint"
+    ],
+    "heading": "Aesthetic Styles"
+  },
+  {
+    "keyword": "comic style",
+    "category": "styles",
+    "media": "images/comic-style.jpg",
+    "note": "Ink outlines, cel shading, panels and action lines. Graphic-novel / comic-book look.",
+    "tags": [
+      "style",
+      "ink",
+      "graphic novel"
+    ],
+    "heading": "Aesthetic Styles"
+  },
+  {
+    "keyword": "portrait shot",
+    "category": "cinematic",
+    "media": "images/portrait-shot.jpg",
+    "note": "Framed on a person, usually head-and-shoulders, subject-focused with flattering light.",
+    "tags": [
+      "style",
+      "portrait",
+      "framing"
+    ],
+    "heading": "Camera Shots & Angles"
+  },
+  {
+    "keyword": "oil painting on canvas",
+    "category": "styles",
+    "media": "images/oil-painting-on-canvas.jpg",
+    "note": "Thick textured brushwork, canvas grain, rich blended color. Classic fine-art medium.",
+    "tags": [
+      "style",
+      "painterly",
+      "traditional media"
+    ],
+    "heading": "Aesthetic Styles"
+  },
+  {
+    "keyword": "90s anime aesthetic",
+    "category": "styles",
+    "media": "images/90s-anime-aesthetic.jpg",
+    "note": "Retro cel animation — grainy film, muted palette, hand-painted backgrounds. Nostalgic anime look.",
+    "tags": [
+      "style",
+      "anime",
+      "retro",
+      "cel"
+    ],
+    "heading": "Aesthetic Styles"
+  },
+  {
+    "keyword": "retro",
+    "category": "styles",
+    "media": "images/retro.jpg",
+    "note": "Deliberately old-fashioned styling from past decades — colors, type, and textures of the era.",
+    "tags": [
+      "style",
+      "vintage",
+      "nostalgic"
+    ],
+    "heading": "Aesthetic Styles"
+  },
+  {
+    "keyword": "vintage",
+    "category": "styles",
+    "media": "images/vintage.jpg",
+    "note": "Aged, faded, film-grain look — like an old photograph or print. Warm, worn tones.",
+    "tags": [
+      "style",
+      "aged",
+      "film grain"
+    ],
+    "heading": "Aesthetic Styles"
+  },
+  {
+    "keyword": "eye level",
+    "category": "cinematic",
+    "media": "images/eye-level.jpg",
+    "note": "Camera angle: neutral, straight-on at the subject's eye height. Natural and balanced.",
+    "tags": [
+      "camera angle",
+      "neutral"
+    ],
+    "heading": "Camera Shots & Angles"
+  },
+  {
+    "keyword": "extreme closeup",
+    "category": "cinematic",
+    "media": "images/extreme-closeup.jpg",
+    "note": "Camera angle: fills the frame with a small detail (e.g. an eye). Intense and intimate.",
+    "tags": [
+      "camera angle",
+      "closeup",
+      "detail"
+    ],
+    "heading": "Camera Shots & Angles"
+  },
+  {
+    "keyword": "closeup",
+    "category": "cinematic",
+    "media": "images/closeup.jpg",
+    "note": "Camera angle: tight on the subject (e.g. a face). Emphasizes emotion and detail.",
+    "tags": [
+      "camera angle",
+      "closeup"
+    ],
+    "heading": "Camera Shots & Angles"
+  },
+  {
+    "keyword": "medium shot",
+    "category": "cinematic",
+    "media": "images/medium-shot.jpg",
+    "note": "Camera angle: subject framed roughly waist-up. Balanced between subject and setting.",
+    "tags": [
+      "camera angle",
+      "waist up"
+    ],
+    "heading": "Camera Shots & Angles"
+  },
+  {
+    "keyword": "long shot",
+    "category": "cinematic",
+    "media": "images/long-shot.jpg",
+    "note": "Camera angle: full body of the subject visible within the scene.",
+    "tags": [
+      "camera angle",
+      "full body"
+    ],
+    "heading": "Camera Shots & Angles"
+  },
+  {
+    "keyword": "wide shot",
+    "category": "cinematic",
+    "media": "images/wide-shot.jpg",
+    "note": "Camera angle: subject is small within a broad environment. Establishes place and scale.",
+    "tags": [
+      "camera angle",
+      "establishing"
+    ],
+    "heading": "Camera Shots & Angles"
+  },
+  {
+    "keyword": "bird's-eye view",
+    "category": "cinematic",
+    "media": "images/birds-eye-view.jpg",
+    "note": "Camera angle: looking straight down from far above the subject.",
+    "tags": [
+      "camera angle",
+      "top-down",
+      "aerial"
+    ],
+    "heading": "Camera Shots & Angles"
+  },
+  {
+    "keyword": "worm's-eye view",
+    "category": "cinematic",
+    "media": "images/worms-eye-view.jpg",
+    "note": "Camera angle: looking up from ground level. Makes subjects tower and feel powerful.",
+    "tags": [
+      "camera angle",
+      "low angle",
+      "from below"
+    ],
+    "heading": "Camera Shots & Angles"
+  },
+  {
+    "keyword": "POV shot",
+    "category": "cinematic",
+    "media": "images/pov-shot.jpg",
+    "note": "Camera angle: the view as seen through the subject's own eyes. First-person perspective.",
+    "tags": [
+      "camera angle",
+      "first person"
+    ],
+    "heading": "Camera Shots & Angles"
+  },
+  {
+    "keyword": "side shot / front shot",
+    "category": "cinematic",
+    "media": "images/side-front-shot.jpg",
+    "note": "Camera angle: profile (side) or head-on (front) framing of the subject.",
+    "tags": [
+      "camera angle",
+      "profile",
+      "frontal"
+    ],
+    "heading": "Camera Shots & Angles"
+  },
+  {
+    "keyword": "fisheye lens",
+    "category": "cinematic",
+    "media": "images/fisheye-lens.jpg",
+    "note": "Ultra-wide lens with strong bulging distortion — curved edges, exaggerated depth.",
+    "tags": [
+      "lens",
+      "wide angle",
+      "distortion"
+    ],
+    "heading": "Lens Effects"
+  },
+  {
+    "keyword": "centered / symmetrical",
+    "category": "cinematic",
+    "media": "images/centered-symmetrical.jpg",
+    "note": "Placement: subject dead-center with balanced, mirror-like composition. Formal and striking.",
+    "tags": [
+      "placement",
+      "composition",
+      "symmetry"
+    ],
+    "heading": "Composition"
+  },
+  {
+    "keyword": "rule of thirds",
+    "category": "cinematic",
+    "media": "images/rule-of-thirds.jpg",
+    "note": "Placement: subject on a third-line/intersection rather than center. Natural, dynamic balance.",
+    "tags": [
+      "placement",
+      "composition"
+    ],
+    "heading": "Composition"
+  },
+  {
+    "keyword": "golden hour",
+    "category": "cinematic",
+    "media": "images/golden-hour.jpg",
+    "note": "Lighting: warm, soft, low-angle sunlight just after sunrise / before sunset. Long shadows, glow.",
+    "tags": [
+      "lighting",
+      "warm",
+      "natural"
+    ],
+    "heading": "Lighting"
+  },
+  {
+    "keyword": "cold light / warm light",
+    "category": "cinematic",
+    "media": "images/cold-warm-light.jpg",
+    "note": "Lighting: color temperature choice. Cold = bluish, clinical; warm = golden, cozy.",
+    "tags": [
+      "lighting",
+      "color temperature"
+    ],
+    "heading": "Lighting"
+  },
+  {
+    "keyword": "high key",
+    "category": "cinematic",
+    "media": "images/high-key.jpg",
+    "note": "Lighting: bright, low-contrast, few shadows. Clean, airy, upbeat feel.",
+    "tags": [
+      "lighting",
+      "bright",
+      "low contrast"
+    ],
+    "heading": "Lighting"
+  },
+  {
+    "keyword": "low key",
+    "category": "cinematic",
+    "media": "images/low-key.jpg",
+    "note": "Lighting: dark, high-contrast, deep shadows so the subject stands out. Moody and dramatic.",
+    "tags": [
+      "lighting",
+      "dark",
+      "high contrast",
+      "moody"
+    ],
+    "heading": "Lighting"
+  },
+  {
+    "keyword": "rembrandt lighting",
+    "category": "cinematic",
+    "media": "images/rembrandt-lighting.jpg",
+    "note": "Lighting (portrait): one side of the face lit, the other in shadow with a small triangle of light on the cheek.",
+    "tags": [
+      "lighting",
+      "portrait",
+      "classic"
+    ],
+    "heading": "Lighting"
+  },
+  {
+    "keyword": "cinematic rim lighting",
+    "category": "cinematic",
+    "media": "images/cinematic-rim-lighting.jpg",
+    "note": "Lighting (portrait): a bright film-style edge of light outlining the subject against a dark background.",
+    "tags": [
+      "lighting",
+      "portrait",
+      "edge",
+      "cinematic"
+    ],
+    "heading": "Lighting"
+  },
+  {
+    "keyword": "monochrome",
+    "category": "cinematic",
+    "media": "images/monochrome.jpg",
+    "note": "Color palette: a single hue (or black & white) in varying shades. Unified and moody.",
+    "tags": [
+      "color",
+      "single hue",
+      "black and white"
+    ],
+    "heading": "Color & Grading"
+  },
+  {
+    "keyword": "technicolor",
+    "category": "cinematic",
+    "media": "images/technicolor.jpg",
+    "note": "Color palette: hyper-saturated, vivid old-Hollywood color. Bold and punchy.",
+    "tags": [
+      "color",
+      "saturated",
+      "vivid"
+    ],
+    "heading": "Color & Grading"
+  },
+  {
+    "keyword": "Tim Burton style",
+    "category": "styles",
+    "media": "images/tim-burton.jpg",
+    "note": "Specific artist: gothic, whimsical, spindly characters, dark fairy-tale mood.",
+    "tags": [
+      "artist",
+      "gothic",
+      "whimsical"
+    ],
+    "heading": "Iconic Artists"
+  },
+  {
+    "keyword": "Picasso style",
+    "category": "styles",
+    "media": "images/picasso.jpg",
+    "note": "Specific artist: cubism — fragmented geometric forms, multiple viewpoints at once.",
+    "tags": [
+      "artist",
+      "cubism",
+      "abstract"
+    ],
+    "heading": "Iconic Artists"
+  },
+  {
+    "keyword": "Van Gogh style",
+    "category": "styles",
+    "media": "images/van-gogh.jpg",
+    "note": "Specific artist: thick swirling expressive brushstrokes, vivid emotional color.",
+    "tags": [
+      "artist",
+      "post-impressionism",
+      "brushstrokes"
+    ],
+    "heading": "Iconic Artists"
+  },
+  {
+    "keyword": "Studio Ghibli style",
+    "category": "styles",
+    "media": "images/studio-ghibli.jpg",
+    "note": "Specific artist: lush hand-painted anime — soft skies, detailed nature, gentle nostalgia.",
+    "tags": [
+      "artist",
+      "anime",
+      "hand-painted"
+    ],
+    "heading": "Iconic Artists"
+  },
+  {
+    "keyword": "Dalí style",
+    "category": "styles",
+    "media": "images/dali.jpg",
+    "note": "Specific artist: surrealism — melting forms, dreamlike impossible landscapes.",
+    "tags": [
+      "artist",
+      "surrealism",
+      "dreamlike"
+    ],
+    "heading": "Iconic Artists"
+  },
+  {
+    "keyword": "Monet style",
+    "category": "styles",
+    "media": "images/monet.jpg",
+    "note": "Specific artist: impressionism — soft light, water, gardens, loose dappled brushwork.",
+    "tags": [
+      "artist",
+      "impressionism",
+      "light"
+    ],
+    "heading": "Iconic Artists"
+  },
+  {
+    "keyword": "baroque",
+    "category": "styles",
+    "media": "images/baroque.jpg",
+    "note": "Specific style/era: dramatic, ornate, high-contrast 17th-century grandeur and movement.",
+    "tags": [
+      "artist",
+      "era",
+      "dramatic",
+      "ornate"
+    ],
+    "heading": "Art Movements & Eras"
+  },
+  {
+    "keyword": "romanticism",
+    "category": "styles",
+    "media": "images/romanticism.jpg",
+    "note": "Specific style/era: emotional, sublime nature, dramatic skies and awe. 19th-century.",
+    "tags": [
+      "artist",
+      "era",
+      "emotional",
+      "nature"
+    ],
+    "heading": "Art Movements & Eras"
+  },
+  {
+    "keyword": "parallax scroll",
+    "category": "cinematic",
+    "media": "images/parallax-scroll.gif",
+    "note": "Background and foreground layers move at different speeds to create a sense of depth as the scene pans or scrolls.",
+    "tags": [
+      "camera",
+      "depth",
+      "layers",
+      "scroll"
+    ],
+    "heading": "Camera Movement & Effects"
+  },
+  {
+    "keyword": "dolly zoom",
+    "category": "cinematic",
+    "media": "images/dolly-zoom.gif",
+    "note": "Camera pushes in while zooming out (or vice versa) so the subject stays the same size but the background warps. The 'Vertigo' effect.",
+    "tags": [
+      "camera",
+      "cinematic",
+      "tension",
+      "effect"
+    ],
+    "heading": "Camera Movement & Effects"
+  },
+  {
+    "keyword": "match cut",
+    "category": "cinematic",
+    "media": "images/match-cut.gif",
+    "note": "A transition where a shape, motion, or composition in one shot lines up with the next, making the cut feel seamless.",
+    "tags": [
+      "transition",
+      "editing",
+      "seamless"
+    ],
+    "heading": "Editing Transitions"
+  },
+  {
+    "keyword": "morph transition",
+    "category": "cinematic",
+    "media": "images/morph-transition.gif",
+    "note": "One object smoothly transforms into another, warping shape and texture between them.",
+    "tags": [
+      "transition",
+      "warp",
+      "shapeshift"
+    ],
+    "heading": "Editing Transitions"
+  },
+  {
+    "keyword": "cinematic camera move (YouTube demo)",
+    "category": "cinematic",
+    "youtube": "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
+    "note": "DEMO of the YouTube feature: paste a link in the 'youtube' field — no hosting needed. Card shows the thumbnail; click to play the real video with sound in the popup.",
+    "tags": [
+      "demo",
+      "youtube",
+      "reference"
+    ],
+    "heading": "Camera Movement & Effects"
+  },
+  {
+    "keyword": "hosted clip example (MP4)",
+    "category": "cinematic",
+    "media": "images/example-clip.mp4",
+    "note": "DEMO of a self-hosted video: drop a .mp4 or .webm in images/ and point 'media' at it. It auto-loops silently in the card like a sharp GIF. (No file here yet, so it shows a placeholder.)",
+    "tags": [
+      "demo",
+      "mp4",
+      "video file"
+    ],
+    "heading": "Editing Transitions"
+  },
+  {
+    "keyword": "draw-on stroke",
+    "category": "motion",
+    "media": "images/draw-on-stroke.gif",
+    "note": "An SVG path animates as if it's being drawn by a pen (animate stroke-dashoffset from full length to 0). Classic line-art reveal.",
+    "tags": [
+      "path",
+      "reveal",
+      "line-art",
+      "stroke-dashoffset"
+    ],
+    "heading": "UI Motion"
+  },
+  {
+    "keyword": "stagger reveal",
+    "category": "motion",
+    "media": "images/stagger-reveal.gif",
+    "note": "A group of elements animate in one after another with a small delay between each, instead of all at once. Feels lively and intentional.",
+    "tags": [
+      "timing",
+      "sequence",
+      "delay",
+      "list"
+    ],
+    "heading": "UI Motion"
+  },
+  {
+    "keyword": "morph path",
+    "category": "motion",
+    "media": "images/morph-path.gif",
+    "note": "One SVG shape smoothly interpolates into another by animating its path 'd' data. Icon-to-icon transitions, play/pause toggles.",
+    "tags": [
+      "path",
+      "shapeshift",
+      "icon",
+      "interpolate"
+    ],
+    "heading": "UI Motion"
+  },
+  {
+    "keyword": "tween",
+    "category": "motion",
+    "media": "images/tween.png",
+    "note": "The basic building block of GSAP: a single animation that moves one or more properties (position, opacity, scale, etc.) from a start value to an end value over a set duration.",
+    "tags": [
+      "gsap",
+      "basics",
+      "animation"
+    ],
+    "heading": "GSAP Animation"
+  },
+  {
+    "keyword": "timeline",
+    "category": "motion",
+    "media": "images/timeline.png",
+    "note": "A container that lines up multiple tweens in sequence (or overlapping), so you can control a whole group of animations together — play, pause, reverse, or scrub all at once.",
+    "tags": [
+      "gsap",
+      "sequencing",
+      "control"
+    ],
+    "heading": "GSAP Animation"
+  },
+  {
+    "keyword": "easing",
+    "category": "motion",
+    "media": "images/easing.png",
+    "note": "Controls the 'rhythm' of a tween — whether it speeds up, slows down, or moves at a constant rate. This is what makes motion feel natural instead of robotic.",
+    "tags": [
+      "gsap",
+      "timing",
+      "feel"
+    ],
+    "heading": "GSAP Animation"
+  },
+  {
+    "keyword": "stagger",
+    "category": "motion",
+    "media": "images/stagger.png",
+    "note": "Applies a small delay between animations on a group of elements, so they animate one after another instead of all at once — e.g. list items fading in top to bottom.",
+    "tags": [
+      "gsap",
+      "sequencing",
+      "list",
+      "delay"
+    ],
+    "heading": "GSAP Animation"
+  },
+  {
+    "keyword": "ScrollTrigger",
+    "category": "motion",
+    "media": "images/scrolltrigger.png",
+    "note": "A GSAP plugin that ties animations to scrolling — trigger, scrub, pin, or snap an animation based on where the user has scrolled on the page.",
+    "tags": [
+      "gsap",
+      "plugin",
+      "scroll"
+    ],
+    "heading": "GSAP Animation"
+  },
+  {
+    "keyword": "elastic ease",
+    "category": "motion",
+    "media": "images/elastic-ease.png",
+    "note": "An easing style that makes an animation overshoot its target and spring back, like a rubber band — springy and playful.",
+    "tags": [
+      "gsap",
+      "easing",
+      "springy"
+    ],
+    "heading": "GSAP Animation"
+  },
+  {
+    "keyword": "bounce ease",
+    "category": "motion",
+    "media": "images/bounce-ease.png",
+    "note": "An easing style that makes an element rebound like a dropped ball settling into place, instead of stopping abruptly.",
+    "tags": [
+      "gsap",
+      "easing",
+      "bounce"
+    ],
+    "heading": "GSAP Animation"
+  },
+  {
+    "keyword": "back ease",
+    "category": "motion",
+    "media": "images/back-ease.png",
+    "note": "An easing style where the animation pulls back slightly before moving forward to its destination — like winding up before a throw.",
+    "tags": [
+      "gsap",
+      "easing",
+      "anticipation"
+    ],
+    "heading": "GSAP Animation"
+  },
+  {
+    "keyword": "keyframes (GSAP)",
+    "category": "motion",
+    "media": "images/keyframes-gsap.png",
+    "note": "A way to define several animation states at specific points in time within one tween, instead of writing separate tweens for each step.",
+    "tags": [
+      "gsap",
+      "sequencing",
+      "states"
+    ],
+    "heading": "GSAP Animation"
+  },
+  {
+    "keyword": "from / fromTo",
+    "category": "motion",
+    "media": "images/from-fromto.png",
+    "note": "Ways of writing a tween: 'from' animates FROM a given state to the element's current state; 'fromTo' explicitly sets both the start and end states.",
+    "tags": [
+      "gsap",
+      "basics",
+      "syntax"
+    ],
+    "heading": "GSAP Animation"
+  },
+  {
+    "keyword": "kinetic typography",
+    "category": "motion",
+    "media": "images/kinetic-typography.png",
+    "note": "Text as the animation itself — words that move, scale, rotate, or fly in/out to add energy and emphasis to a message.",
+    "tags": [
+      "motion graphics",
+      "text",
+      "typography"
+    ],
+    "heading": "Motion Graphics Elements"
+  },
+  {
+    "keyword": "stat card",
+    "category": "motion",
+    "media": "",
+    "note": "A small graphic showing one number or KPI that animates by counting up to its final value (e.g. '95% faster').",
+    "tags": [
+      "motion graphics",
+      "data",
+      "counter"
+    ],
+    "heading": "Motion Graphics Elements",
+    "youtube": "https://www.youtube.com/watch?v=khypNiQDKNU"
+  },
+  {
+    "keyword": "charts",
+    "category": "motion",
+    "media": "",
+    "note": "Animated bar, line, or pie graphs where the data visually builds in — bars grow, lines draw across.",
+    "tags": [
+      "motion graphics",
+      "data",
+      "chart"
+    ],
+    "heading": "Motion Graphics Elements",
+    "youtube": "https://www.youtube.com/watch?v=KemCoj7_Zk0"
+  },
+  {
+    "keyword": "logo reveal",
+    "category": "motion",
+    "media": "",
+    "note": "A short animated intro or outro where a brand's logo assembles, appears, or exits with motion.",
+    "tags": [
+      "motion graphics",
+      "branding",
+      "intro"
+    ],
+    "heading": "Motion Graphics Elements",
+    "youtube": "https://www.youtube.com/watch?v=WpxhEiNIePY"
+  },
+  {
+    "keyword": "lower third",
+    "category": "motion",
+    "media": "",
+    "note": "The banner near the bottom of the screen that identifies a speaker — usually their name and title.",
+    "tags": [
+      "motion graphics",
+      "overlay",
+      "identification"
+    ],
+    "heading": "Motion Graphics Elements",
+    "youtube": "https://www.youtube.com/watch?v=K2BLXNn7fL4"
+  },
+  {
+    "keyword": "callout",
+    "category": "motion",
+    "media": "",
+    "note": "A label or arrow that points at something on screen to highlight or explain it.",
+    "tags": [
+      "motion graphics",
+      "overlay",
+      "highlight"
+    ],
+    "heading": "Motion Graphics Elements",
+    "youtube": "https://www.youtube.com/watch?v=MszV1Xh7iB0"
+  },
+  {
+    "keyword": "progress bar",
+    "category": "motion",
+    "media": "",
+    "note": "A bar or ring that visually fills up to show how much of something is complete.",
+    "tags": [
+      "motion graphics",
+      "indicator",
+      "loading"
+    ],
+    "heading": "Motion Graphics Elements",
+    "youtube": "https://www.youtube.com/watch?v=MniNS5AXoJY"
+  },
+  {
+    "keyword": "timeline (motion graphic)",
+    "category": "motion",
+    "media": "",
+    "note": "An animated sequence of dated or ordered events, often shown as a horizontal history strip.",
+    "tags": [
+      "motion graphics",
+      "sequence",
+      "history"
+    ],
+    "heading": "Motion Graphics Elements",
+    "youtube": "https://www.youtube.com/watch?v=axqWwkku0RM"
+  }
+]
