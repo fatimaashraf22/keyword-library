@@ -250,6 +250,27 @@ body {
 .demo-stagger-reveal { flex-direction: column; gap: 8px; padding: 0 24px; align-items: stretch; }
 .demo-reveal-row { height: 10px; border-radius: 999px; background: var(--accent); opacity: 0.85; }
 
+.demo-hover { flex-direction: column; }
+.hover-trigger {
+  position: relative; display: flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.hover-box {
+  width: 74px; height: 42px; border-radius: 8px;
+  background: #14151b; border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em;
+}
+.hover-tip {
+  position: absolute; bottom: 100%; left: 50%; margin-bottom: 12px; transform-origin: 50% 100%;
+  translate: -50% 0;
+  background: var(--accent); color: #0e0f13;
+  padding: 6px 12px; border-radius: 8px; font-size: 0.72rem; font-weight: 600; white-space: nowrap;
+}
+.hover-tip::after {
+  content: ""; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  border: 5px solid transparent; border-top-color: var(--accent);
+}
+
 /* Glossary */
 .glossary-list { list-style: none; margin: 0 0 60px; padding: 0; }
 .glossary-item {

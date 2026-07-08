@@ -41,7 +41,7 @@
   {
     "keyword": "tilt-shift",
     "category": "cinematic",
-    "media": "",
+    "media": "images/tilt-shift.jpg",
     "note": "Shallow selective focus that makes real scenes look like tiny miniatures. Blurs top and bottom, sharp middle band.",
     "tags": [
       "lens",
@@ -67,7 +67,7 @@
   {
     "keyword": "claymation / gothic clay",
     "category": "styles",
-    "media": "",
+    "media": "images/claymation.jpg",
     "note": "Stop-motion clay look — sculpted, matte, slightly imperfect surfaces. Gothic clay leans dark and Tim-Burton-ish.",
     "tags": [
       "style",
@@ -92,7 +92,7 @@
   {
     "keyword": "steampunk",
     "category": "styles",
-    "media": "",
+    "media": "images/steampunk.jpg",
     "note": "Victorian-era tech aesthetic: brass, gears, steam, cogs, leather. Retro-futuristic.",
     "tags": [
       "style",
@@ -117,7 +117,7 @@
   {
     "keyword": "cinematic",
     "category": "styles",
-    "media": "",
+    "media": "images/cinematic.jpg",
     "note": "Film-still look: dramatic lighting, wide aspect feel, color grading, depth. Reads like a movie frame.",
     "tags": [
       "style",
@@ -129,7 +129,7 @@
   {
     "keyword": "old cartoon",
     "category": "styles",
-    "media": "",
+    "media": "images/old-cartoon.jpg",
     "note": "Vintage hand-drawn animation style — 1930s–50s rubber-hose cartoons, aged paper feel.",
     "tags": [
       "style",
@@ -179,7 +179,7 @@
   {
     "keyword": "street art / graffiti",
     "category": "styles",
-    "media": "",
+    "media": "images/street-art.jpg",
     "note": "Spray-paint, stencils, bold urban lettering and murals. Banksy / wildstyle energy.",
     "tags": [
       "style",
@@ -191,7 +191,7 @@
   {
     "keyword": "comic style",
     "category": "styles",
-    "media": "",
+    "media": "images/comic-style.jpg",
     "note": "Ink outlines, cel shading, panels and action lines. Graphic-novel / comic-book look.",
     "tags": [
       "style",
@@ -215,7 +215,7 @@
   {
     "keyword": "oil painting on canvas",
     "category": "styles",
-    "media": "",
+    "media": "images/oil-painting.jpg",
     "note": "Thick textured brushwork, canvas grain, rich blended color. Classic fine-art medium.",
     "tags": [
       "style",
@@ -227,7 +227,7 @@
   {
     "keyword": "90s anime aesthetic",
     "category": "styles",
-    "media": "",
+    "media": "images/90s-anime.jpg",
     "note": "Retro cel animation — grainy film, muted palette, hand-painted backgrounds. Nostalgic anime look.",
     "tags": [
       "style",
@@ -264,7 +264,7 @@
   {
     "keyword": "eye level",
     "category": "cinematic",
-    "media": "",
+    "media": "images/eye-level.jpg",
     "note": "Camera angle: neutral, straight-on at the subject's eye height. Natural and balanced.",
     "tags": [
       "camera angle",
@@ -275,7 +275,7 @@
   {
     "keyword": "extreme closeup",
     "category": "cinematic",
-    "media": "",
+    "media": "images/extreme-closeup.jpg",
     "note": "Camera angle: fills the frame with a small detail (e.g. an eye). Intense and intimate.",
     "tags": [
       "camera angle",
@@ -287,7 +287,7 @@
   {
     "keyword": "closeup",
     "category": "cinematic",
-    "media": "",
+    "media": "images/closeup.jpg",
     "note": "Camera angle: tight on the subject (e.g. a face). Emphasizes emotion and detail.",
     "tags": [
       "camera angle",
@@ -298,7 +298,7 @@
   {
     "keyword": "medium shot",
     "category": "cinematic",
-    "media": "",
+    "media": "images/medium-shot.jpg",
     "note": "Camera angle: subject framed roughly waist-up. Balanced between subject and setting.",
     "tags": [
       "camera angle",
@@ -309,7 +309,7 @@
   {
     "keyword": "long shot",
     "category": "cinematic",
-    "media": "",
+    "media": "images/long-shot.jpg",
     "note": "Camera angle: full body of the subject visible within the scene.",
     "tags": [
       "camera angle",
@@ -320,7 +320,7 @@
   {
     "keyword": "wide shot",
     "category": "cinematic",
-    "media": "",
+    "media": "images/wide-shot.jpg",
     "note": "Camera angle: subject is small within a broad environment. Establishes place and scale.",
     "tags": [
       "camera angle",
@@ -331,7 +331,7 @@
   {
     "keyword": "bird's-eye view",
     "category": "cinematic",
-    "media": "",
+    "media": "images/birds-eye-view.jpg",
     "note": "Camera angle: looking straight down from far above the subject.",
     "tags": [
       "camera angle",
@@ -343,7 +343,7 @@
   {
     "keyword": "worm's-eye view",
     "category": "cinematic",
-    "media": "",
+    "media": "images/worms-eye-view.jpg",
     "note": "Camera angle: looking up from ground level. Makes subjects tower and feel powerful.",
     "tags": [
       "camera angle",
@@ -355,7 +355,7 @@
   {
     "keyword": "POV shot",
     "category": "cinematic",
-    "media": "",
+    "media": "images/pov-shot.jpg",
     "note": "Camera angle: the view as seen through the subject's own eyes. First-person perspective.",
     "tags": [
       "camera angle",
@@ -366,7 +366,7 @@
   {
     "keyword": "side shot",
     "category": "cinematic",
-    "media": "",
+    "media": "images/side-shot.jpg",
     "note": "Camera angle: profile framing, looking at the subject from the side.",
     "tags": [
       "camera angle",
@@ -377,7 +377,7 @@
   {
     "keyword": "front shot",
     "category": "cinematic",
-    "media": "",
+    "media": "images/front-shot.jpg",
     "note": "Camera angle: head-on framing, looking straight at the front of the subject.",
     "tags": [
       "camera angle",
@@ -400,7 +400,7 @@
   {
     "keyword": "centered / symmetrical",
     "category": "cinematic",
-    "media": "",
+    "media": "images/centered-symmetrical.jpg",
     "note": "Placement: subject dead-center with balanced, mirror-like composition. Formal and striking.",
     "tags": [
       "placement",
@@ -412,7 +412,7 @@
   {
     "keyword": "rule of thirds",
     "category": "cinematic",
-    "media": "",
+    "media": "images/rule-of-thirds.jpg",
     "note": "Placement: subject on a third-line/intersection rather than center. Natural, dynamic balance.",
     "tags": [
       "placement",
@@ -509,7 +509,7 @@
   {
     "keyword": "monochrome",
     "category": "cinematic",
-    "media": "",
+    "media": "images/monochrome.jpg",
     "note": "Color palette: a single hue (or black & white) in varying shades. Unified and moody.",
     "tags": [
       "color",
@@ -521,7 +521,7 @@
   {
     "keyword": "technicolor",
     "category": "cinematic",
-    "media": "",
+    "media": "images/technicolor.jpg",
     "note": "Color palette: hyper-saturated, vivid old-Hollywood color. Bold and punchy.",
     "tags": [
       "color",
@@ -743,6 +743,21 @@
     ],
     "heading": "UI Motion",
     "demo": "morph-path"
+  },
+  {
+    "keyword": "hover reveal",
+    "category": "motion",
+    "media": "",
+    "note": "A prebuilt timeline that plays on mouse-enter and reverses on mouse-leave — e.g. a tooltip or dialogue that pops up when you hover an element and tucks away when you leave. Same animation driven forward and backward from interaction events.",
+    "tags": [
+      "interaction",
+      "hover",
+      "reveal",
+      "tooltip",
+      "play/reverse"
+    ],
+    "heading": "UI Motion",
+    "demo": "hover-reveal"
   },
   {
     "keyword": "tween",
@@ -977,6 +992,19 @@
     ],
     "heading": "Motion Graphics Elements",
     "youtube": "https://www.youtube.com/watch?v=axqWwkku0RM"
+  },
+  {
+    "keyword": "live waveform",
+    "category": "motion",
+    "media": "",
+    "note": "Animated audio bars or a wavy line that pulse and react in time with sound — the classic voice/music visualizer look.",
+    "tags": [
+      "motion graphics",
+      "audio",
+      "visualizer",
+      "waveform"
+    ],
+    "heading": "Motion Graphics Elements"
   },
   {
     "keyword": "pop-in",

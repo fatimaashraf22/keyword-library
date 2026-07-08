@@ -190,4 +190,24 @@ window.KEYWORD_DEMOS = {
       .to(circle, { opacity: 0, scale: 0.6, duration: 0.6, delay: 0.6 })
       .to(square, { opacity: 1, scale: 1, rotation: 0, duration: 0.6 }, "<");
   },
+
+  // Interactive: one prebuilt timeline, played on mouse-enter and reversed on
+  // mouse-leave (the GSAP "interaction events" pattern). Hover the dark box and
+  // the dialogue springs up; leave and it tucks back down.
+  "hover-reveal"(container) {
+    container.classList.add("demo-stage", "demo-hover");
+    container.innerHTML = `
+      <div class="hover-trigger">
+        <div class="hover-tip">Hello there 👋</div>
+        <div class="hover-box">hover me</div>
+      </div>`;
+    const trigger = container.querySelector(".hover-trigger");
+    const tip = container.querySelector(".hover-tip");
+    gsap.set(tip, { opacity: 0, y: 8, scale: 0.9, transformOrigin: "50% 100%" });
+    const tl = gsap
+      .timeline({ paused: true })
+      .to(tip, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(2)" });
+    trigger.addEventListener("mouseenter", () => tl.play());
+    trigger.addEventListener("mouseleave", () => tl.reverse());
+  },
 };
