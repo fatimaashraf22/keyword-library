@@ -41,7 +41,7 @@
   {
     "keyword": "tilt-shift",
     "category": "cinematic",
-    "media": "images/tilt-shift.jpg",
+    "media": "",
     "note": "Shallow selective focus that makes real scenes look like tiny miniatures. Blurs top and bottom, sharp middle band.",
     "tags": [
       "lens",
@@ -67,7 +67,7 @@
   {
     "keyword": "claymation / gothic clay",
     "category": "styles",
-    "media": "images/claymation-gothic-clay.jpg",
+    "media": "",
     "note": "Stop-motion clay look — sculpted, matte, slightly imperfect surfaces. Gothic clay leans dark and Tim-Burton-ish.",
     "tags": [
       "style",
@@ -92,7 +92,7 @@
   {
     "keyword": "steampunk",
     "category": "styles",
-    "media": "images/steampunk.jpg",
+    "media": "",
     "note": "Victorian-era tech aesthetic: brass, gears, steam, cogs, leather. Retro-futuristic.",
     "tags": [
       "style",
@@ -117,7 +117,7 @@
   {
     "keyword": "cinematic",
     "category": "styles",
-    "media": "images/cinematic.jpg",
+    "media": "",
     "note": "Film-still look: dramatic lighting, wide aspect feel, color grading, depth. Reads like a movie frame.",
     "tags": [
       "style",
@@ -129,7 +129,7 @@
   {
     "keyword": "old cartoon",
     "category": "styles",
-    "media": "images/old-cartoon.jpg",
+    "media": "",
     "note": "Vintage hand-drawn animation style — 1930s–50s rubber-hose cartoons, aged paper feel.",
     "tags": [
       "style",
@@ -142,7 +142,7 @@
   {
     "keyword": "pop art",
     "category": "styles",
-    "media": "images/pop-art.jpg",
+    "media": "",
     "note": "Bold flat colors, halftone dots, comic outlines. Warhol / Lichtenstein energy.",
     "tags": [
       "style",
@@ -155,7 +155,7 @@
   {
     "keyword": "surrealism",
     "category": "styles",
-    "media": "images/surrealism.jpg",
+    "media": "",
     "note": "Dreamlike, impossible juxtapositions and melting logic. Think Dalí.",
     "tags": [
       "style",
@@ -167,7 +167,7 @@
   {
     "keyword": "impressionism",
     "category": "styles",
-    "media": "images/impressionism.jpg",
+    "media": "",
     "note": "Loose visible brushstrokes, soft edges, emphasis on light and atmosphere over detail. Monet-style.",
     "tags": [
       "style",
@@ -179,7 +179,7 @@
   {
     "keyword": "street art / graffiti",
     "category": "styles",
-    "media": "images/street-art-graffiti.jpg",
+    "media": "",
     "note": "Spray-paint, stencils, bold urban lettering and murals. Banksy / wildstyle energy.",
     "tags": [
       "style",
@@ -191,7 +191,7 @@
   {
     "keyword": "comic style",
     "category": "styles",
-    "media": "images/comic-style.jpg",
+    "media": "",
     "note": "Ink outlines, cel shading, panels and action lines. Graphic-novel / comic-book look.",
     "tags": [
       "style",
@@ -215,7 +215,7 @@
   {
     "keyword": "oil painting on canvas",
     "category": "styles",
-    "media": "images/oil-painting-on-canvas.jpg",
+    "media": "",
     "note": "Thick textured brushwork, canvas grain, rich blended color. Classic fine-art medium.",
     "tags": [
       "style",
@@ -227,7 +227,7 @@
   {
     "keyword": "90s anime aesthetic",
     "category": "styles",
-    "media": "images/90s-anime-aesthetic.jpg",
+    "media": "",
     "note": "Retro cel animation — grainy film, muted palette, hand-painted backgrounds. Nostalgic anime look.",
     "tags": [
       "style",
@@ -264,7 +264,7 @@
   {
     "keyword": "eye level",
     "category": "cinematic",
-    "media": "images/eye-level.jpg",
+    "media": "",
     "note": "Camera angle: neutral, straight-on at the subject's eye height. Natural and balanced.",
     "tags": [
       "camera angle",
@@ -275,7 +275,7 @@
   {
     "keyword": "extreme closeup",
     "category": "cinematic",
-    "media": "images/extreme-closeup.jpg",
+    "media": "",
     "note": "Camera angle: fills the frame with a small detail (e.g. an eye). Intense and intimate.",
     "tags": [
       "camera angle",
@@ -287,7 +287,7 @@
   {
     "keyword": "closeup",
     "category": "cinematic",
-    "media": "images/closeup.jpg",
+    "media": "",
     "note": "Camera angle: tight on the subject (e.g. a face). Emphasizes emotion and detail.",
     "tags": [
       "camera angle",
@@ -298,7 +298,7 @@
   {
     "keyword": "medium shot",
     "category": "cinematic",
-    "media": "images/medium-shot.jpg",
+    "media": "",
     "note": "Camera angle: subject framed roughly waist-up. Balanced between subject and setting.",
     "tags": [
       "camera angle",
@@ -309,7 +309,7 @@
   {
     "keyword": "long shot",
     "category": "cinematic",
-    "media": "images/long-shot.jpg",
+    "media": "",
     "note": "Camera angle: full body of the subject visible within the scene.",
     "tags": [
       "camera angle",
@@ -320,7 +320,7 @@
   {
     "keyword": "wide shot",
     "category": "cinematic",
-    "media": "images/wide-shot.jpg",
+    "media": "",
     "note": "Camera angle: subject is small within a broad environment. Establishes place and scale.",
     "tags": [
       "camera angle",
@@ -331,7 +331,7 @@
   {
     "keyword": "bird's-eye view",
     "category": "cinematic",
-    "media": "images/birds-eye-view.jpg",
+    "media": "",
     "note": "Camera angle: looking straight down from far above the subject.",
     "tags": [
       "camera angle",
@@ -343,7 +343,7 @@
   {
     "keyword": "worm's-eye view",
     "category": "cinematic",
-    "media": "images/worms-eye-view.jpg",
+    "media": "",
     "note": "Camera angle: looking up from ground level. Makes subjects tower and feel powerful.",
     "tags": [
       "camera angle",
@@ -355,7 +355,7 @@
   {
     "keyword": "POV shot",
     "category": "cinematic",
-    "media": "images/pov-shot.jpg",
+    "media": "",
     "note": "Camera angle: the view as seen through the subject's own eyes. First-person perspective.",
     "tags": [
       "camera angle",
@@ -364,13 +364,23 @@
     "heading": "Camera Shots & Angles"
   },
   {
-    "keyword": "side shot / front shot",
+    "keyword": "side shot",
     "category": "cinematic",
-    "media": "images/side-front-shot.jpg",
-    "note": "Camera angle: profile (side) or head-on (front) framing of the subject.",
+    "media": "",
+    "note": "Camera angle: profile framing, looking at the subject from the side.",
     "tags": [
       "camera angle",
-      "profile",
+      "profile"
+    ],
+    "heading": "Camera Shots & Angles"
+  },
+  {
+    "keyword": "front shot",
+    "category": "cinematic",
+    "media": "",
+    "note": "Camera angle: head-on framing, looking straight at the front of the subject.",
+    "tags": [
+      "camera angle",
       "frontal"
     ],
     "heading": "Camera Shots & Angles"
@@ -390,7 +400,7 @@
   {
     "keyword": "centered / symmetrical",
     "category": "cinematic",
-    "media": "images/centered-symmetrical.jpg",
+    "media": "",
     "note": "Placement: subject dead-center with balanced, mirror-like composition. Formal and striking.",
     "tags": [
       "placement",
@@ -402,7 +412,7 @@
   {
     "keyword": "rule of thirds",
     "category": "cinematic",
-    "media": "images/rule-of-thirds.jpg",
+    "media": "",
     "note": "Placement: subject on a third-line/intersection rather than center. Natural, dynamic balance.",
     "tags": [
       "placement",
@@ -423,13 +433,26 @@
     "heading": "Lighting"
   },
   {
-    "keyword": "cold light / warm light",
+    "keyword": "cold light",
     "category": "cinematic",
-    "media": "images/cold-warm-light.jpg",
-    "note": "Lighting: color temperature choice. Cold = bluish, clinical; warm = golden, cozy.",
+    "media": "images/cold-light.jpg",
+    "note": "Lighting: a bluish, cool color temperature. Feels clinical, calm, or eerie.",
     "tags": [
       "lighting",
-      "color temperature"
+      "color temperature",
+      "cool"
+    ],
+    "heading": "Lighting"
+  },
+  {
+    "keyword": "warm light",
+    "category": "cinematic",
+    "media": "images/warm-light.jpg",
+    "note": "Lighting: a golden, warm color temperature. Feels cozy, inviting, or nostalgic.",
+    "tags": [
+      "lighting",
+      "color temperature",
+      "warm"
     ],
     "heading": "Lighting"
   },
@@ -486,7 +509,7 @@
   {
     "keyword": "monochrome",
     "category": "cinematic",
-    "media": "images/monochrome.jpg",
+    "media": "",
     "note": "Color palette: a single hue (or black & white) in varying shades. Unified and moody.",
     "tags": [
       "color",
@@ -498,7 +521,7 @@
   {
     "keyword": "technicolor",
     "category": "cinematic",
-    "media": "images/technicolor.jpg",
+    "media": "",
     "note": "Color palette: hyper-saturated, vivid old-Hollywood color. Bold and punchy.",
     "tags": [
       "color",
@@ -510,7 +533,7 @@
   {
     "keyword": "Tim Burton style",
     "category": "styles",
-    "media": "images/tim-burton.jpg",
+    "media": "",
     "note": "Specific artist: gothic, whimsical, spindly characters, dark fairy-tale mood.",
     "tags": [
       "artist",
@@ -534,7 +557,7 @@
   {
     "keyword": "Van Gogh style",
     "category": "styles",
-    "media": "images/van-gogh.jpg",
+    "media": "",
     "note": "Specific artist: thick swirling expressive brushstrokes, vivid emotional color.",
     "tags": [
       "artist",
@@ -546,7 +569,7 @@
   {
     "keyword": "Studio Ghibli style",
     "category": "styles",
-    "media": "images/studio-ghibli.jpg",
+    "media": "",
     "note": "Specific artist: lush hand-painted anime — soft skies, detailed nature, gentle nostalgia.",
     "tags": [
       "artist",
@@ -558,7 +581,7 @@
   {
     "keyword": "Dalí style",
     "category": "styles",
-    "media": "images/dali.jpg",
+    "media": "",
     "note": "Specific artist: surrealism — melting forms, dreamlike impossible landscapes.",
     "tags": [
       "artist",
@@ -595,7 +618,7 @@
   {
     "keyword": "romanticism",
     "category": "styles",
-    "media": "images/romanticism.jpg",
+    "media": "",
     "note": "Specific style/era: emotional, sublime nature, dramatic skies and awe. 19th-century.",
     "tags": [
       "artist",
@@ -608,7 +631,7 @@
   {
     "keyword": "parallax scroll",
     "category": "cinematic",
-    "media": "images/parallax-scroll.gif",
+    "media": "",
     "note": "Background and foreground layers move at different speeds to create a sense of depth as the scene pans or scrolls.",
     "tags": [
       "camera",
@@ -621,7 +644,7 @@
   {
     "keyword": "dolly zoom",
     "category": "cinematic",
-    "media": "images/dolly-zoom.gif",
+    "media": "",
     "note": "Camera pushes in while zooming out (or vice versa) so the subject stays the same size but the background warps. The 'Vertigo' effect.",
     "tags": [
       "camera",
@@ -634,7 +657,7 @@
   {
     "keyword": "match cut",
     "category": "cinematic",
-    "media": "images/match-cut.gif",
+    "media": "",
     "note": "A transition where a shape, motion, or composition in one shot lines up with the next, making the cut feel seamless.",
     "tags": [
       "transition",
@@ -646,7 +669,7 @@
   {
     "keyword": "morph transition",
     "category": "cinematic",
-    "media": "images/morph-transition.gif",
+    "media": "",
     "note": "One object smoothly transforms into another, warping shape and texture between them.",
     "tags": [
       "transition",
@@ -670,7 +693,7 @@
   {
     "keyword": "hosted clip example (MP4)",
     "category": "cinematic",
-    "media": "images/example-clip.mp4",
+    "media": "",
     "note": "DEMO of a self-hosted video: drop a .mp4 or .webm in images/ and point 'media' at it. It auto-loops silently in the card like a sharp GIF. (No file here yet, so it shows a placeholder.)",
     "tags": [
       "demo",
@@ -682,7 +705,7 @@
   {
     "keyword": "draw-on stroke",
     "category": "motion",
-    "media": "images/draw-on-stroke.gif",
+    "media": "",
     "note": "An SVG path animates as if it's being drawn by a pen (animate stroke-dashoffset from full length to 0). Classic line-art reveal.",
     "tags": [
       "path",
@@ -690,12 +713,13 @@
       "line-art",
       "stroke-dashoffset"
     ],
-    "heading": "UI Motion"
+    "heading": "UI Motion",
+    "demo": "draw-on-stroke"
   },
   {
     "keyword": "stagger reveal",
     "category": "motion",
-    "media": "images/stagger-reveal.gif",
+    "media": "",
     "note": "A group of elements animate in one after another with a small delay between each, instead of all at once. Feels lively and intentional.",
     "tags": [
       "timing",
@@ -703,12 +727,13 @@
       "delay",
       "list"
     ],
-    "heading": "UI Motion"
+    "heading": "UI Motion",
+    "demo": "stagger-reveal"
   },
   {
     "keyword": "morph path",
     "category": "motion",
-    "media": "images/morph-path.gif",
+    "media": "",
     "note": "One SVG shape smoothly interpolates into another by animating its path 'd' data. Icon-to-icon transitions, play/pause toggles.",
     "tags": [
       "path",
@@ -716,7 +741,8 @@
       "icon",
       "interpolate"
     ],
-    "heading": "UI Motion"
+    "heading": "UI Motion",
+    "demo": "morph-path"
   },
   {
     "keyword": "tween",
@@ -728,7 +754,8 @@
       "basics",
       "animation"
     ],
-    "heading": "GSAP Animation"
+    "heading": "GSAP Animation",
+    "demo": "tween"
   },
   {
     "keyword": "timeline",
@@ -740,7 +767,8 @@
       "sequencing",
       "control"
     ],
-    "heading": "GSAP Animation"
+    "heading": "GSAP Animation",
+    "demo": "timeline"
   },
   {
     "keyword": "easing",
@@ -752,7 +780,8 @@
       "timing",
       "feel"
     ],
-    "heading": "GSAP Animation"
+    "heading": "GSAP Animation",
+    "demo": "easing"
   },
   {
     "keyword": "stagger",
@@ -765,7 +794,8 @@
       "list",
       "delay"
     ],
-    "heading": "GSAP Animation"
+    "heading": "GSAP Animation",
+    "demo": "stagger"
   },
   {
     "keyword": "ScrollTrigger",
@@ -777,7 +807,8 @@
       "plugin",
       "scroll"
     ],
-    "heading": "GSAP Animation"
+    "heading": "GSAP Animation",
+    "demo": "scrolltrigger"
   },
   {
     "keyword": "elastic ease",
@@ -789,7 +820,8 @@
       "easing",
       "springy"
     ],
-    "heading": "GSAP Animation"
+    "heading": "GSAP Animation",
+    "demo": "elastic-ease"
   },
   {
     "keyword": "bounce ease",
@@ -801,7 +833,8 @@
       "easing",
       "bounce"
     ],
-    "heading": "GSAP Animation"
+    "heading": "GSAP Animation",
+    "demo": "bounce-ease"
   },
   {
     "keyword": "back ease",
@@ -813,7 +846,8 @@
       "easing",
       "anticipation"
     ],
-    "heading": "GSAP Animation"
+    "heading": "GSAP Animation",
+    "demo": "back-ease"
   },
   {
     "keyword": "keyframes (GSAP)",
@@ -825,7 +859,8 @@
       "sequencing",
       "states"
     ],
-    "heading": "GSAP Animation"
+    "heading": "GSAP Animation",
+    "demo": "keyframes"
   },
   {
     "keyword": "from / fromTo",
@@ -837,7 +872,8 @@
       "basics",
       "syntax"
     ],
-    "heading": "GSAP Animation"
+    "heading": "GSAP Animation",
+    "demo": "from-fromto"
   },
   {
     "keyword": "kinetic typography",
@@ -941,5 +977,247 @@
     ],
     "heading": "Motion Graphics Elements",
     "youtube": "https://www.youtube.com/watch?v=axqWwkku0RM"
+  },
+  {
+    "keyword": "pop-in",
+    "category": "motion",
+    "media": "",
+    "note": "An element appears by scaling up from tiny (or zero) to full size — often with a little springy overshoot.",
+    "tags": [
+      "motion",
+      "entrance",
+      "scale"
+    ],
+    "role": "Entrance",
+    "heading": "Animation Concepts"
+  },
+  {
+    "keyword": "slide-in",
+    "category": "motion",
+    "media": "",
+    "note": "An element glides onto the screen from an edge — left, right, top, or bottom.",
+    "tags": [
+      "motion",
+      "entrance",
+      "slide"
+    ],
+    "role": "Entrance",
+    "heading": "Animation Concepts"
+  },
+  {
+    "keyword": "fade-in",
+    "category": "motion",
+    "media": "",
+    "note": "An element appears by going from fully transparent to fully visible. The gentlest entrance.",
+    "tags": [
+      "motion",
+      "entrance",
+      "opacity"
+    ],
+    "role": "Entrance",
+    "heading": "Animation Concepts"
+  },
+  {
+    "keyword": "wipe",
+    "category": "motion",
+    "media": "",
+    "note": "One element sweeps across the screen to reveal or replace another, like a hand wiping a surface clean.",
+    "tags": [
+      "motion",
+      "transition",
+      "reveal"
+    ],
+    "role": "Transition",
+    "heading": "Animation Concepts"
+  },
+  {
+    "keyword": "reveal",
+    "category": "motion",
+    "media": "",
+    "note": "Something hidden is uncovered — e.g. text unmasking or a shape opening up to show what's behind it.",
+    "tags": [
+      "motion",
+      "entrance",
+      "mask"
+    ],
+    "role": "Entrance",
+    "heading": "Animation Concepts"
+  },
+  {
+    "keyword": "Hold",
+    "category": "motion",
+    "media": "",
+    "note": "A still beat with no motion, giving the viewer a moment to read or absorb what's on screen before the next move.",
+    "tags": [
+      "motion",
+      "pacing",
+      "timing"
+    ],
+    "heading": "Animation Concepts"
+  },
+  {
+    "keyword": "Count-up",
+    "category": "motion",
+    "media": "",
+    "note": "A number animating from a starting value up to its final value, used to make a stat feel earned rather than static.",
+    "tags": [
+      "motion",
+      "data",
+      "counter"
+    ],
+    "heading": "Animation Concepts"
+  },
+  {
+    "keyword": "Scale-swap",
+    "category": "motion",
+    "media": "",
+    "note": "One element scales out at the same time another scales in to take its place — a smooth substitution instead of a hard cut.",
+    "tags": [
+      "motion",
+      "transition"
+    ],
+    "role": "Transition",
+    "heading": "Animation Concepts"
+  },
+  {
+    "keyword": "Slam",
+    "category": "motion",
+    "media": "",
+    "note": "A fast, high-impact entrance where an element overshoots and snaps into place with force.",
+    "tags": [
+      "motion",
+      "impact",
+      "entrance"
+    ],
+    "role": "Entrance",
+    "heading": "Animation Concepts"
+  },
+  {
+    "keyword": "3D depth / layers",
+    "category": "motion",
+    "media": "",
+    "note": "Placing elements at different simulated depths (z-axis) instead of flat on one plane, so the scene feels dimensional.",
+    "tags": [
+      "motion",
+      "depth",
+      "3d"
+    ],
+    "heading": "Animation Concepts"
+  },
+  {
+    "keyword": "Transparent overlay / alpha channel",
+    "category": "motion",
+    "media": "",
+    "note": "Exporting a video with transparency built in, so it can be layered on top of other footage instead of having a solid background.",
+    "tags": [
+      "motion",
+      "export",
+      "compositing"
+    ],
+    "heading": "Animation Concepts"
+  },
+  {
+    "keyword": "fade-out",
+    "category": "motion",
+    "media": "",
+    "note": "An element disappears by going from fully visible to fully transparent. The gentlest exit.",
+    "tags": [
+      "motion",
+      "exit",
+      "opacity"
+    ],
+    "role": "Exit",
+    "heading": "Animation Concepts"
+  },
+  {
+    "keyword": "slide-out",
+    "category": "motion",
+    "media": "",
+    "note": "An element glides off the screen toward an edge — left, right, top, or bottom.",
+    "tags": [
+      "motion",
+      "exit",
+      "slide"
+    ],
+    "role": "Exit",
+    "heading": "Animation Concepts"
+  },
+  {
+    "keyword": "scale-out",
+    "category": "motion",
+    "media": "",
+    "note": "An element shrinks down to tiny (or zero) until it disappears.",
+    "tags": [
+      "motion",
+      "exit",
+      "scale"
+    ],
+    "role": "Exit",
+    "heading": "Animation Concepts"
+  },
+  {
+    "keyword": "fly-out",
+    "category": "motion",
+    "media": "",
+    "note": "An element rushes off-screen fast, often on an arc or with motion blur.",
+    "tags": [
+      "motion",
+      "exit",
+      "speed"
+    ],
+    "role": "Exit",
+    "heading": "Animation Concepts"
+  },
+  {
+    "keyword": "dissolve",
+    "category": "motion",
+    "media": "",
+    "note": "An element breaks apart into particles or grain as it leaves the screen.",
+    "tags": [
+      "motion",
+      "exit",
+      "particles"
+    ],
+    "role": "Exit",
+    "heading": "Animation Concepts"
+  },
+  {
+    "keyword": "cross-fade",
+    "category": "motion",
+    "media": "",
+    "note": "One element fades out while the next fades in over the top, blending the two together.",
+    "tags": [
+      "motion",
+      "transition",
+      "blend"
+    ],
+    "role": "Transition",
+    "heading": "Animation Concepts"
+  },
+  {
+    "keyword": "push",
+    "category": "motion",
+    "media": "",
+    "note": "One element slides in and shoves the previous one off-screen in the same direction.",
+    "tags": [
+      "motion",
+      "transition",
+      "slide"
+    ],
+    "role": "Transition",
+    "heading": "Animation Concepts"
+  },
+  {
+    "keyword": "flip",
+    "category": "motion",
+    "media": "",
+    "note": "The frame rotates in 3D like a card turning over to reveal the next element on its back.",
+    "tags": [
+      "motion",
+      "transition",
+      "3d"
+    ],
+    "role": "Transition",
+    "heading": "Animation Concepts"
   }
 ]

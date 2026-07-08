@@ -83,6 +83,27 @@ body {
   padding-bottom: 8px;
   border-bottom: 1px solid var(--border);
 }
+.group-heading-link {
+  margin-left: 12px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--accent);
+  text-decoration: none;
+  opacity: 0.85;
+}
+.group-heading-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+.group-sub {
+  margin: -6px 0 16px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--muted, #9aa);
+  line-height: 1.4;
+}
 .group-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -124,6 +145,15 @@ body {
 .card-body { padding: 12px 14px; }
 .card-keyword { font-weight: 600; font-size: 0.98rem; }
 .card-category { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 3px; }
+.card-role {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: rgba(124, 140, 255, 0.15);
+  color: var(--accent);
+  font-weight: 600;
+}
 
 .empty { text-align: center; color: var(--muted); padding: 40px 0 80px; }
 
@@ -171,6 +201,54 @@ body {
 }
 .copy-btn:hover { opacity: 0.9; }
 .copy-btn.copied { background: #4ec98a; }
+
+/* Live GSAP demos */
+.demo-stage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.demo-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.demo-block {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: var(--accent);
+  margin: 0 6px;
+}
+.demo-block--solo { width: 34px; height: 34px; margin: 0; }
+.demo-timeline { gap: 0; }
+
+.demo-easing { flex-direction: column; gap: 14px; align-items: stretch; padding: 0 18px; }
+.ease-track { position: relative; height: 14px; background: var(--surface-2); border-radius: 999px; }
+.ease-track .ease-label {
+  position: absolute; left: 0; top: -18px; font-size: 0.65rem; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+.ease-track .demo-dot { position: absolute; top: -1px; left: 0; }
+
+.demo-stagger { gap: 10px; }
+
+.demo-scroll-hint {
+  position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
+  font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; z-index: 1;
+}
+.demo-scroll-box { width: 70%; height: 78%; overflow-y: scroll; border: 1px solid var(--border); border-radius: 8px; }
+.demo-scroll-content { position: relative; height: 260%; }
+.demo-scroll-fill { position: absolute; left: 0; top: 0; width: 6px; height: 100%; background: var(--accent); }
+
+.demo-svg { width: 60%; height: 60%; }
+
+.demo-stagger-reveal { flex-direction: column; gap: 8px; padding: 0 24px; align-items: stretch; }
+.demo-reveal-row { height: 10px; border-radius: 999px; background: var(--accent); opacity: 0.85; }
 
 /* Glossary */
 .glossary-list { list-style: none; margin: 0 0 60px; padding: 0; }

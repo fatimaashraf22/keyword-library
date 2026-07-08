@@ -23,8 +23,28 @@ const HEADING_ORDER = [
   "Iconic Artists",
   "GSAP Animation",
   "Motion Graphics Elements",
+  "Animation Concepts",
   "UI Motion",
 ];
+
+// One-line description shown under each section heading, so it's clear what
+// kind of thing lives in that section (a look, a thing, a behavior, etc.).
+const HEADING_DESCRIPTIONS = {
+  "Lighting": "How a scene is lit — the mood and direction of light.",
+  "Lens Effects": "Looks created by the camera lens itself (flares, blur, distortion).",
+  "Camera Shots & Angles": "Where the camera sits and how tightly it frames the subject.",
+  "Camera Movement & Effects": "How the camera itself moves through the scene.",
+  "Composition": "How elements are arranged within the frame.",
+  "Color & Grading": "The overall color treatment and mood of the image.",
+  "Editing Transitions": "How one shot or scene cuts to the next.",
+  "Aesthetic Styles": "Recognizable overall visual styles or vibes.",
+  "Art Movements & Eras": "Looks borrowed from art history and past periods.",
+  "Iconic Artists": "The signature style of a specific well-known artist.",
+  "GSAP Animation": "Building blocks of the GSAP animation library (with live demos).",
+  "Motion Graphics Elements": "Concrete things you put on screen — a chart, a lower third, a stat card.",
+  "Animation Concepts": "Behaviors and principles — how things move, not what they are.",
+  "UI Motion": "Small interface animations — buttons, menus, page bits reacting.",
+};
 
 let ENTRIES = [];
 let activeCategory = "all";
@@ -122,6 +142,17 @@ function modalMediaHTML(entry) {
   return placeholder(entry.keyword);
 }
 
+// If an entry has a "demo" key and a matching live GSAP demo is registered
+// (js/demos.js), run the real animation instead of showing a static picture.
+function renderMedia(container, entry, fallbackHTML) {
+  const demo = entry.demo && window.KEYWORD_DEMOS && window.KEYWORD_DEMOS[entry.demo];
+  if (demo) {
+    demo(container);
+  } else {
+    container.innerHTML = fallbackHTML(entry);
+  }
+}
+
 function getFiltered() {
   const term = searchTerm.trim().toLowerCase();
   return ENTRIES.filter((e) => {
@@ -174,7 +205,26 @@ function render() {
     const heading = document.createElement("h2");
     heading.className = "group-heading";
     heading.textContent = group.key;
+    // For the GSAP Animation section, add a link to the GSAP resources page.
+    if (group.key.split(" — ").pop() === "GSAP Animation") {
+      const link = document.createElement("a");
+      link.className = "group-heading-link";
+      link.href = "https://gsap.com/resources/";
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.textContent = "GSAP resources ↗";
+      heading.appendChild(link);
+    }
     section.appendChild(heading);
+
+    // One-line description of what this section is about.
+    const desc = HEADING_DESCRIPTIONS[group.key.split(" — ").pop()];
+    if (desc) {
+      const sub = document.createElement("p");
+      sub.className = "group-sub";
+      sub.textContent = desc;
+      section.appendChild(sub);
+    }
 
     const cards = document.createElement("div");
     cards.className = "group-cards";
@@ -182,11 +232,14 @@ function render() {
       const card = document.createElement("article");
       card.className = "card";
       card.innerHTML = `
-        <div class="card-media">${cardMediaHTML(entry)}</div>
+        <div class="card-media"></div>
         <div class="card-body">
           <div class="card-keyword">${entry.keyword}</div>
-          <div class="card-category">${categoryLabel(entry.category)}</div>
+          <div class="card-category">${categoryLabel(entry.category)}${
+            entry.role ? `<span class="card-role">${entry.role}</span>` : ""
+          }</div>
         </div>`;
+      renderMedia(card.querySelector(".card-media"), entry, cardMediaHTML);
       card.onclick = () => openModal(entry);
       cards.appendChild(card);
     });
@@ -198,8 +251,9 @@ function render() {
 
 // ---- Modal ----
 function openModal(entry) {
-  $("#modal-media").innerHTML = modalMediaHTML(entry);
-  $("#modal-category").textContent = categoryLabel(entry.category);
+  renderMedia($("#modal-media"), entry, modalMediaHTML);
+  $("#modal-category").textContent =
+    categoryLabel(entry.category) + (entry.role ? ` · ${entry.role}` : "");
   $("#modal-keyword").textContent = entry.keyword;
   $("#modal-note").textContent = entry.note || "";
   $("#modal-tags").innerHTML = (entry.tags || []).map((t) => `<span>${t}</span>`).join("");
