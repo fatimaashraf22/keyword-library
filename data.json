@@ -900,7 +900,8 @@
       "text",
       "typography"
     ],
-    "heading": "Motion Graphics Elements"
+    "heading": "Motion Graphics Elements",
+    "demo": "kinetic-typography"
   },
   {
     "keyword": "stat card",
@@ -913,7 +914,8 @@
       "counter"
     ],
     "heading": "Motion Graphics Elements",
-    "youtube": "https://www.youtube.com/watch?v=khypNiQDKNU"
+    "youtube": "https://www.youtube.com/watch?v=khypNiQDKNU",
+    "demo": "stat-card"
   },
   {
     "keyword": "charts",
@@ -926,7 +928,8 @@
       "chart"
     ],
     "heading": "Motion Graphics Elements",
-    "youtube": "https://www.youtube.com/watch?v=KemCoj7_Zk0"
+    "youtube": "https://www.youtube.com/watch?v=KemCoj7_Zk0",
+    "demo": "charts"
   },
   {
     "keyword": "logo reveal",
@@ -939,7 +942,8 @@
       "intro"
     ],
     "heading": "Motion Graphics Elements",
-    "youtube": "https://www.youtube.com/watch?v=WpxhEiNIePY"
+    "youtube": "https://www.youtube.com/watch?v=WpxhEiNIePY",
+    "demo": "logo-reveal"
   },
   {
     "keyword": "lower third",
@@ -952,7 +956,8 @@
       "identification"
     ],
     "heading": "Motion Graphics Elements",
-    "youtube": "https://www.youtube.com/watch?v=K2BLXNn7fL4"
+    "youtube": "https://www.youtube.com/watch?v=K2BLXNn7fL4",
+    "demo": "lower-third"
   },
   {
     "keyword": "callout",
@@ -965,7 +970,8 @@
       "highlight"
     ],
     "heading": "Motion Graphics Elements",
-    "youtube": "https://www.youtube.com/watch?v=MszV1Xh7iB0"
+    "youtube": "https://www.youtube.com/watch?v=MszV1Xh7iB0",
+    "demo": "callout"
   },
   {
     "keyword": "progress bar",
@@ -978,7 +984,8 @@
       "loading"
     ],
     "heading": "Motion Graphics Elements",
-    "youtube": "https://www.youtube.com/watch?v=MniNS5AXoJY"
+    "youtube": "https://www.youtube.com/watch?v=MniNS5AXoJY",
+    "demo": "progress-bar"
   },
   {
     "keyword": "timeline (motion graphic)",
@@ -991,7 +998,8 @@
       "history"
     ],
     "heading": "Motion Graphics Elements",
-    "youtube": "https://www.youtube.com/watch?v=axqWwkku0RM"
+    "youtube": "https://www.youtube.com/watch?v=axqWwkku0RM",
+    "demo": "mg-timeline"
   },
   {
     "keyword": "live waveform",
@@ -1004,7 +1012,8 @@
       "visualizer",
       "waveform"
     ],
-    "heading": "Motion Graphics Elements"
+    "heading": "Motion Graphics Elements",
+    "demo": "waveform"
   },
   {
     "keyword": "pop-in",
@@ -1017,7 +1026,8 @@
       "scale"
     ],
     "role": "Entrance",
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "pop-in"
   },
   {
     "keyword": "slide-in",
@@ -1030,7 +1040,8 @@
       "slide"
     ],
     "role": "Entrance",
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "slide-in"
   },
   {
     "keyword": "fade-in",
@@ -1043,7 +1054,8 @@
       "opacity"
     ],
     "role": "Entrance",
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "fade-in"
   },
   {
     "keyword": "wipe",
@@ -1056,7 +1068,8 @@
       "reveal"
     ],
     "role": "Transition",
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "wipe"
   },
   {
     "keyword": "reveal",
@@ -1069,7 +1082,8 @@
       "mask"
     ],
     "role": "Entrance",
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "reveal"
   },
   {
     "keyword": "Hold",
@@ -1081,7 +1095,8 @@
       "pacing",
       "timing"
     ],
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "hold"
   },
   {
     "keyword": "Count-up",
@@ -1093,7 +1108,8 @@
       "data",
       "counter"
     ],
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "count-up"
   },
   {
     "keyword": "Scale-swap",
@@ -1105,7 +1121,8 @@
       "transition"
     ],
     "role": "Transition",
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "scale-swap"
   },
   {
     "keyword": "Slam",
@@ -1118,7 +1135,8 @@
       "entrance"
     ],
     "role": "Entrance",
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "slam"
   },
   {
     "keyword": "3D depth / layers",
@@ -1130,7 +1148,8 @@
       "depth",
       "3d"
     ],
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "depth-layers"
   },
   {
     "keyword": "Transparent overlay / alpha channel",
@@ -1142,7 +1161,8 @@
       "export",
       "compositing"
     ],
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "alpha-overlay"
   },
   {
     "keyword": "fade-out",
@@ -1155,7 +1175,8 @@
       "opacity"
     ],
     "role": "Exit",
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "fade-out"
   },
   {
     "keyword": "slide-out",
@@ -1168,7 +1189,8 @@
       "slide"
     ],
     "role": "Exit",
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "slide-out"
   },
   {
     "keyword": "scale-out",
@@ -1181,7 +1203,8 @@
       "scale"
     ],
     "role": "Exit",
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "scale-out"
   },
   {
     "keyword": "fly-out",
@@ -1194,7 +1217,8 @@
       "speed"
     ],
     "role": "Exit",
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "fly-out"
   },
   {
     "keyword": "dissolve",
@@ -1207,7 +1231,8 @@
       "particles"
     ],
     "role": "Exit",
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "dissolve"
   },
   {
     "keyword": "cross-fade",
@@ -1220,7 +1245,8 @@
       "blend"
     ],
     "role": "Transition",
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "cross-fade"
   },
   {
     "keyword": "push",
@@ -1233,7 +1259,8 @@
       "slide"
     ],
     "role": "Transition",
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "push"
   },
   {
     "keyword": "flip",
@@ -1246,6 +1273,7 @@
       "3d"
     ],
     "role": "Transition",
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "flip"
   }
 ]
