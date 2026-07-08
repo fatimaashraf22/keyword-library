@@ -900,7 +900,7 @@
       "text",
       "typography"
     ],
-    "heading": "Motion Graphics Elements",
+    "heading": "Text Animation",
     "demo": "kinetic-typography"
   },
   {
@@ -1728,5 +1728,108 @@
     ],
     "heading": "Animation Concepts",
     "demo": "float"
+  },
+  {
+    "keyword": "character animation",
+    "category": "motion",
+    "media": "",
+    "note": "Each letter animates on its own — moving, scaling, or rotating individually rather than the whole word acting as one block.",
+    "tags": [
+      "text",
+      "typography",
+      "letters"
+    ],
+    "heading": "Text Animation"
+  },
+  {
+    "keyword": "word-by-word reveal",
+    "category": "motion",
+    "media": "",
+    "note": "Words appear one after another in sequence, building the line as you read it — great for emphasising a message beat by beat.",
+    "tags": [
+      "text",
+      "typography",
+      "reveal",
+      "sequence"
+    ],
+    "heading": "Text Animation"
+  },
+  {
+    "keyword": "letter stagger",
+    "category": "motion",
+    "media": "",
+    "note": "Characters animate in with a small delay between each one, so the letters cascade in rather than all landing at once.",
+    "tags": [
+      "text",
+      "typography",
+      "stagger",
+      "cascade"
+    ],
+    "heading": "Text Animation"
+  },
+  {
+    "keyword": "text morph",
+    "category": "motion",
+    "media": "",
+    "note": "One word smoothly transforms into another word or shape, the letters bending and flowing between the two instead of cutting.",
+    "tags": [
+      "text",
+      "typography",
+      "morph",
+      "transform"
+    ],
+    "heading": "Text Animation"
+  },
+  {
+    "keyword": "mask reveal (text)",
+    "category": "motion",
+    "media": "",
+    "note": "Text is uncovered through a wipe, clipping mask, or moving shape — the letters seem to slide out from behind an edge.",
+    "tags": [
+      "text",
+      "typography",
+      "mask",
+      "reveal"
+    ],
+    "heading": "Text Animation"
+  },
+  {
+    "keyword": "typewriter effect",
+    "category": "motion",
+    "media": "",
+    "note": "Characters appear one at a time as if being typed, often with a blinking cursor — a classic for intros and terminal-style text.",
+    "tags": [
+      "text",
+      "typography",
+      "typewriter",
+      "typing"
+    ],
+    "heading": "Text Animation"
+  },
+  {
+    "keyword": "glitch text",
+    "category": "motion",
+    "media": "",
+    "note": "Letters flicker, shift, and distort with digital-glitch artefacts — RGB split, jitter, and static — for a broken-signal, cyber look.",
+    "tags": [
+      "text",
+      "typography",
+      "glitch",
+      "distortion"
+    ],
+    "heading": "Text Animation"
+  },
+  {
+    "keyword": "elastic bounce",
+    "category": "motion",
+    "media": "",
+    "note": "A springy move that overshoots its target and wobbles back into place, giving elements a playful, rubbery feel. For the exact GSAP easings, see 'elastic ease' and 'bounce ease'.",
+    "tags": [
+      "motion",
+      "spring",
+      "overshoot",
+      "bounce"
+    ],
+    "heading": "Animation Concepts"
   }
 ]

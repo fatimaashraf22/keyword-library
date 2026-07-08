@@ -25,6 +25,7 @@ const HEADING_ORDER = [
   "Iconic Artists",
   "GSAP Animation",
   "Motion Graphics Elements",
+  "Text Animation",
   "Animation Concepts",
   "UI Styles & Surfaces",
   "UI Components",
@@ -46,6 +47,7 @@ const HEADING_DESCRIPTIONS = {
   "Iconic Artists": "The signature style of a specific well-known artist.",
   "GSAP Animation": "Building blocks of the GSAP animation library (with live demos).",
   "Motion Graphics Elements": "Concrete things you put on screen — a chart, a lower third, a stat card.",
+  "Text Animation": "Ways letters and words move — how text enters, reveals, and transforms on screen.",
   "Animation Concepts": "Behaviors and principles — how things move, not what they are.",
   "UI Motion": "Small interface animations — buttons, menus, page bits reacting.",
   "UI Styles & Surfaces": "The look of UI surfaces and backgrounds — glass, glow, gradients, textures.",
@@ -186,7 +188,14 @@ function modalMediaHTML(entry) {
 function renderMedia(container, entry, fallbackHTML) {
   const demo = entry.demo && window.KEYWORD_DEMOS && window.KEYWORD_DEMOS[entry.demo];
   if (demo) {
-    demo(container);
+    // A single broken demo must never take down the rest of the grid. If it
+    // throws, log it and fall back to the static media/placeholder for that card.
+    try {
+      demo(container);
+    } catch (err) {
+      console.error(`Keyword demo "${entry.demo}" failed to run:`, err);
+      container.innerHTML = fallbackHTML(entry);
+    }
   } else {
     container.innerHTML = fallbackHTML(entry);
   }
