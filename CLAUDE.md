@@ -19,7 +19,8 @@ Vanilla web, no framework, no build step, no dependencies, no backend:
 ```json
 {
   "keyword": "lens flare",
-  "category": "image",   // must be "image" | "video" | "svg"
+  "category": "cinematic",   // tab id: "cinematic" | "styles" | "motion" | "ui" (see CATEGORIES in js/app.js)
+  "heading": "Lighting",     // section within the tab (see HEADING_ORDER in js/app.js)
   "media": "images/lens-flare.jpg",  // optional; local image/gif/webp/mp4/webm path
   "youtube": "",          // optional; full URL, short link, or bare 11-char video id
   "note": "Short description of the technique.",

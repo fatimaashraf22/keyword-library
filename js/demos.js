@@ -639,4 +639,494 @@ window.KEYWORD_DEMOS = {
       .fromTo(s, { rotationY: 0 }, { rotationY: 180, duration: 0.9, ease: "power2.inOut" })
       .fromTo(s, { rotationY: 180 }, { rotationY: 360, duration: 0.9, ease: "power2.inOut", delay: 0.6, immediateRender: false });
   },
+
+  // ================= Motion — GSAP properties (live) =================
+
+  // The three flavours of the default ease, racing side by side.
+  "power-ease"(container) {
+    container.classList.add("demo-stage", "demo-easing");
+    const eases = ["in", "out", "inOut"];
+    const dots = eases.map((label) => {
+      const row = document.createElement("div");
+      row.className = "ease-track";
+      row.innerHTML = `<span class="ease-label">power.${label}</span>`;
+      const d = document.createElement("span");
+      d.className = "demo-dot";
+      row.appendChild(d);
+      container.appendChild(row);
+      return d;
+    });
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.5 });
+    eases.forEach((label, i) =>
+      tl.fromTo(dots[i], { x: 0 }, { x: 110, duration: 1.3, ease: "power2." + label }, 0)
+    );
+    tl.set(dots, { x: 0 }, "+=0.5");
+  },
+
+  // A dot tracing the x then y axes (an L-shaped path).
+  xy(container) {
+    container.classList.add("demo-stage");
+    const d = dot(container);
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 0.4 })
+      .fromTo(d, { x: -50, y: -30 }, { x: 50, duration: 0.7, ease: "power2.inOut" })
+      .to(d, { y: 30, duration: 0.7, ease: "power2.inOut" })
+      .to(d, { x: -50, duration: 0.7, ease: "power2.inOut" })
+      .to(d, { y: -30, duration: 0.7, ease: "power2.inOut" });
+  },
+
+  scale(container) {
+    container.classList.add("demo-stage");
+    const b = document.createElement("div");
+    b.className = "demo-block demo-block--solo";
+    container.appendChild(b);
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 0.3 })
+      .fromTo(b, { scale: 0.4 }, { scale: 1.5, duration: 0.9, ease: "power1.inOut" })
+      .to(b, { scale: 0.4, duration: 0.9, ease: "power1.inOut" });
+  },
+
+  rotation(container) {
+    container.classList.add("demo-stage");
+    const b = document.createElement("div");
+    b.className = "demo-block demo-block--solo";
+    container.appendChild(b);
+    gsap.to(b, { rotation: 360, duration: 2, ease: "none", repeat: -1 });
+  },
+
+  opacity(container) {
+    container.classList.add("demo-stage");
+    const b = document.createElement("div");
+    b.className = "demo-block demo-block--solo";
+    container.appendChild(b);
+    gsap.fromTo(b, { opacity: 1 }, { opacity: 0.1, duration: 1, ease: "sine.inOut", yoyo: true, repeat: -1 });
+  },
+
+  // A square rotating around a pivot pinned to its top-left corner.
+  "transform-origin"(container) {
+    container.classList.add("demo-stage");
+    const wrap = document.createElement("div");
+    wrap.className = "to-scene";
+    wrap.innerHTML = `<span class="to-box"></span><span class="to-pivot"></span>`;
+    container.appendChild(wrap);
+    gsap.set(wrap.querySelector(".to-box"), { transformOrigin: "0% 0%" });
+    gsap.to(wrap.querySelector(".to-box"), { rotation: 360, duration: 2.6, ease: "power1.inOut", repeat: -1 });
+  },
+
+  // Bits bursting outward from the centre on a loop.
+  "particle-effects"(container) {
+    container.classList.add("demo-stage");
+    const bits = [];
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement("span");
+      p.className = "pfx-bit";
+      container.appendChild(p);
+      bits.push(p);
+    }
+    const fire = () => {
+      bits.forEach((p) => {
+        const a = gsap.utils.random(0, Math.PI * 2);
+        const dist = gsap.utils.random(28, 68);
+        gsap.set(p, { x: 0, y: 0, opacity: 1, scale: gsap.utils.random(0.5, 1.2) });
+        gsap.to(p, { x: Math.cos(a) * dist, y: Math.sin(a) * dist, opacity: 0, duration: gsap.utils.random(0.8, 1.4), ease: "power2.out" });
+      });
+    };
+    fire();
+    gsap.to({}, { duration: 1.5, repeat: -1, onRepeat: fire });
+  },
+
+  // ================= UI Components (live) =================
+
+  typewriter(container) {
+    container.classList.add("demo-stage");
+    const wrap = document.createElement("div");
+    wrap.className = "type-demo";
+    wrap.innerHTML = `<span class="type-text"></span><span class="type-caret"></span>`;
+    container.appendChild(wrap);
+    const el = wrap.querySelector(".type-text");
+    const full = "Hello, world!";
+    const obj = { n: 0 };
+    const write = () => (el.textContent = full.slice(0, Math.round(obj.n)));
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 0.4 })
+      .to(obj, { n: full.length, duration: 1.6, ease: "none", onUpdate: write })
+      .to(obj, { n: 0, duration: 0.6, delay: 1, ease: "none", onUpdate: write });
+    gsap.to(wrap.querySelector(".type-caret"), { opacity: 0, duration: 0.5, repeat: -1, yoyo: true, ease: "steps(1)" });
+  },
+
+  hud(container) {
+    container.classList.add("demo-stage", "demo-hud");
+    container.innerHTML = `
+      <span class="hud-corner hud-tl"></span><span class="hud-corner hud-tr"></span>
+      <span class="hud-corner hud-bl"></span><span class="hud-corner hud-br"></span>
+      <span class="hud-reticle"></span>
+      <span class="hud-readout">SYS 90%</span>`;
+    gsap.to(container.querySelector(".hud-reticle"), { rotation: 360, duration: 6, ease: "none", repeat: -1 });
+    gsap.fromTo(container.querySelectorAll(".hud-corner"), { opacity: 0.3 }, { opacity: 1, duration: 1, ease: "sine.inOut", yoyo: true, repeat: -1, stagger: 0.1 });
+    const obj = { v: 90 };
+    const ro = container.querySelector(".hud-readout");
+    gsap.to(obj, { v: 99, duration: 1.5, ease: "none", repeat: -1, yoyo: true, onUpdate: () => (ro.textContent = "SYS " + Math.round(obj.v) + "%") });
+  },
+
+  "chat-bubble"(container) {
+    container.classList.add("demo-stage");
+    container.innerHTML = `
+      <div class="chat-bubble">
+        <span class="chat-dots"><i></i><i></i><i></i></span>
+        <span class="chat-msg">Hi! How can I help? 🤖</span>
+      </div>`;
+    const bubble = container.querySelector(".chat-bubble");
+    const dots = container.querySelector(".chat-dots");
+    const msg = container.querySelector(".chat-msg");
+    gsap.to(container.querySelectorAll(".chat-dots i"), { y: -4, duration: 0.35, stagger: 0.12, repeat: -1, yoyo: true, ease: "sine.inOut" });
+    gsap.set(msg, { autoAlpha: 0 });
+    gsap.set(dots, { autoAlpha: 1 });
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 0.5 })
+      .fromTo(bubble, { scale: 0.6, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 0.4, ease: "back.out(2)" })
+      .to(dots, { autoAlpha: 0, duration: 0.3, delay: 1 })
+      .to(msg, { autoAlpha: 1, duration: 0.3 }, "<0.1")
+      .to(bubble, { autoAlpha: 0, scale: 0.7, duration: 0.3, delay: 1.6 })
+      .set(dots, { autoAlpha: 1 })
+      .set(msg, { autoAlpha: 0 });
+  },
+
+  terminal(container) {
+    container.classList.add("demo-stage");
+    container.innerHTML = `
+      <div class="term-win">
+        <div class="term-bar"><span></span><span></span><span></span></div>
+        <div class="term-body"><span class="term-line"></span></div>
+      </div>`;
+    const line = container.querySelector(".term-line");
+    const full = "$ npm run build  ✓ done";
+    const obj = { n: 0 };
+    const write = () => (line.innerHTML = full.slice(0, Math.round(obj.n)) + '<i class="term-caret">▋</i>');
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 0.6 })
+      .to(obj, { n: full.length, duration: 1.7, ease: "none", onUpdate: write })
+      .to(obj, { n: 0, duration: 0.4, delay: 1.2, ease: "none", onUpdate: write });
+  },
+
+  "code-snippet"(container) {
+    container.classList.add("demo-stage");
+    container.innerHTML = `
+      <pre class="code-demo"><span class="cl"><b class="k">const</b> <b class="v">sum</b> = (a, b) =&gt;</span><span class="cl">  a + b;</span><span class="cl"><b class="k">export</b> <b class="k">default</b> sum;</span></pre>`;
+    const lines = container.querySelectorAll(".code-demo .cl");
+    gsap.set(lines, { opacity: 0, x: -12 });
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 1 })
+      .to(lines, { opacity: 1, x: 0, duration: 0.4, stagger: 0.25, ease: "power2.out" })
+      .to(lines, { opacity: 0, x: -12, duration: 0.3, stagger: 0.1, delay: 1.2 });
+  },
+
+  notification(container) {
+    container.classList.add("demo-stage");
+    container.innerHTML = `
+      <div class="notif-demo">
+        <span class="notif-icon">🔔</span>
+        <div class="notif-text"><b>New message</b><small>Tap to open</small></div>
+      </div>`;
+    const n = container.querySelector(".notif-demo");
+    gsap.set(n, { xPercent: 150, opacity: 0 });
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 0.6 })
+      .to(n, { xPercent: 0, opacity: 1, duration: 0.5, ease: "back.out(1.7)" })
+      .to(n, { xPercent: 150, opacity: 0, duration: 0.4, delay: 1.6, ease: "power2.in" });
+  },
+
+  widget(container) {
+    container.classList.add("demo-stage");
+    container.innerHTML = `
+      <div class="widget-demo">
+        <div class="widget-top"><span>Weather</span><span>⛅</span></div>
+        <div class="widget-num">0°</div>
+        <div class="widget-sub">San Francisco</div>
+      </div>`;
+    const card = container.querySelector(".widget-demo");
+    const num = container.querySelector(".widget-num");
+    const obj = { v: 0 };
+    gsap.set(card, { scale: 0.6, opacity: 0 });
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 1 })
+      .to(card, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" })
+      .to(obj, { v: 21, duration: 0.9, ease: "power1.out", onUpdate: () => (num.textContent = Math.round(obj.v) + "°") }, "<0.2")
+      .to(card, { scale: 0.6, opacity: 0, duration: 0.4, delay: 1.4 })
+      .set(obj, { v: 0 });
+  },
+
+  dashboard(container) {
+    container.classList.add("demo-stage");
+    container.innerHTML = `
+      <div class="dash-demo">
+        <div class="dash-tile dash-wide"><span class="dash-bar"></span><span class="dash-bar"></span><span class="dash-bar"></span><span class="dash-bar"></span></div>
+        <div class="dash-tile"><span class="dash-ring"></span></div>
+        <div class="dash-tile"><span class="dash-ring"></span></div>
+      </div>`;
+    const tiles = container.querySelectorAll(".dash-tile");
+    const bars = container.querySelectorAll(".dash-bar");
+    gsap.set(tiles, { opacity: 0, y: 12 });
+    gsap.set(bars, { scaleY: 0.1, transformOrigin: "bottom" });
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 1 })
+      .to(tiles, { opacity: 1, y: 0, duration: 0.4, stagger: 0.1 })
+      .to(bars, { scaleY: () => gsap.utils.random(0.4, 1), duration: 0.5, stagger: 0.05 }, "-=0.2")
+      .to(tiles, { opacity: 0, y: 12, duration: 0.3, delay: 1.4 });
+  },
+
+  bento(container) {
+    container.classList.add("demo-stage");
+    container.innerHTML = `
+      <div class="bento-demo">
+        <span class="bento-a"></span><span class="bento-b"></span>
+        <span class="bento-c"></span><span class="bento-d"></span>
+      </div>`;
+    const cells = container.querySelectorAll(".bento-demo span");
+    gsap.set(cells, { scale: 0.5, opacity: 0 });
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 1 })
+      .to(cells, { scale: 1, opacity: 1, duration: 0.45, stagger: 0.1, ease: "back.out(1.7)" })
+      .to(cells, { scale: 0.5, opacity: 0, duration: 0.3, stagger: 0.06, delay: 1.4 });
+  },
+
+  cursor(container) {
+    container.classList.add("demo-stage", "demo-cursor");
+    container.innerHTML = `
+      <button class="cur-btn">Click</button>
+      <span class="cur-ripple"></span>
+      <svg class="cur-ptr" viewBox="0 0 24 24" width="20" height="20"><path d="M4 2 L4 20 L9 15 L13 22 L16 20 L12 14 L19 14 Z" fill="#fff" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/></svg>`;
+    const ptr = container.querySelector(".cur-ptr");
+    const btn = container.querySelector(".cur-btn");
+    const ripple = container.querySelector(".cur-ripple");
+    gsap.set(ptr, { x: 46, y: 30 });
+    gsap.set(ripple, { scale: 0, opacity: 0 });
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 0.5 })
+      .to(ptr, { x: 0, y: 4, duration: 0.9, ease: "power2.inOut" })
+      .to(btn, { scale: 0.9, duration: 0.12, yoyo: true, repeat: 1 })
+      .fromTo(ripple, { scale: 0, opacity: 0.6 }, { scale: 1.6, opacity: 0, duration: 0.5 }, "<")
+      .to(ptr, { x: 46, y: 30, duration: 0.8, delay: 0.9, ease: "power2.inOut" });
+  },
+
+  icons(container) {
+    container.classList.add("demo-stage");
+    container.innerHTML = `
+      <svg class="icon-demo" viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r="20" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <path class="icon-check" d="M15 25 l7 7 l12 -15" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>`;
+    const svg = container.querySelector(".icon-demo");
+    const ring = container.querySelector("circle");
+    const check = container.querySelector(".icon-check");
+    const rlen = ring.getTotalLength();
+    const clen = check.getTotalLength();
+    gsap.set(ring, { strokeDasharray: rlen, strokeDashoffset: rlen });
+    gsap.set(check, { strokeDasharray: clen, strokeDashoffset: clen });
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 0.8 })
+      .to(ring, { strokeDashoffset: 0, duration: 0.6, ease: "power2.out" })
+      .to(check, { strokeDashoffset: 0, duration: 0.4, ease: "power2.out" }, "-=0.1")
+      .to(svg, { scale: 1.15, duration: 0.15, yoyo: true, repeat: 1, transformOrigin: "50% 50%" })
+      .to(ring, { strokeDashoffset: rlen, duration: 0.3, delay: 1 }, "reset")
+      .to(check, { strokeDashoffset: clen, duration: 0.3 }, "reset");
+  },
+
+  monospace(container) {
+    container.classList.add("demo-stage");
+    container.innerHTML = `
+      <div class="mono-demo">
+        <div class="mono-row"><span>id</span><span>0x1F</span></div>
+        <div class="mono-row"><span>cpu</span><span>42%</span></div>
+        <div class="mono-row"><span>net</span><span>1.2Gb</span></div>
+      </div>`;
+    const rows = container.querySelectorAll(".mono-row");
+    gsap.set(rows, { opacity: 0, x: -10 });
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 1 })
+      .to(rows, { opacity: 1, x: 0, duration: 0.35, stagger: 0.15 })
+      .to(rows, { opacity: 0, x: -10, duration: 0.3, stagger: 0.08, delay: 1.4 });
+  },
+
+  "svg-diagram"(container) {
+    container.classList.add("demo-stage");
+    container.innerHTML = `
+      <svg class="diag-demo" viewBox="0 0 160 80">
+        <line class="diag-edge" x1="40" y1="21" x2="112" y2="21"/>
+        <line class="diag-edge" x1="40" y1="59" x2="112" y2="59"/>
+        <line class="diag-edge" x1="27" y1="28" x2="27" y2="52"/>
+        <rect class="diag-node" x="14" y="14" width="26" height="14" rx="3"/>
+        <rect class="diag-node" x="14" y="52" width="26" height="14" rx="3"/>
+        <rect class="diag-node" x="112" y="12" width="34" height="18" rx="3"/>
+        <rect class="diag-node" x="112" y="50" width="34" height="18" rx="3"/>
+      </svg>`;
+    const nodes = container.querySelectorAll(".diag-node");
+    const edges = container.querySelectorAll(".diag-edge");
+    gsap.set(nodes, { scale: 0, opacity: 0, transformOrigin: "50% 50%" });
+    edges.forEach((e) => {
+      const l = e.getTotalLength();
+      gsap.set(e, { strokeDasharray: l, strokeDashoffset: l });
+    });
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 1 })
+      .to(nodes, { scale: 1, opacity: 1, duration: 0.4, stagger: 0.12, ease: "back.out(1.7)" })
+      .to(edges, { strokeDashoffset: 0, duration: 0.5, stagger: 0.1 }, "-=0.2")
+      .to([nodes, edges], { opacity: 0, duration: 0.4, delay: 1.3 });
+  },
+
+  // ================= UI Styles & Surfaces (live) =================
+
+  glassmorphism(container) {
+    container.classList.add("demo-stage", "demo-glass");
+    container.innerHTML = `
+      <span class="glass-blob glass-b1"></span>
+      <span class="glass-blob glass-b2"></span>
+      <div class="glass-card">frosted</div>`;
+    gsap.to(container.querySelector(".glass-b1"), { x: 30, y: 14, duration: 3, ease: "sine.inOut", yoyo: true, repeat: -1 });
+    gsap.to(container.querySelector(".glass-b2"), { x: -26, y: -12, duration: 3.4, ease: "sine.inOut", yoyo: true, repeat: -1 });
+  },
+
+  neumorphism(container) {
+    container.classList.add("demo-stage", "demo-neu");
+    container.innerHTML = `<button class="neu-btn">◉</button>`;
+    const btn = container.querySelector(".neu-btn");
+    let pressed = false;
+    gsap.timeline({ repeat: -1 }).call(() => btn.classList.toggle("neu-pressed", (pressed = !pressed))).to({}, { duration: 1.1 });
+  },
+
+  glow(container) {
+    container.classList.add("demo-stage");
+    const orb = document.createElement("div");
+    orb.className = "glow-orb";
+    container.appendChild(orb);
+    gsap.to(orb, { boxShadow: "0 0 46px 12px rgba(124,140,255,0.9)", scale: 1.12, duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: -1 });
+  },
+
+  "gradient-mesh"(container) {
+    container.classList.add("demo-stage");
+    const wrap = document.createElement("div");
+    wrap.className = "mesh-demo";
+    wrap.innerHTML = `<span class="mesh-b mesh-b1"></span><span class="mesh-b mesh-b2"></span><span class="mesh-b mesh-b3"></span>`;
+    container.appendChild(wrap);
+    gsap.to(wrap.querySelector(".mesh-b1"), { x: 24, y: 18, duration: 4, ease: "sine.inOut", yoyo: true, repeat: -1 });
+    gsap.to(wrap.querySelector(".mesh-b2"), { x: -20, y: 20, duration: 4.6, ease: "sine.inOut", yoyo: true, repeat: -1 });
+    gsap.to(wrap.querySelector(".mesh-b3"), { x: 16, y: -22, duration: 5.2, ease: "sine.inOut", yoyo: true, repeat: -1 });
+  },
+
+  "linear-gradient"(container) {
+    container.classList.add("demo-stage");
+    const g = document.createElement("div");
+    g.className = "lin-demo";
+    container.appendChild(g);
+    const obj = { a: 0 };
+    gsap.to(obj, { a: 360, duration: 6, ease: "none", repeat: -1, onUpdate: () => (g.style.background = `linear-gradient(${obj.a}deg, #7c8cff, #4ec98a)`) });
+  },
+
+  "radial-gradient"(container) {
+    container.classList.add("demo-stage");
+    const g = document.createElement("div");
+    g.className = "rad-demo";
+    container.appendChild(g);
+    const obj = { r: 18 };
+    gsap.to(obj, { r: 70, duration: 1.8, ease: "sine.inOut", yoyo: true, repeat: -1, onUpdate: () => (g.style.background = `radial-gradient(circle at 50% 50%, #ffd36b, #7c8cff ${obj.r}%, #171922)`) });
+  },
+
+  "hand-drawn"(container) {
+    container.classList.add("demo-stage");
+    container.innerHTML = `
+      <svg class="sketch-demo" viewBox="0 0 120 80">
+        <path class="sk" d="M14 16 q -2 20 1 44 q 40 4 92 -1 q 3 -22 -1 -42 q -46 -3 -92 -1 Z"/>
+        <path class="sk sk2" d="M30 46 l40 1"/>
+        <path class="sk sk2" d="M30 58 l58 -1"/>
+      </svg>`;
+    const paths = container.querySelectorAll(".sk");
+    paths.forEach((p) => {
+      const l = p.getTotalLength();
+      gsap.set(p, { strokeDasharray: l, strokeDashoffset: l });
+    });
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 1 })
+      .to(paths, { strokeDashoffset: 0, duration: 0.9, stagger: 0.3, ease: "power1.inOut" })
+      .to(paths, { strokeDashoffset: (i) => paths[i].getTotalLength(), duration: 0.4, delay: 1.2 });
+  },
+
+  // ================= Extra motion vocabulary (live) =================
+
+  // A spinning arc — the universal "loading" indicator.
+  spinner(container) {
+    container.classList.add("demo-stage");
+    const s = document.createElement("div");
+    s.className = "spin-demo";
+    container.appendChild(s);
+    gsap.to(s, { rotation: 360, duration: 0.9, ease: "none", repeat: -1 });
+  },
+
+  // A card that grows open to reveal its body, then collapses.
+  "expand-card"(container) {
+    container.classList.add("demo-stage");
+    container.innerHTML = `
+      <div class="expc">
+        <div class="expc-head"></div>
+        <div class="expc-body"><span></span><span></span></div>
+      </div>`;
+    const body = container.querySelector(".expc-body");
+    gsap.set(body, { height: 0, opacity: 0 });
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 0.6 })
+      .to(body, { height: 42, opacity: 1, duration: 0.5, ease: "power2.out" })
+      .to(body, { height: 0, opacity: 0, duration: 0.4, delay: 1.2, ease: "power2.in" });
+  },
+
+  // A button that depresses and springs back — the classic press micro-interaction.
+  "button-press"(container) {
+    container.classList.add("demo-stage");
+    container.innerHTML = `<button class="press-btn">Get started</button>`;
+    const btn = container.querySelector(".press-btn");
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 0.7 })
+      .to(btn, { scale: 0.9, y: 3, duration: 0.12, ease: "power2.out" })
+      .to(btn, { scale: 1, y: 0, duration: 0.6, ease: "elastic.out(1, 0.4)" });
+  },
+
+  // A side panel sliding in over a dimmed backdrop, then out.
+  drawer(container) {
+    container.classList.add("demo-stage", "demo-drawer");
+    container.innerHTML = `<div class="drw-scrim"></div><div class="drw-panel"><span></span><span></span><span></span></div>`;
+    const scrim = container.querySelector(".drw-scrim");
+    const panel = container.querySelector(".drw-panel");
+    gsap.set(panel, { xPercent: 100 });
+    gsap.set(scrim, { opacity: 0 });
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 0.5 })
+      .to(scrim, { opacity: 1, duration: 0.3 })
+      .to(panel, { xPercent: 0, duration: 0.5, ease: "power3.out" }, "<")
+      .to(panel, { xPercent: 100, duration: 0.4, delay: 1.4, ease: "power2.in" })
+      .to(scrim, { opacity: 0, duration: 0.3 }, "<");
+  },
+
+  // A block streaking across, stretched + blurred while it moves.
+  "motion-blur"(container) {
+    container.classList.add("demo-stage");
+    const d = document.createElement("div");
+    d.className = "demo-block demo-block--solo";
+    container.appendChild(d);
+    gsap.set(d, { x: -60 });
+    gsap
+      .timeline({ repeat: -1 })
+      .to(d, { filter: "blur(6px)", scaleX: 2.2, duration: 0.05 })
+      .to(d, { x: 60, duration: 0.5, ease: "power2.inOut" })
+      .to(d, { filter: "blur(0px)", scaleX: 1, duration: 0.15 })
+      .to({}, { duration: 0.35 })
+      .to(d, { filter: "blur(6px)", scaleX: 2.2, duration: 0.05 })
+      .to(d, { x: -60, duration: 0.5, ease: "power2.inOut" })
+      .to(d, { filter: "blur(0px)", scaleX: 1, duration: 0.15 })
+      .to({}, { duration: 0.35 });
+  },
+
+  // Layers gently bobbing in place — the "floating UI" idle look.
+  float(container) {
+    container.classList.add("demo-stage");
+    container.innerHTML = `<div class="float-scene"><span class="float-card"></span><span class="float-badge">✦</span></div>`;
+    gsap.to(container.querySelector(".float-card"), { y: -10, duration: 1.6, ease: "sine.inOut", yoyo: true, repeat: -1 });
+    gsap.to(container.querySelector(".float-badge"), { y: -14, duration: 1.9, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 0.2 });
+  },
 };

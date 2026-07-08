@@ -6,6 +6,8 @@ const CATEGORIES = [
   { id: "cinematic", label: "Cinematic" },
   { id: "styles", label: "Styles" },
   { id: "motion", label: "Motion" },
+  { id: "ui", label: "UI / Web" },
+  { id: "notes", label: "Notes" },
 ];
 
 // Controls the order headings appear in within a category (unlisted headings
@@ -24,6 +26,8 @@ const HEADING_ORDER = [
   "GSAP Animation",
   "Motion Graphics Elements",
   "Animation Concepts",
+  "UI Styles & Surfaces",
+  "UI Components",
   "UI Motion",
 ];
 
@@ -44,7 +48,42 @@ const HEADING_DESCRIPTIONS = {
   "Motion Graphics Elements": "Concrete things you put on screen — a chart, a lower third, a stat card.",
   "Animation Concepts": "Behaviors and principles — how things move, not what they are.",
   "UI Motion": "Small interface animations — buttons, menus, page bits reacting.",
+  "UI Styles & Surfaces": "The look of UI surfaces and backgrounds — glass, glow, gradients, textures.",
+  "UI Components": "Concrete website/app pieces — chat bubbles, dashboards, cards, cursors.",
 };
+
+// Plain-text notes shown under the "Notes" tab (not cards — just reference text).
+const NOTES = [
+  {
+    title: "High-End Keywords",
+    intro:
+      "When prompting models like Claude Code, Cursor, or GPT for implementation, sprinkle in terms like:",
+    items: [
+      "premium editorial",
+      "award-winning portfolio",
+      "Awwwards-inspired",
+      "GSAP-quality motion",
+      "Framer-level interactions",
+      "cinematic scroll experience",
+      "immersive storytelling",
+      "kinetic typography",
+      "SVG-first animation",
+      "sophisticated motion system",
+      "visual rhythm",
+      "modular grid",
+      "motion choreography",
+      "interaction design",
+      "premium creative agency aesthetic",
+      "Apple-style polish",
+      "smooth 120 FPS animations",
+      "buttery scrolling",
+      "responsive motion design",
+      "tasteful microinteractions",
+    ],
+    outro:
+      "These descriptors communicate the feel of the experience without instructing the model to imitate a specific website. They tend to produce designs that share the same polished, motion-driven aesthetic while remaining original.",
+  },
+];
 
 let ENTRIES = [];
 let activeCategory = "all";
@@ -190,8 +229,29 @@ function groupEntries(filtered) {
   return keys.map((key) => ({ key, entries: groups.get(key) }));
 }
 
+// The "Notes" tab is plain reference text, not a card grid.
+function renderNotes(grid) {
+  grid.innerHTML = "";
+  $("#count").textContent = "";
+  $("#empty").hidden = true;
+  NOTES.forEach((n) => {
+    const sec = document.createElement("section");
+    sec.className = "notes-block";
+    sec.innerHTML = `
+      <h2>${n.title}</h2>
+      ${n.intro ? `<p>${n.intro}</p>` : ""}
+      ${n.items ? `<ul>${n.items.map((i) => `<li>${i}</li>`).join("")}</ul>` : ""}
+      ${n.outro ? `<p>${n.outro}</p>` : ""}`;
+    grid.appendChild(sec);
+  });
+}
+
 function render() {
   const grid = $("#grid");
+  if (activeCategory === "notes") {
+    renderNotes(grid);
+    return;
+  }
   const filtered = getFiltered();
   grid.innerHTML = "";
 

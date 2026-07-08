@@ -704,7 +704,7 @@
   },
   {
     "keyword": "draw-on stroke",
-    "category": "motion",
+    "category": "ui",
     "media": "",
     "note": "An SVG path animates as if it's being drawn by a pen (animate stroke-dashoffset from full length to 0). Classic line-art reveal.",
     "tags": [
@@ -718,7 +718,7 @@
   },
   {
     "keyword": "stagger reveal",
-    "category": "motion",
+    "category": "ui",
     "media": "",
     "note": "A group of elements animate in one after another with a small delay between each, instead of all at once. Feels lively and intentional.",
     "tags": [
@@ -732,7 +732,7 @@
   },
   {
     "keyword": "morph path",
-    "category": "motion",
+    "category": "ui",
     "media": "",
     "note": "One SVG shape smoothly interpolates into another by animating its path 'd' data. Icon-to-icon transitions, play/pause toggles.",
     "tags": [
@@ -746,7 +746,7 @@
   },
   {
     "keyword": "hover reveal",
-    "category": "motion",
+    "category": "ui",
     "media": "",
     "note": "A prebuilt timeline that plays on mouse-enter and reverses on mouse-leave — e.g. a tooltip or dialogue that pops up when you hover an element and tucks away when you leave. Same animation driven forward and backward from interaction events.",
     "tags": [
@@ -1275,5 +1275,458 @@
     "role": "Transition",
     "heading": "Animation Concepts",
     "demo": "flip"
+  },
+  {
+    "keyword": "power ease",
+    "category": "motion",
+    "media": "",
+    "note": "GSAP's default, most-used easing family (power1 up to power4 — the higher the number, the sharper the speed change). '.in' = starts slow then speeds up; '.out' = starts fast then slows to a stop; '.inOut' = slow–fast–slow. Compare with bounce, elastic, and back for more playful feels.",
+    "tags": [
+      "gsap",
+      "easing",
+      "power1",
+      "in-out"
+    ],
+    "heading": "GSAP Animation",
+    "demo": "power-ease"
+  },
+  {
+    "keyword": "x / y (position)",
+    "category": "motion",
+    "media": "",
+    "note": "The properties GSAP animates to move an element horizontally (x) or vertically (y) from its current spot. Positive x moves right, positive y moves down.",
+    "tags": [
+      "gsap",
+      "property",
+      "position",
+      "move"
+    ],
+    "heading": "GSAP Animation",
+    "demo": "xy"
+  },
+  {
+    "keyword": "scale",
+    "category": "motion",
+    "media": "",
+    "note": "The property that grows or shrinks an element — scale 1 is normal size, above 1 zooms in, below 1 zooms out. Great for pop and emphasis.",
+    "tags": [
+      "gsap",
+      "property",
+      "zoom",
+      "size"
+    ],
+    "heading": "GSAP Animation",
+    "demo": "scale"
+  },
+  {
+    "keyword": "rotation",
+    "category": "motion",
+    "media": "",
+    "note": "The property that spins an element, measured in degrees (360 = one full turn). Positive values turn clockwise.",
+    "tags": [
+      "gsap",
+      "property",
+      "spin",
+      "degrees"
+    ],
+    "heading": "GSAP Animation",
+    "demo": "rotation"
+  },
+  {
+    "keyword": "opacity",
+    "category": "motion",
+    "media": "",
+    "note": "The property that controls how see-through an element is — 1 is fully visible, 0 is invisible. The basis of every fade.",
+    "tags": [
+      "gsap",
+      "property",
+      "transparency",
+      "fade"
+    ],
+    "heading": "GSAP Animation",
+    "demo": "opacity"
+  },
+  {
+    "keyword": "transform origin",
+    "category": "motion",
+    "media": "",
+    "note": "The pivot point an element scales or rotates around — its centre by default, but you can move it to a corner or edge so it swings from there instead.",
+    "tags": [
+      "gsap",
+      "property",
+      "pivot",
+      "anchor"
+    ],
+    "heading": "GSAP Animation",
+    "demo": "transform-origin"
+  },
+  {
+    "keyword": "typewriter animation",
+    "category": "ui",
+    "media": "",
+    "note": "Text appears one character at a time as if being typed, often with a blinking cursor. Different from kinetic typography, where whole words move around.",
+    "tags": [
+      "ui component",
+      "text",
+      "typing",
+      "cursor"
+    ],
+    "heading": "UI Components",
+    "demo": "typewriter"
+  },
+  {
+    "keyword": "HUD elements",
+    "category": "ui",
+    "media": "",
+    "note": "Heads-up-display overlays like in video games — corner readouts, targeting brackets, stats and meters floating over the scene. Futuristic, techy feel.",
+    "tags": [
+      "ui component",
+      "overlay",
+      "gaming",
+      "sci-fi"
+    ],
+    "heading": "UI Components",
+    "demo": "hud"
+  },
+  {
+    "keyword": "AI chat bubble",
+    "category": "ui",
+    "media": "",
+    "note": "A messaging-style speech bubble, often shown typing out a reply — the familiar look of a chatbot or messaging app conversation.",
+    "tags": [
+      "ui component",
+      "chat",
+      "messaging"
+    ],
+    "heading": "UI Components",
+    "demo": "chat-bubble"
+  },
+  {
+    "keyword": "terminal overlay",
+    "category": "ui",
+    "media": "",
+    "note": "A command-line / code terminal window, usually dark with monospace text typing itself out line by line. Signals 'developer' or 'hacker' energy.",
+    "tags": [
+      "ui component",
+      "code",
+      "terminal"
+    ],
+    "heading": "UI Components",
+    "demo": "terminal"
+  },
+  {
+    "keyword": "code snippet",
+    "category": "ui",
+    "media": "",
+    "note": "A small block of syntax-highlighted code shown on screen, sometimes animating in line by line. Good for developer-focused explainers.",
+    "tags": [
+      "ui component",
+      "code",
+      "developer"
+    ],
+    "heading": "UI Components",
+    "demo": "code-snippet"
+  },
+  {
+    "keyword": "notification popup",
+    "category": "ui",
+    "media": "",
+    "note": "A small alert card that slides or pops in from a corner — like a phone or app notification — then dismisses itself.",
+    "tags": [
+      "ui component",
+      "alert",
+      "toast"
+    ],
+    "heading": "UI Components",
+    "demo": "notification"
+  },
+  {
+    "keyword": "widget",
+    "category": "ui",
+    "media": "",
+    "note": "A single self-contained info tile — a clock, weather, a mini stat — the kind of block you'd pin to a dashboard or home screen.",
+    "tags": [
+      "ui component",
+      "tile",
+      "card"
+    ],
+    "heading": "UI Components",
+    "demo": "widget"
+  },
+  {
+    "keyword": "dashboard",
+    "category": "ui",
+    "media": "",
+    "note": "A full screen of widgets, charts and stats arranged together — the 'control panel' look for showing data at a glance.",
+    "tags": [
+      "ui component",
+      "data",
+      "panel"
+    ],
+    "heading": "UI Components",
+    "demo": "dashboard"
+  },
+  {
+    "keyword": "bento grid",
+    "category": "ui",
+    "media": "",
+    "note": "Multiple rounded cards laid out in an uneven grid of different sizes, like a bento lunchbox. A popular modern way to show features side by side.",
+    "tags": [
+      "ui component",
+      "layout",
+      "cards"
+    ],
+    "heading": "UI Components",
+    "demo": "bento"
+  },
+  {
+    "keyword": "animated cursor",
+    "category": "ui",
+    "media": "",
+    "note": "A mouse pointer that moves, hovers and clicks on screen to walk the viewer through an interface — the classic 'watch me click this' demo look.",
+    "tags": [
+      "ui component",
+      "pointer",
+      "demo"
+    ],
+    "heading": "UI Components",
+    "demo": "cursor"
+  },
+  {
+    "keyword": "particle effects",
+    "category": "motion",
+    "media": "",
+    "note": "Lots of tiny dots, sparks or bits of dust that drift, burst or swirl — used for magic, energy, confetti or atmosphere.",
+    "tags": [
+      "motion graphics",
+      "particles",
+      "sparkle",
+      "atmosphere"
+    ],
+    "heading": "Motion Graphics Elements",
+    "demo": "particle-effects"
+  },
+  {
+    "keyword": "animated icons",
+    "category": "ui",
+    "media": "",
+    "note": "Simple symbols (a bell, a heart, a checkmark) that animate — drawing on, wiggling, or morphing — instead of sitting still.",
+    "tags": [
+      "ui component",
+      "icon",
+      "symbol"
+    ],
+    "heading": "UI Components",
+    "demo": "icons"
+  },
+  {
+    "keyword": "monospace text",
+    "category": "ui",
+    "media": "",
+    "note": "A typewriter-style font where every letter is the same width (like code editors use). Reads as technical, coding, or retro-terminal.",
+    "tags": [
+      "ui component",
+      "text",
+      "font",
+      "code"
+    ],
+    "heading": "UI Components",
+    "demo": "monospace"
+  },
+  {
+    "keyword": "SVG diagram / flowchart",
+    "category": "ui",
+    "media": "",
+    "note": "Crisp vector shapes, boxes and connecting lines that build a diagram or flowchart on screen, often drawing themselves in. Scales to any size without blurring.",
+    "tags": [
+      "ui component",
+      "svg",
+      "diagram",
+      "flowchart"
+    ],
+    "heading": "UI Components",
+    "demo": "svg-diagram"
+  },
+  {
+    "keyword": "glassmorphism (frosted glass)",
+    "category": "ui",
+    "media": "",
+    "note": "A card or panel that looks like frosted or liquid glass — semi-transparent with a blurred background showing through and a soft edge. Also called a frosted panel.",
+    "tags": [
+      "ui style",
+      "glass",
+      "blur",
+      "frosted"
+    ],
+    "heading": "UI Styles & Surfaces",
+    "demo": "glassmorphism"
+  },
+  {
+    "keyword": "neumorphism",
+    "category": "ui",
+    "media": "",
+    "note": "A soft, same-colour look where buttons and cards appear gently pressed into or raised out of the background using subtle inner and outer shadows.",
+    "tags": [
+      "ui style",
+      "soft",
+      "shadow",
+      "embossed"
+    ],
+    "heading": "UI Styles & Surfaces",
+    "demo": "neumorphism"
+  },
+  {
+    "keyword": "glow / soft glow",
+    "category": "ui",
+    "media": "",
+    "note": "A soft halo of light around an element or text, making it look like it's emitting light. Adds a premium, neon, or magical feel.",
+    "tags": [
+      "ui style",
+      "light",
+      "halo",
+      "neon"
+    ],
+    "heading": "UI Styles & Surfaces",
+    "demo": "glow"
+  },
+  {
+    "keyword": "gradient mesh",
+    "category": "ui",
+    "media": "",
+    "note": "A background of several colours blended together in soft, cloud-like blobs — smooth and modern, no hard lines between the hues.",
+    "tags": [
+      "ui style",
+      "gradient",
+      "background",
+      "color"
+    ],
+    "heading": "UI Styles & Surfaces",
+    "demo": "gradient-mesh"
+  },
+  {
+    "keyword": "linear gradient",
+    "category": "ui",
+    "media": "",
+    "note": "A background where one colour fades smoothly into another along a straight line — top to bottom, side to side, or diagonally.",
+    "tags": [
+      "ui style",
+      "gradient",
+      "background",
+      "color"
+    ],
+    "heading": "UI Styles & Surfaces",
+    "demo": "linear-gradient"
+  },
+  {
+    "keyword": "radial / circular gradient",
+    "category": "ui",
+    "media": "",
+    "note": "A background where colour radiates out in circles from a centre point — bright in the middle fading outward (or the reverse). Good for spotlight or glow backdrops.",
+    "tags": [
+      "ui style",
+      "gradient",
+      "background",
+      "color"
+    ],
+    "heading": "UI Styles & Surfaces",
+    "demo": "radial-gradient"
+  },
+  {
+    "keyword": "hand-drawn look (Excalidraw style)",
+    "category": "ui",
+    "media": "",
+    "note": "Rough, sketchy lines and boxes that look drawn by hand with a marker — the wobbly, casual diagram style made popular by Excalidraw.",
+    "tags": [
+      "ui style",
+      "sketch",
+      "hand-drawn",
+      "diagram"
+    ],
+    "heading": "UI Styles & Surfaces",
+    "demo": "hand-drawn"
+  },
+  {
+    "keyword": "loading spinner",
+    "category": "ui",
+    "media": "",
+    "note": "A small looping element — a spinning arc, ring, or dots — shown while something is loading, so the interface feels alive instead of frozen.",
+    "tags": [
+      "ui component",
+      "loading",
+      "spinner",
+      "feedback"
+    ],
+    "heading": "UI Components",
+    "demo": "spinner"
+  },
+  {
+    "keyword": "expanding card",
+    "category": "ui",
+    "media": "",
+    "note": "A card that grows open on click to reveal more content, then collapses back. Smoother than jumping to a new screen — the context stays in place.",
+    "tags": [
+      "ui motion",
+      "expand",
+      "accordion",
+      "reveal"
+    ],
+    "heading": "UI Motion",
+    "demo": "expand-card"
+  },
+  {
+    "keyword": "button press",
+    "category": "ui",
+    "media": "",
+    "note": "The tiny dip-and-spring a button does when clicked. A classic micro-interaction that makes a control feel physical and responsive.",
+    "tags": [
+      "ui motion",
+      "micro-interaction",
+      "button",
+      "press"
+    ],
+    "heading": "UI Motion",
+    "demo": "button-press"
+  },
+  {
+    "keyword": "slide-over drawer",
+    "category": "ui",
+    "media": "",
+    "note": "A side panel that slides in over a dimmed backdrop to show menus, settings, or details — then slides back out. Common on mobile and dashboards.",
+    "tags": [
+      "ui motion",
+      "drawer",
+      "panel",
+      "slide"
+    ],
+    "heading": "UI Motion",
+    "demo": "drawer"
+  },
+  {
+    "keyword": "motion blur",
+    "category": "motion",
+    "media": "",
+    "note": "A moving object stretches and blurs in its direction of travel, the way fast motion smears on camera. Sells speed and weight instead of a stiff, robotic move.",
+    "tags": [
+      "motion",
+      "speed",
+      "blur",
+      "effect"
+    ],
+    "heading": "Animation Concepts",
+    "demo": "motion-blur"
+  },
+  {
+    "keyword": "floating / idle bob",
+    "category": "motion",
+    "media": "",
+    "note": "A gentle up-and-down drift that keeps elements subtly alive even when nothing is happening — the 'floating UI' look for cards, badges, and 3D objects.",
+    "tags": [
+      "motion",
+      "idle",
+      "float",
+      "ambient"
+    ],
+    "heading": "Animation Concepts",
+    "demo": "float"
   }
 ]
