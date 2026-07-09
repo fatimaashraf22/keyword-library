@@ -196,6 +196,7 @@ body {
 .modal-body { padding: 18px 20px 22px; }
 .modal-body h2 { margin: 8px 0 6px; letter-spacing: -0.01em; }
 .modal-body p { color: var(--muted); margin: 0 0 14px; }
+.sample-prompt-label { color: var(--accent); font-weight: 600; }
 .badge {
   display: inline-block; background: var(--surface-2); color: var(--accent);
   padding: 3px 10px; border-radius: 999px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em;

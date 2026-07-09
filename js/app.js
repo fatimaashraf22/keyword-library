@@ -141,6 +141,14 @@ function ext(path) {
   return (path || "").split(".").pop().toLowerCase();
 }
 
+// Escape user text before dropping it into innerHTML.
+function escapeHTML(s) {
+  return (s || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
 const placeholder = (kw) => `<div class="placeholder">No media yet<br>${kw}</div>`;
 
 // Card view: lightweight. Local video/svg/gif auto-loop to show the motion at a
@@ -324,7 +332,21 @@ function openModal(entry) {
   $("#modal-category").textContent =
     categoryLabel(entry.category) + (entry.role ? ` · ${entry.role}` : "");
   $("#modal-keyword").textContent = entry.keyword;
-  $("#modal-note").textContent = entry.note || "";
+  // Description area: the note, then (if present) a "Types" list and a
+  // "Sample Prompt", each after a line break with a bold label. Built as HTML
+  // so labels can be bold; text is escaped so stray < > & can't break markup.
+  let noteHTML = escapeHTML(entry.note || "");
+  if (entry.types && entry.types.length) {
+    noteHTML +=
+      `<br><br><strong class="sample-prompt-label">Types</strong><br>` +
+      escapeHTML(entry.types.join(", "));
+  }
+  if (entry.prompt) {
+    noteHTML +=
+      `<br><br><strong class="sample-prompt-label">Sample Prompt</strong><br>` +
+      escapeHTML(entry.prompt);
+  }
+  $("#modal-note").innerHTML = noteHTML;
   $("#modal-tags").innerHTML = (entry.tags || []).map((t) => `<span>${t}</span>`).join("");
 
   const copyBtn = $("#modal-copy");

@@ -4,6 +4,7 @@
     "category": "cinematic",
     "media": "images/volumetric-lighting.jpg",
     "note": "God rays / light shafts cutting through atmosphere (fog, dust, haze). Adds depth and mood. Also called 'light shafts' or 'crepuscular rays'.",
+    "prompt": "A lone figure walking through a misty pine forest at dawn, thick god rays streaming between the trees, volumetric lighting, cinematic.",
     "tags": [
       "lighting",
       "atmosphere",
@@ -17,6 +18,7 @@
     "category": "cinematic",
     "media": "images/rim-lighting.jpg",
     "note": "A bright outline of light along the edge of a subject, separating it from the background. Great for portraits and hero shots.",
+    "prompt": "A leather-jacketed motorcyclist standing against a dark warehouse, a bright edge of rim lighting tracing his shoulders and hair, dramatic hero portrait.",
     "tags": [
       "lighting",
       "portrait",
@@ -30,6 +32,7 @@
     "category": "cinematic",
     "media": "images/chiaroscuro.jpg",
     "note": "Strong contrast between light and dark, deep shadows. Renaissance-painting drama. Use for moody, high-contrast scenes.",
+    "prompt": "An old man reading a letter by a single candle in a dark stone room, deep chiaroscuro shadows, Renaissance-painting drama.",
     "tags": [
       "lighting",
       "contrast",
@@ -43,6 +46,7 @@
     "category": "cinematic",
     "media": "images/tilt-shift.jpg",
     "note": "Shallow selective focus that makes real scenes look like tiny miniatures. Blurs top and bottom, sharp middle band.",
+    "prompt": "Top-down view of a busy intersection, tilt-shift focus making the cars and people look like tiny toy miniatures.",
     "tags": [
       "lens",
       "miniature",
@@ -56,6 +60,7 @@
     "category": "cinematic",
     "media": "images/bokeh.jpg",
     "note": "Soft out-of-focus background with rounded light blobs. Signals a wide aperture / shallow depth of field.",
+    "prompt": "Night portrait of a woman on a city street, glowing signs melting into soft round bokeh behind her, shallow depth of field.",
     "tags": [
       "lens",
       "depth of field",
@@ -69,6 +74,7 @@
     "category": "styles",
     "media": "images/claymation.jpg",
     "note": "Stop-motion clay look — sculpted, matte, slightly imperfect surfaces. Gothic clay leans dark and Tim-Burton-ish.",
+    "prompt": "A lonely gothic clay figure with stitched button eyes standing in a crooked graveyard, matte sculpted claymation surfaces, Tim-Burton mood.",
     "tags": [
       "style",
       "claymation",
@@ -82,6 +88,7 @@
     "category": "styles",
     "media": "images/photorealistic.jpg",
     "note": "Looks like a real photograph — accurate light, texture, and detail. Opposite of stylized/illustrated.",
+    "prompt": "A weathered fisherman's hands holding a fresh-caught trout by a river, every scale and wrinkle sharp, photorealistic, natural daylight.",
     "tags": [
       "style",
       "realistic",
@@ -94,6 +101,7 @@
     "category": "styles",
     "media": "images/steampunk.jpg",
     "note": "Victorian-era tech aesthetic: brass, gears, steam, cogs, leather. Retro-futuristic.",
+    "prompt": "An inventor's workshop crammed with brass gears, copper pipes and hissing steam valves, a leather-clad engineer at the bench, steampunk retro-futurism.",
     "tags": [
       "style",
       "retro-futuristic",
@@ -106,6 +114,7 @@
     "category": "styles",
     "media": "images/cyberpunk.jpg",
     "note": "Neon-lit dystopian future — high tech, low life. Rain, holograms, saturated pinks/blues/purples.",
+    "prompt": "A rain-soaked neon alley at night, holographic ads glowing pink and blue, a hooded figure lit by flickering signage, cyberpunk dystopia.",
     "tags": [
       "style",
       "neon",
@@ -119,6 +128,7 @@
     "category": "styles",
     "media": "images/cinematic.jpg",
     "note": "Film-still look: dramatic lighting, wide aspect feel, color grading, depth. Reads like a movie frame.",
+    "prompt": "A detective standing in a dim rain-streaked doorway, moody color grading and shallow depth, wide film-frame composition, cinematic still.",
     "tags": [
       "style",
       "film",
@@ -131,6 +141,7 @@
     "category": "styles",
     "media": "images/old-cartoon.jpg",
     "note": "Vintage hand-drawn animation style — 1930s–50s rubber-hose cartoons, aged paper feel.",
+    "prompt": "A grinning rubber-hose character dancing on a wobbly fence, 1930s hand-drawn animation on aged flickering paper, vintage cartoon.",
     "tags": [
       "style",
       "cartoon",
@@ -144,6 +155,7 @@
     "category": "styles",
     "media": "",
     "note": "Bold flat colors, halftone dots, comic outlines. Warhol / Lichtenstein energy.",
+    "prompt": "A woman gasping in surprise rendered in bold flat colors with thick comic outlines and halftone dots, Warhol-Lichtenstein pop art.",
     "tags": [
       "style",
       "bold",
@@ -157,6 +169,7 @@
     "category": "styles",
     "media": "",
     "note": "Dreamlike, impossible juxtapositions and melting logic. Think Dalí.",
+    "prompt": "A giant clock melting over a bare desert tree while fish float through a violet sky, dreamlike impossible juxtaposition, surrealism.",
     "tags": [
       "style",
       "dreamlike",
@@ -169,6 +182,7 @@
     "category": "styles",
     "media": "",
     "note": "Loose visible brushstrokes, soft edges, emphasis on light and atmosphere over detail. Monet-style.",
+    "prompt": "A sunlit garden of poppies by a pond, loose visible brushstrokes and soft edges capturing shimmering light, impressionism, Monet-style.",
     "tags": [
       "style",
       "painterly",
@@ -181,6 +195,7 @@
     "category": "styles",
     "media": "images/street-art.jpg",
     "note": "Spray-paint, stencils, bold urban lettering and murals. Banksy / wildstyle energy.",
+    "prompt": "A crumbling brick wall covered in a vivid wildstyle mural and stencil tags, spray-paint drips and bold urban lettering, street art.",
     "tags": [
       "style",
       "urban",
@@ -193,6 +208,7 @@
     "category": "styles",
     "media": "images/comic-style.jpg",
     "note": "Ink outlines, cel shading, panels and action lines. Graphic-novel / comic-book look.",
+    "prompt": "A superhero mid-punch bursting through a wall, ink outlines, cel shading, dynamic action lines and a halftone sky, comic-book style.",
     "tags": [
       "style",
       "ink",
@@ -205,6 +221,7 @@
     "category": "cinematic",
     "media": "images/portrait-shot.jpg",
     "note": "Framed on a person, usually head-and-shoulders, subject-focused with flattering light.",
+    "prompt": "A head-and-shoulders portrait shot of a young woman with freckles, soft flattering window light, sharp eyes, blurred background.",
     "tags": [
       "style",
       "portrait",
@@ -217,6 +234,7 @@
     "category": "styles",
     "media": "images/oil-painting.jpg",
     "note": "Thick textured brushwork, canvas grain, rich blended color. Classic fine-art medium.",
+    "prompt": "A bowl of ripe peaches on a linen cloth, thick textured brushwork and visible canvas grain, rich blended color, oil painting on canvas.",
     "tags": [
       "style",
       "painterly",
@@ -229,6 +247,7 @@
     "category": "styles",
     "media": "images/90s-anime.jpg",
     "note": "Retro cel animation — grainy film, muted palette, hand-painted backgrounds. Nostalgic anime look.",
+    "prompt": "A schoolgirl waiting at a quiet train platform at dusk, grainy cel animation, muted palette and hand-painted background, 90s anime aesthetic.",
     "tags": [
       "style",
       "anime",
@@ -242,6 +261,7 @@
     "category": "styles",
     "media": "images/retro.jpg",
     "note": "Deliberately old-fashioned styling from past decades — colors, type, and textures of the era.",
+    "prompt": "A sunlit 1970s diner with pastel booths, chrome trim and period typography on the menu board, warm retro styling and colors.",
     "tags": [
       "style",
       "vintage",
@@ -254,6 +274,7 @@
     "category": "styles",
     "media": "images/vintage.jpg",
     "note": "Aged, faded, film-grain look — like an old photograph or print. Warm, worn tones.",
+    "prompt": "A couple laughing on a beach boardwalk, faded warm tones, film grain and soft light leaks like an old snapshot, vintage photograph.",
     "tags": [
       "style",
       "aged",
@@ -266,6 +287,7 @@
     "category": "cinematic",
     "media": "images/eye-level.jpg",
     "note": "Camera angle: neutral, straight-on at the subject's eye height. Natural and balanced.",
+    "prompt": "A barista handing over a coffee cup, camera at neutral eye level straight across the counter, balanced natural framing.",
     "tags": [
       "camera angle",
       "neutral"
@@ -277,6 +299,7 @@
     "category": "cinematic",
     "media": "images/extreme-closeup.jpg",
     "note": "Camera angle: fills the frame with a small detail (e.g. an eye). Intense and intimate.",
+    "prompt": "An extreme closeup filling the frame with a single human eye, an entire cityscape reflected in the iris, intense and intimate.",
     "tags": [
       "camera angle",
       "closeup",
@@ -289,6 +312,7 @@
     "category": "cinematic",
     "media": "images/closeup.jpg",
     "note": "Camera angle: tight on the subject (e.g. a face). Emphasizes emotion and detail.",
+    "prompt": "A closeup of a tearful woman's face lit by soft light, emotion and skin detail emphasized, blurred background.",
     "tags": [
       "camera angle",
       "closeup"
@@ -300,6 +324,7 @@
     "category": "cinematic",
     "media": "images/medium-shot.jpg",
     "note": "Camera angle: subject framed roughly waist-up. Balanced between subject and setting.",
+    "prompt": "A medium shot of a chef framed from the waist up plating a dish, kitchen softly visible behind, balanced subject and setting.",
     "tags": [
       "camera angle",
       "waist up"
@@ -311,6 +336,7 @@
     "category": "cinematic",
     "media": "images/long-shot.jpg",
     "note": "Camera angle: full body of the subject visible within the scene.",
+    "prompt": "A long shot of a lone hiker's full body on a rocky ridge, the mountain landscape spread around them, scale established.",
     "tags": [
       "camera angle",
       "full body"
@@ -322,6 +348,7 @@
     "category": "cinematic",
     "media": "images/wide-shot.jpg",
     "note": "Camera angle: subject is small within a broad environment. Establishes place and scale.",
+    "prompt": "A wide shot of a tiny figure crossing a vast salt flat under a huge sky, establishing scale and place.",
     "tags": [
       "camera angle",
       "establishing"
@@ -333,6 +360,7 @@
     "category": "cinematic",
     "media": "images/birds-eye-view.jpg",
     "note": "Camera angle: looking straight down from far above the subject.",
+    "prompt": "A bird's-eye view looking straight down on a winding coastal road, cars like specks tracing the cliff edge below.",
     "tags": [
       "camera angle",
       "top-down",
@@ -345,6 +373,7 @@
     "category": "cinematic",
     "media": "images/worms-eye-view.jpg",
     "note": "Camera angle: looking up from ground level. Makes subjects tower and feel powerful.",
+    "prompt": "A worm's-eye view looking up from the pavement at a towering skyscraper, its glass walls converging into the sky, powerful and imposing.",
     "tags": [
       "camera angle",
       "low angle",
@@ -357,6 +386,7 @@
     "category": "cinematic",
     "media": "images/pov-shot.jpg",
     "note": "Camera angle: the view as seen through the subject's own eyes. First-person perspective.",
+    "prompt": "A POV shot from a climber's own eyes, gloved hands gripping the rock face and the valley falling away far below, first-person.",
     "tags": [
       "camera angle",
       "first person"
@@ -368,6 +398,7 @@
     "category": "cinematic",
     "media": "images/side-shot.jpg",
     "note": "Camera angle: profile framing, looking at the subject from the side.",
+    "prompt": "A side profile shot of a runner mid-stride on an empty road at dawn, framed cleanly from the side, long shadow trailing.",
     "tags": [
       "camera angle",
       "profile"
@@ -379,6 +410,7 @@
     "category": "cinematic",
     "media": "images/front-shot.jpg",
     "note": "Camera angle: head-on framing, looking straight at the front of the subject.",
+    "prompt": "A head-on front shot of a confident businesswoman facing the camera straight on, symmetrical framing, soft studio light.",
     "tags": [
       "camera angle",
       "frontal"
@@ -390,6 +422,7 @@
     "category": "cinematic",
     "media": "images/fisheye-lens.jpg",
     "note": "Ultra-wide lens with strong bulging distortion — curved edges, exaggerated depth.",
+    "prompt": "A skateboarder mid-trick shot on a fisheye lens, curved bulging edges and exaggerated depth warping the skatepark around them.",
     "tags": [
       "lens",
       "wide angle",
@@ -402,6 +435,7 @@
     "category": "cinematic",
     "media": "images/centered-symmetrical.jpg",
     "note": "Placement: subject dead-center with balanced, mirror-like composition. Formal and striking.",
+    "prompt": "A grand hotel lobby shot dead-center with a mirror-balanced staircase on each side, formal symmetrical composition, striking.",
     "tags": [
       "placement",
       "composition",
@@ -414,6 +448,7 @@
     "category": "cinematic",
     "media": "images/rule-of-thirds.jpg",
     "note": "Placement: subject on a third-line/intersection rather than center. Natural, dynamic balance.",
+    "prompt": "A sailboat placed on the lower-left third of the frame against an open sky, rule-of-thirds composition, natural dynamic balance.",
     "tags": [
       "placement",
       "composition"
@@ -425,6 +460,7 @@
     "category": "cinematic",
     "media": "images/golden-hour.jpg",
     "note": "Lighting: warm, soft, low-angle sunlight just after sunrise / before sunset. Long shadows, glow.",
+    "prompt": "A couple walking a wheat field bathed in warm low sun just before sunset, long golden shadows and a soft glow, golden hour.",
     "tags": [
       "lighting",
       "warm",
@@ -437,6 +473,7 @@
     "category": "cinematic",
     "media": "images/cold-light.jpg",
     "note": "Lighting: a bluish, cool color temperature. Feels clinical, calm, or eerie.",
+    "prompt": "A lone doctor in an empty hospital corridor under bluish fluorescent tubes, cool clinical cold light, calm and eerie.",
     "tags": [
       "lighting",
       "color temperature",
@@ -449,6 +486,7 @@
     "category": "cinematic",
     "media": "images/warm-light.jpg",
     "note": "Lighting: a golden, warm color temperature. Feels cozy, inviting, or nostalgic.",
+    "prompt": "A cozy reading nook lit by a golden table lamp on a rainy evening, warm inviting light, nostalgic mood.",
     "tags": [
       "lighting",
       "color temperature",
@@ -461,6 +499,7 @@
     "category": "cinematic",
     "media": "images/high-key.jpg",
     "note": "Lighting: bright, low-contrast, few shadows. Clean, airy, upbeat feel.",
+    "prompt": "A smiling mother and baby in a bright white studio, airy low-contrast high-key lighting with almost no shadows, clean and upbeat.",
     "tags": [
       "lighting",
       "bright",
@@ -473,6 +512,7 @@
     "category": "cinematic",
     "media": "images/low-key.jpg",
     "note": "Lighting: dark, high-contrast, deep shadows so the subject stands out. Moody and dramatic.",
+    "prompt": "A jazz singer at a microphone emerging from near-total darkness, one hard light and deep shadows, moody low-key lighting.",
     "tags": [
       "lighting",
       "dark",
@@ -486,6 +526,7 @@
     "category": "cinematic",
     "media": "images/rembrandt-lighting.jpg",
     "note": "Lighting (portrait): one side of the face lit, the other in shadow with a small triangle of light on the cheek.",
+    "prompt": "A studio portrait of a bearded man, one side of his face lit with a small triangle of light on the shadowed cheek, Rembrandt lighting.",
     "tags": [
       "lighting",
       "portrait",
@@ -498,6 +539,7 @@
     "category": "cinematic",
     "media": "images/cinematic-rim-lighting.jpg",
     "note": "Lighting (portrait): a bright film-style edge of light outlining the subject against a dark background.",
+    "prompt": "A soldier silhouetted against a dark battlefield, a bright film-style edge of light outlining his body, cinematic rim lighting.",
     "tags": [
       "lighting",
       "portrait",
@@ -511,6 +553,7 @@
     "category": "cinematic",
     "media": "images/monochrome.jpg",
     "note": "Color palette: a single hue (or black & white) in varying shades. Unified and moody.",
+    "prompt": "A rain-slicked city street rendered entirely in shades of deep blue, a single hue monochrome palette, unified and moody.",
     "tags": [
       "color",
       "single hue",
@@ -523,6 +566,7 @@
     "category": "cinematic",
     "media": "images/technicolor.jpg",
     "note": "Color palette: hyper-saturated, vivid old-Hollywood color. Bold and punchy.",
+    "prompt": "A 1950s musical dance number on a grand staircase, hyper-saturated vivid old-Hollywood technicolor, bold and punchy.",
     "tags": [
       "color",
       "saturated",
@@ -535,6 +579,7 @@
     "category": "styles",
     "media": "",
     "note": "Specific artist: gothic, whimsical, spindly characters, dark fairy-tale mood.",
+    "prompt": "A spindly wide-eyed girl in a swirling dark forest of twisted bare trees, gothic whimsical dark fairy-tale mood, Tim Burton style.",
     "tags": [
       "artist",
       "gothic",
@@ -547,6 +592,7 @@
     "category": "styles",
     "media": "images/picasso.jpg",
     "note": "Specific artist: cubism — fragmented geometric forms, multiple viewpoints at once.",
+    "prompt": "A woman's face fragmented into geometric planes showing several viewpoints at once, bold flat color, cubism, Picasso style.",
     "tags": [
       "artist",
       "cubism",
@@ -559,6 +605,7 @@
     "category": "styles",
     "media": "",
     "note": "Specific artist: thick swirling expressive brushstrokes, vivid emotional color.",
+    "prompt": "A moonlit village under a swirling starry sky, thick expressive impasto brushstrokes and vivid emotional color, Van Gogh style.",
     "tags": [
       "artist",
       "post-impressionism",
@@ -571,6 +618,7 @@
     "category": "styles",
     "media": "",
     "note": "Specific artist: lush hand-painted anime — soft skies, detailed nature, gentle nostalgia.",
+    "prompt": "A child running through a lush green hillside toward a lone tree under soft painted skies, gentle nostalgia, Studio Ghibli style.",
     "tags": [
       "artist",
       "anime",
@@ -583,6 +631,7 @@
     "category": "styles",
     "media": "",
     "note": "Specific artist: surrealism — melting forms, dreamlike impossible landscapes.",
+    "prompt": "A barren dreamscape with melting clocks draped over rocks and impossibly long shadows at dusk, surrealism, Dalí style.",
     "tags": [
       "artist",
       "surrealism",
@@ -595,6 +644,7 @@
     "category": "styles",
     "media": "images/monet.jpg",
     "note": "Specific artist: impressionism — soft light, water, gardens, loose dappled brushwork.",
+    "prompt": "A lily-covered pond crossed by a green footbridge in dappled morning light, soft loose brushwork, impressionism, Monet style.",
     "tags": [
       "artist",
       "impressionism",
@@ -607,6 +657,7 @@
     "category": "styles",
     "media": "images/baroque.jpg",
     "note": "Specific style/era: dramatic, ornate, high-contrast 17th-century grandeur and movement.",
+    "prompt": "An opulent 17th-century banquet hall with dramatic diagonal light, swirling fabrics and gilded ornament, ornate baroque grandeur.",
     "tags": [
       "artist",
       "era",
@@ -620,6 +671,7 @@
     "category": "styles",
     "media": "",
     "note": "Specific style/era: emotional, sublime nature, dramatic skies and awe. 19th-century.",
+    "prompt": "A lone traveler on a cliff facing a vast stormy sea and towering clouds, sublime awe and emotion, 19th-century romanticism.",
     "tags": [
       "artist",
       "era",
@@ -633,6 +685,7 @@
     "category": "cinematic",
     "media": "",
     "note": "Background and foreground layers move at different speeds to create a sense of depth as the scene pans or scrolls.",
+    "prompt": "Animate a landscape scene with three layers (background clouds, midground hills, foreground grass) moving at 0.2x, 0.5x, and 1x scroll speed for depth.",
     "tags": [
       "camera",
       "depth",
@@ -646,6 +699,7 @@
     "category": "cinematic",
     "media": "",
     "note": "Camera pushes in while zooming out (or vice versa) so the subject stays the same size but the background warps. The 'Vertigo' effect.",
+    "prompt": "Animate a dolly zoom on a subject: push the camera in while zooming the lens out over 3s so the subject stays fixed and the background warps.",
     "tags": [
       "camera",
       "cinematic",
@@ -659,6 +713,7 @@
     "category": "cinematic",
     "media": "",
     "note": "A transition where a shape, motion, or composition in one shot lines up with the next, making the cut feel seamless.",
+    "prompt": "Cut between two shots where a round clock in the first frame aligns exactly with a full moon in the second, making the transition seamless.",
     "tags": [
       "transition",
       "editing",
@@ -671,6 +726,7 @@
     "category": "cinematic",
     "media": "",
     "note": "One object smoothly transforms into another, warping shape and texture between them.",
+    "prompt": "Animate a morph transition where an apple smoothly warps its shape and texture into a globe over 1.2s, easing power2.inOut.",
     "tags": [
       "transition",
       "warp",
@@ -707,6 +763,7 @@
     "category": "ui",
     "media": "",
     "note": "An SVG path animates as if it's being drawn by a pen (animate stroke-dashoffset from full length to 0). Classic line-art reveal.",
+    "prompt": "Animate an SVG signature path with stroke-dasharray set to its full length, tweening stroke-dashoffset from that length to 0 over 1.5s, ease power1.inOut.",
     "tags": [
       "path",
       "reveal",
@@ -721,6 +778,7 @@
     "category": "ui",
     "media": "",
     "note": "A group of elements animate in one after another with a small delay between each, instead of all at once. Feels lively and intentional.",
+    "prompt": "Animate a grid of eight cards fading up 24px into view, staggered 90ms apart, ease power2.out, triggered on scroll.",
     "tags": [
       "timing",
       "sequence",
@@ -735,6 +793,7 @@
     "category": "ui",
     "media": "",
     "note": "One SVG shape smoothly interpolates into another by animating its path 'd' data. Icon-to-icon transitions, play/pause toggles.",
+    "prompt": "Animate an SVG play icon morphing into a pause icon by interpolating the path 'd' data over 300ms on click, ease power2.inOut.",
     "tags": [
       "path",
       "shapeshift",
@@ -749,6 +808,15 @@
     "category": "ui",
     "media": "",
     "note": "A prebuilt timeline that plays on mouse-enter and reverses on mouse-leave — e.g. a tooltip or dialogue that pops up when you hover an element and tucks away when you leave. Same animation driven forward and backward from interaction events.",
+    "prompt": "Build a tooltip that plays a 200ms fade-and-rise timeline on mouse-enter and reverses it on mouse-leave, driven from a single reversible GSAP timeline.",
+    "types": [
+      "Tooltip",
+      "Image caption overlay",
+      "Dropdown / flyout menu",
+      "Card lift & detail",
+      "Underline / link effect",
+      "Icon-to-label expand"
+    ],
     "tags": [
       "interaction",
       "hover",
@@ -764,6 +832,7 @@
     "category": "motion",
     "media": "images/tween.png",
     "note": "The basic building block of GSAP: a single animation that moves one or more properties (position, opacity, scale, etc.) from a start value to an end value over a set duration.",
+    "prompt": "Create a GSAP tween moving a box from x:0 to x:300 and opacity 0 to 1 over 0.8s with ease power2.out.",
     "tags": [
       "gsap",
       "basics",
@@ -777,6 +846,7 @@
     "category": "motion",
     "media": "images/timeline.png",
     "note": "A container that lines up multiple tweens in sequence (or overlapping), so you can control a whole group of animations together — play, pause, reverse, or scrub all at once.",
+    "prompt": "Build a GSAP timeline sequencing three tweens (logo fade-in, then title slide-up, then button pop) so the whole group can play, pause, and reverse together.",
     "tags": [
       "gsap",
       "sequencing",
@@ -790,6 +860,7 @@
     "category": "motion",
     "media": "images/easing.png",
     "note": "Controls the 'rhythm' of a tween — whether it speeds up, slows down, or moves at a constant rate. This is what makes motion feel natural instead of robotic.",
+    "prompt": "Animate the same box across the screen three times comparing ease none, power2.out, and power4.inOut to show how easing changes the feel.",
     "tags": [
       "gsap",
       "timing",
@@ -803,6 +874,7 @@
     "category": "motion",
     "media": "images/stagger.png",
     "note": "Applies a small delay between animations on a group of elements, so they animate one after another instead of all at once — e.g. list items fading in top to bottom.",
+    "prompt": "Animate a vertical list of six items fading in from y:20, staggered 0.1s apart top to bottom, ease power1.out.",
     "tags": [
       "gsap",
       "sequencing",
@@ -817,6 +889,7 @@
     "category": "motion",
     "media": "images/scrolltrigger.png",
     "note": "A GSAP plugin that ties animations to scrolling — trigger, scrub, pin, or snap an animation based on where the user has scrolled on the page.",
+    "prompt": "Use GSAP ScrollTrigger to scrub a hero image's scale from 1 to 1.3 as the user scrolls through its section, with pin enabled.",
     "tags": [
       "gsap",
       "plugin",
@@ -830,6 +903,7 @@
     "category": "motion",
     "media": "images/elastic-ease.png",
     "note": "An easing style that makes an animation overshoot its target and spring back, like a rubber band — springy and playful.",
+    "prompt": "Animate a button scaling from 0 to 1 with ease elastic.out(1, 0.3) over 1s so it overshoots and springs back like a rubber band.",
     "tags": [
       "gsap",
       "easing",
@@ -843,6 +917,7 @@
     "category": "motion",
     "media": "images/bounce-ease.png",
     "note": "An easing style that makes an element rebound like a dropped ball settling into place, instead of stopping abruptly.",
+    "prompt": "Animate a ball dropping from y:-200 to y:0 with ease bounce.out over 1.2s so it rebounds and settles like a dropped ball.",
     "tags": [
       "gsap",
       "easing",
@@ -856,6 +931,7 @@
     "category": "motion",
     "media": "images/back-ease.png",
     "note": "An easing style where the animation pulls back slightly before moving forward to its destination — like winding up before a throw.",
+    "prompt": "Animate a card sliding up from y:60 to y:0 with ease back.out(1.7) so it pulls back slightly before settling into place.",
     "tags": [
       "gsap",
       "easing",
@@ -869,6 +945,7 @@
     "category": "motion",
     "media": "images/keyframes-gsap.png",
     "note": "A way to define several animation states at specific points in time within one tween, instead of writing separate tweens for each step.",
+    "prompt": "Animate one element through several states in a single tween using GSAP keyframes: move right, then up, then scale to 1.2, each step 0.4s.",
     "tags": [
       "gsap",
       "sequencing",
@@ -882,6 +959,7 @@
     "category": "motion",
     "media": "images/from-fromto.png",
     "note": "Ways of writing a tween: 'from' animates FROM a given state to the element's current state; 'fromTo' explicitly sets both the start and end states.",
+    "prompt": "Animate a headline into place with gsap.from (y:40, opacity:0, 0.6s) and a logo with gsap.fromTo setting explicit start and end states.",
     "tags": [
       "gsap",
       "basics",
@@ -895,6 +973,7 @@
     "category": "motion",
     "media": "images/kinetic-typography.png",
     "note": "Text as the animation itself — words that move, scale, rotate, or fly in/out to add energy and emphasis to a message.",
+    "prompt": "Animate the words 'BOLD IDEAS' flying in, scaling and rotating on the beat so the moving text itself carries the energy, kinetic typography.",
     "tags": [
       "motion graphics",
       "text",
@@ -908,6 +987,7 @@
     "category": "motion",
     "media": "",
     "note": "A small graphic showing one number or KPI that animates by counting up to its final value (e.g. '95% faster').",
+    "prompt": "Build a stat card that counts a number up from 0 to 95% over 1.5s with ease power2.out, then adds a subtle pop on the final value.",
     "tags": [
       "motion graphics",
       "data",
@@ -922,6 +1002,7 @@
     "category": "motion",
     "media": "",
     "note": "Animated bar, line, or pie graphs where the data visually builds in — bars grow, lines draw across.",
+    "prompt": "Animate a bar chart where each bar grows from 0 to its value over 0.8s, staggered 0.1s apart, ease power2.out, as it scrolls into view.",
     "tags": [
       "motion graphics",
       "data",
@@ -936,6 +1017,7 @@
     "category": "motion",
     "media": "",
     "note": "A short animated intro or outro where a brand's logo assembles, appears, or exits with motion.",
+    "prompt": "Build a 2s logo reveal where the mark draws on via stroke, the wordmark fades up staggered, then the whole lockup settles with a soft scale.",
     "tags": [
       "motion graphics",
       "branding",
@@ -950,6 +1032,7 @@
     "category": "motion",
     "media": "",
     "note": "The banner near the bottom of the screen that identifies a speaker — usually their name and title.",
+    "prompt": "Build a lower-third banner that slides in from the left over 0.5s showing a name and title, holds 4s, then slides back out.",
     "tags": [
       "motion graphics",
       "overlay",
@@ -964,6 +1047,7 @@
     "category": "motion",
     "media": "",
     "note": "A label or arrow that points at something on screen to highlight or explain it.",
+    "prompt": "Animate a callout label with a pointing arrow drawing on toward a UI element over 0.4s, then a gentle pulse to hold attention.",
     "tags": [
       "motion graphics",
       "overlay",
@@ -978,6 +1062,7 @@
     "category": "motion",
     "media": "",
     "note": "A bar or ring that visually fills up to show how much of something is complete.",
+    "prompt": "Build a progress bar that fills from 0 to 100% width over 2s with ease power1.inOut, with the percentage label counting up in sync.",
     "tags": [
       "motion graphics",
       "indicator",
@@ -992,6 +1077,7 @@
     "category": "motion",
     "media": "",
     "note": "An animated sequence of dated or ordered events, often shown as a horizontal history strip.",
+    "prompt": "Build a horizontal history timeline where dated event nodes reveal left to right, staggered 0.3s apart, the connecting line drawing on between them.",
     "tags": [
       "motion graphics",
       "sequence",
@@ -1006,6 +1092,7 @@
     "category": "motion",
     "media": "",
     "note": "Animated audio bars or a wavy line that pulse and react in time with sound — the classic voice/music visualizer look.",
+    "prompt": "Build a live audio waveform of vertical bars whose heights animate randomly in a loop to simulate reacting to sound, ease sine.inOut.",
     "tags": [
       "motion graphics",
       "audio",
@@ -1020,6 +1107,7 @@
     "category": "motion",
     "media": "",
     "note": "An element appears by scaling up from tiny (or zero) to full size — often with a little springy overshoot.",
+    "prompt": "Animate an element scaling from 0 to 1 with ease back.out(2) over 0.5s so it pops in with a springy overshoot.",
     "tags": [
       "motion",
       "entrance",
@@ -1034,6 +1122,7 @@
     "category": "motion",
     "media": "",
     "note": "An element glides onto the screen from an edge — left, right, top, or bottom.",
+    "prompt": "Animate a card sliding in from the right, x from 120 to 0 and opacity 0 to 1 over 0.5s, ease power3.out.",
     "tags": [
       "motion",
       "entrance",
@@ -1048,6 +1137,7 @@
     "category": "motion",
     "media": "",
     "note": "An element appears by going from fully transparent to fully visible. The gentlest entrance.",
+    "prompt": "Animate an element from opacity 0 to 1 over 0.6s with ease power1.out for the gentlest entrance.",
     "tags": [
       "motion",
       "entrance",
@@ -1062,6 +1152,7 @@
     "category": "motion",
     "media": "",
     "note": "One element sweeps across the screen to reveal or replace another, like a hand wiping a surface clean.",
+    "prompt": "Animate a colored panel sweeping across the frame from left to right over 0.6s to reveal the content behind it, ease power2.inOut.",
     "tags": [
       "motion",
       "transition",
@@ -1076,6 +1167,7 @@
     "category": "motion",
     "media": "",
     "note": "Something hidden is uncovered — e.g. text unmasking or a shape opening up to show what's behind it.",
+    "prompt": "Animate a headline uncovered by a clip-path mask opening upward over 0.7s, ease power3.out, so the text unmasks into view.",
     "tags": [
       "motion",
       "entrance",
@@ -1090,6 +1182,7 @@
     "category": "motion",
     "media": "",
     "note": "A still beat with no motion, giving the viewer a moment to read or absorb what's on screen before the next move.",
+    "prompt": "Add a 1.5s hold with no motion after a title lands, giving the viewer time to read before the next animation begins.",
     "tags": [
       "motion",
       "pacing",
@@ -1103,6 +1196,7 @@
     "category": "motion",
     "media": "",
     "note": "A number animating from a starting value up to its final value, used to make a stat feel earned rather than static.",
+    "prompt": "Animate a number counting from 0 up to 1,240 over 2s with ease power2.out, formatted with a thousands separator.",
     "tags": [
       "motion",
       "data",
@@ -1116,6 +1210,7 @@
     "category": "motion",
     "media": "",
     "note": "One element scales out at the same time another scales in to take its place — a smooth substitution instead of a hard cut.",
+    "prompt": "Animate one icon scaling from 1 to 0 while the next scales 0 to 1 over 0.4s, overlapping so one smoothly replaces the other.",
     "tags": [
       "motion",
       "transition"
@@ -1129,6 +1224,7 @@
     "category": "motion",
     "media": "",
     "note": "A fast, high-impact entrance where an element overshoots and snaps into place with force.",
+    "prompt": "Animate a word slamming in from scale 2 and opacity 0 down to scale 1 over 0.35s with ease power4.in, overshooting slightly on impact.",
     "tags": [
       "motion",
       "impact",
@@ -1143,6 +1239,7 @@
     "category": "motion",
     "media": "",
     "note": "Placing elements at different simulated depths (z-axis) instead of flat on one plane, so the scene feels dimensional.",
+    "prompt": "Position three layers at different z-depths and animate them with parallax on mouse-move so the scene feels dimensional, subtle rotation on tilt.",
     "tags": [
       "motion",
       "depth",
@@ -1156,6 +1253,7 @@
     "category": "motion",
     "media": "",
     "note": "Exporting a video with transparency built in, so it can be layered on top of other footage instead of having a solid background.",
+    "prompt": "Export the animation as a WebM or ProRes with an alpha channel so the moving graphic can be composited over other footage with no background.",
     "tags": [
       "motion",
       "export",
@@ -1169,6 +1267,7 @@
     "category": "motion",
     "media": "",
     "note": "An element disappears by going from fully visible to fully transparent. The gentlest exit.",
+    "prompt": "Animate an element from opacity 1 to 0 over 0.6s with ease power1.in for the gentlest exit.",
     "tags": [
       "motion",
       "exit",
@@ -1183,6 +1282,7 @@
     "category": "motion",
     "media": "",
     "note": "An element glides off the screen toward an edge — left, right, top, or bottom.",
+    "prompt": "Animate a panel sliding off to the left, x from 0 to -120 and opacity 1 to 0 over 0.5s, ease power3.in.",
     "tags": [
       "motion",
       "exit",
@@ -1197,6 +1297,7 @@
     "category": "motion",
     "media": "",
     "note": "An element shrinks down to tiny (or zero) until it disappears.",
+    "prompt": "Animate an element shrinking from scale 1 to 0 over 0.4s with ease back.in(1.7) until it disappears.",
     "tags": [
       "motion",
       "exit",
@@ -1211,6 +1312,7 @@
     "category": "motion",
     "media": "",
     "note": "An element rushes off-screen fast, often on an arc or with motion blur.",
+    "prompt": "Animate an element rushing off-screen on an upward arc with motion blur over 0.4s, ease power4.in, so it flies out fast.",
     "tags": [
       "motion",
       "exit",
@@ -1225,6 +1327,7 @@
     "category": "motion",
     "media": "",
     "note": "An element breaks apart into particles or grain as it leaves the screen.",
+    "prompt": "Animate an element breaking into drifting particles as its opacity fades to 0 over 0.8s, so it dissolves off the screen.",
     "tags": [
       "motion",
       "exit",
@@ -1239,6 +1342,7 @@
     "category": "motion",
     "media": "",
     "note": "One element fades out while the next fades in over the top, blending the two together.",
+    "prompt": "Animate one image to opacity 0 while the next goes 0 to 1 over 0.6s, overlapping so the two blend seamlessly.",
     "tags": [
       "motion",
       "transition",
@@ -1253,6 +1357,7 @@
     "category": "motion",
     "media": "",
     "note": "One element slides in and shoves the previous one off-screen in the same direction.",
+    "prompt": "Animate a new panel sliding in from the right while shoving the current one off to the left in sync over 0.5s, ease power2.inOut.",
     "tags": [
       "motion",
       "transition",
@@ -1267,6 +1372,7 @@
     "category": "motion",
     "media": "",
     "note": "The frame rotates in 3D like a card turning over to reveal the next element on its back.",
+    "prompt": "Animate a card rotating 180 degrees on the Y axis over 0.6s with ease power2.inOut to flip and reveal the content on its back.",
     "tags": [
       "motion",
       "transition",
@@ -1281,6 +1387,7 @@
     "category": "motion",
     "media": "",
     "note": "GSAP's default, most-used easing family (power1 up to power4 — the higher the number, the sharper the speed change). '.in' = starts slow then speeds up; '.out' = starts fast then slows to a stop; '.inOut' = slow–fast–slow. Compare with bounce, elastic, and back for more playful feels.",
+    "prompt": "Animate the same box three times with ease power1.out, power2.out, and power4.out to compare how the sharpness of the speed change differs.",
     "tags": [
       "gsap",
       "easing",
@@ -1295,6 +1402,7 @@
     "category": "motion",
     "media": "",
     "note": "The properties GSAP animates to move an element horizontally (x) or vertically (y) from its current spot. Positive x moves right, positive y moves down.",
+    "prompt": "Animate an element with GSAP x from 0 to 200 (moving right) and y from 0 to -80 (moving up) over 0.7s, ease power2.out.",
     "tags": [
       "gsap",
       "property",
@@ -1309,6 +1417,7 @@
     "category": "motion",
     "media": "",
     "note": "The property that grows or shrinks an element — scale 1 is normal size, above 1 zooms in, below 1 zooms out. Great for pop and emphasis.",
+    "prompt": "Animate a card scaling from 1 to 1.15 and back on hover over 0.3s, ease power2.out, for a subtle zoom emphasis.",
     "tags": [
       "gsap",
       "property",
@@ -1323,6 +1432,7 @@
     "category": "motion",
     "media": "",
     "note": "The property that spins an element, measured in degrees (360 = one full turn). Positive values turn clockwise.",
+    "prompt": "Animate an element rotating from 0 to 360 degrees clockwise over 1s with ease power1.inOut for a full spin.",
     "tags": [
       "gsap",
       "property",
@@ -1337,6 +1447,7 @@
     "category": "motion",
     "media": "",
     "note": "The property that controls how see-through an element is — 1 is fully visible, 0 is invisible. The basis of every fade.",
+    "prompt": "Animate an element's opacity from 0 to 1 over 0.5s, ease power1.out, as the basis of a simple fade.",
     "tags": [
       "gsap",
       "property",
@@ -1351,6 +1462,7 @@
     "category": "motion",
     "media": "",
     "note": "The pivot point an element scales or rotates around — its centre by default, but you can move it to a corner or edge so it swings from there instead.",
+    "prompt": "Animate a card rotating 8 degrees with transformOrigin set to bottom-left so it swings from that corner instead of its center.",
     "tags": [
       "gsap",
       "property",
@@ -1365,6 +1477,7 @@
     "category": "ui",
     "media": "",
     "note": "Text appears one character at a time as if being typed, often with a blinking cursor. Different from kinetic typography, where whole words move around.",
+    "prompt": "Build a typewriter effect that reveals a headline one character at a time at ~40ms per character, with a blinking cursor that keeps pulsing after.",
     "tags": [
       "ui component",
       "text",
@@ -1379,6 +1492,7 @@
     "category": "ui",
     "media": "",
     "note": "Heads-up-display overlays like in video games — corner readouts, targeting brackets, stats and meters floating over the scene. Futuristic, techy feel.",
+    "prompt": "Build a sci-fi HUD overlay with animated corner brackets, a rotating targeting reticle, and live-updating stat readouts over a dark scene.",
     "tags": [
       "ui component",
       "overlay",
@@ -1393,6 +1507,7 @@
     "category": "ui",
     "media": "",
     "note": "A messaging-style speech bubble, often shown typing out a reply — the familiar look of a chatbot or messaging app conversation.",
+    "prompt": "Build a chat bubble that shows an animated three-dot typing indicator for 1s, then types out the reply text character by character.",
     "tags": [
       "ui component",
       "chat",
@@ -1406,6 +1521,7 @@
     "category": "ui",
     "media": "",
     "note": "A command-line / code terminal window, usually dark with monospace text typing itself out line by line. Signals 'developer' or 'hacker' energy.",
+    "prompt": "Build a dark terminal window with a green monospace prompt that types out commands and prints output line by line, blinking cursor at the end.",
     "tags": [
       "ui component",
       "code",
@@ -1419,6 +1535,7 @@
     "category": "ui",
     "media": "",
     "note": "A small block of syntax-highlighted code shown on screen, sometimes animating in line by line. Good for developer-focused explainers.",
+    "prompt": "Build a syntax-highlighted code block on a dark card that reveals line by line, each line fading up 8px staggered 0.15s apart.",
     "tags": [
       "ui component",
       "code",
@@ -1432,6 +1549,7 @@
     "category": "ui",
     "media": "",
     "note": "A small alert card that slides or pops in from a corner — like a phone or app notification — then dismisses itself.",
+    "prompt": "Build a toast notification that slides in from the top-right over 0.4s with a subtle bounce, holds 3s, then slides back out.",
     "tags": [
       "ui component",
       "alert",
@@ -1445,6 +1563,7 @@
     "category": "ui",
     "media": "",
     "note": "A single self-contained info tile — a clock, weather, a mini stat — the kind of block you'd pin to a dashboard or home screen.",
+    "prompt": "Build a self-contained clock widget tile with rounded corners and soft shadow, its digits ticking and a gentle fade on each update.",
     "tags": [
       "ui component",
       "tile",
@@ -1458,6 +1577,7 @@
     "category": "ui",
     "media": "",
     "note": "A full screen of widgets, charts and stats arranged together — the 'control panel' look for showing data at a glance.",
+    "prompt": "Build a dashboard layout of stat cards, a line chart, and a data table, with each panel fading up 16px staggered 80ms apart on load.",
     "tags": [
       "ui component",
       "data",
@@ -1471,6 +1591,7 @@
     "category": "ui",
     "media": "",
     "note": "Multiple rounded cards laid out in an uneven grid of different sizes, like a bento lunchbox. A popular modern way to show features side by side.",
+    "prompt": "Build a bento grid of rounded cards in varied sizes, each scaling from 0.95 to 1 and fading in, staggered 70ms apart on scroll.",
     "tags": [
       "ui component",
       "layout",
@@ -1484,6 +1605,7 @@
     "category": "ui",
     "media": "",
     "note": "A mouse pointer that moves, hovers and clicks on screen to walk the viewer through an interface — the classic 'watch me click this' demo look.",
+    "prompt": "Animate a mouse cursor moving along a path to a button, pausing, then triggering a click ripple to walk the viewer through the interface.",
     "tags": [
       "ui component",
       "pointer",
@@ -1497,6 +1619,7 @@
     "category": "motion",
     "media": "",
     "note": "Lots of tiny dots, sparks or bits of dust that drift, burst or swirl — used for magic, energy, confetti or atmosphere.",
+    "prompt": "Build a burst of tiny glowing particles that scatter outward from a center point, drifting and fading over 1.5s, for a magical sparkle effect.",
     "tags": [
       "motion graphics",
       "particles",
@@ -1511,6 +1634,7 @@
     "category": "ui",
     "media": "",
     "note": "Simple symbols (a bell, a heart, a checkmark) that animate — drawing on, wiggling, or morphing — instead of sitting still.",
+    "prompt": "Animate a bell icon that draws on via stroke, then wiggles 10 degrees back and forth twice, ease elastic.out, on trigger.",
     "tags": [
       "ui component",
       "icon",
@@ -1524,6 +1648,7 @@
     "category": "ui",
     "media": "",
     "note": "A typewriter-style font where every letter is the same width (like code editors use). Reads as technical, coding, or retro-terminal.",
+    "prompt": "Style a block of text in a monospace font with slightly increased letter-spacing on a dark card for a technical, coding terminal feel.",
     "tags": [
       "ui component",
       "text",
@@ -1538,6 +1663,7 @@
     "category": "ui",
     "media": "",
     "note": "Crisp vector shapes, boxes and connecting lines that build a diagram or flowchart on screen, often drawing themselves in. Scales to any size without blurring.",
+    "prompt": "Build an SVG flowchart of three boxes joined by arrows that draws itself in — boxes fade up first, then connector lines animate stroke-dashoffset.",
     "tags": [
       "ui component",
       "svg",
@@ -1552,6 +1678,7 @@
     "category": "ui",
     "media": "",
     "note": "A card or panel that looks like frosted or liquid glass — semi-transparent with a blurred background showing through and a soft edge. Also called a frosted panel.",
+    "prompt": "Build a frosted-glass card: semi-transparent white, 16px backdrop blur, a soft 1px border, floating over a colorful blurred background.",
     "tags": [
       "ui style",
       "glass",
@@ -1566,6 +1693,7 @@
     "category": "ui",
     "media": "",
     "note": "A soft, same-colour look where buttons and cards appear gently pressed into or raised out of the background using subtle inner and outer shadows.",
+    "prompt": "Build a neumorphic button in the same color as its background, using a soft outer shadow and inner highlight so it looks gently raised, pressing inward on click.",
     "tags": [
       "ui style",
       "soft",
@@ -1580,6 +1708,7 @@
     "category": "ui",
     "media": "",
     "note": "A soft halo of light around an element or text, making it look like it's emitting light. Adds a premium, neon, or magical feel.",
+    "prompt": "Add a soft neon glow to a button using layered box-shadows in the accent color, pulsing the glow radius gently in a 2s loop.",
     "tags": [
       "ui style",
       "light",
@@ -1594,6 +1723,7 @@
     "category": "ui",
     "media": "",
     "note": "A background of several colours blended together in soft, cloud-like blobs — smooth and modern, no hard lines between the hues.",
+    "prompt": "Build a gradient-mesh background of three soft blurred color blobs (purple, blue, pink) blended smoothly with no hard edges, slowly drifting.",
     "tags": [
       "ui style",
       "gradient",
@@ -1608,6 +1738,7 @@
     "category": "ui",
     "media": "",
     "note": "A background where one colour fades smoothly into another along a straight line — top to bottom, side to side, or diagonally.",
+    "prompt": "Build a full-screen linear-gradient background fading from deep indigo at the top to warm pink at the bottom along a diagonal.",
     "tags": [
       "ui style",
       "gradient",
@@ -1622,6 +1753,7 @@
     "category": "ui",
     "media": "",
     "note": "A background where colour radiates out in circles from a centre point — bright in the middle fading outward (or the reverse). Good for spotlight or glow backdrops.",
+    "prompt": "Build a radial-gradient background glowing bright teal at the center and fading to near-black at the edges for a spotlight backdrop.",
     "tags": [
       "ui style",
       "gradient",
@@ -1636,6 +1768,7 @@
     "category": "ui",
     "media": "",
     "note": "Rough, sketchy lines and boxes that look drawn by hand with a marker — the wobbly, casual diagram style made popular by Excalidraw.",
+    "prompt": "Build a diagram with rough, wobbly hand-drawn box and arrow strokes in the Excalidraw style, slight jitter on the lines, casual marker feel.",
     "tags": [
       "ui style",
       "sketch",
@@ -1650,6 +1783,7 @@
     "category": "ui",
     "media": "",
     "note": "A small looping element — a spinning arc, ring, or dots — shown while something is loading, so the interface feels alive instead of frozen.",
+    "prompt": "Build a loading spinner as a single arc rotating 360 degrees in a continuous 1s linear loop, ease none.",
     "tags": [
       "ui component",
       "loading",
@@ -1664,6 +1798,7 @@
     "category": "ui",
     "media": "",
     "note": "A card that grows open on click to reveal more content, then collapses back. Smoother than jumping to a new screen — the context stays in place.",
+    "prompt": "Build a card that expands its height to reveal hidden content on click over 0.4s with ease power2.inOut, then collapses back on click.",
     "tags": [
       "ui motion",
       "expand",
@@ -1678,6 +1813,7 @@
     "category": "ui",
     "media": "",
     "note": "The tiny dip-and-spring a button does when clicked. A classic micro-interaction that makes a control feel physical and responsive.",
+    "prompt": "Add a micro-interaction where a button dips to scale 0.94 on press and springs back to 1 with ease back.out(3) over 0.2s.",
     "tags": [
       "ui motion",
       "micro-interaction",
@@ -1692,6 +1828,7 @@
     "category": "ui",
     "media": "",
     "note": "A side panel that slides in over a dimmed backdrop to show menus, settings, or details — then slides back out. Common on mobile and dashboards.",
+    "prompt": "Build a side drawer that slides in from the right over a dimmed backdrop in 0.35s, ease power3.out, and slides back out on close.",
     "tags": [
       "ui motion",
       "drawer",
@@ -1706,6 +1843,7 @@
     "category": "motion",
     "media": "",
     "note": "A moving object stretches and blurs in its direction of travel, the way fast motion smears on camera. Sells speed and weight instead of a stiff, robotic move.",
+    "prompt": "Animate an element flying across the frame with a directional motion blur that stretches along its travel, selling speed rather than a stiff move.",
     "tags": [
       "motion",
       "speed",
@@ -1720,6 +1858,7 @@
     "category": "motion",
     "media": "",
     "note": "A gentle up-and-down drift that keeps elements subtly alive even when nothing is happening — the 'floating UI' look for cards, badges, and 3D objects.",
+    "prompt": "Animate a card gently bobbing up and down 8px in a 3s loop with ease sine.inOut, yoyo repeat, for a subtle floating idle.",
     "tags": [
       "motion",
       "idle",
@@ -1734,6 +1873,7 @@
     "category": "motion",
     "media": "",
     "note": "Each letter animates on its own — moving, scaling, or rotating individually rather than the whole word acting as one block.",
+    "prompt": "Animate a headline where each letter individually rotates in from 90 degrees and fades up, staggered 40ms apart, ease back.out.",
     "tags": [
       "text",
       "typography",
@@ -1746,6 +1886,7 @@
     "category": "motion",
     "media": "",
     "note": "Words appear one after another in sequence, building the line as you read it — great for emphasising a message beat by beat.",
+    "prompt": "Animate a sentence revealing one word at a time, each fading up 12px, staggered 0.18s apart, ease power2.out.",
     "tags": [
       "text",
       "typography",
@@ -1759,6 +1900,7 @@
     "category": "motion",
     "media": "",
     "note": "Characters animate in with a small delay between each one, so the letters cascade in rather than all landing at once.",
+    "prompt": "Animate a word's letters cascading in from y:20 and opacity 0, staggered 50ms apart left to right, ease power2.out.",
     "tags": [
       "text",
       "typography",
@@ -1772,6 +1914,7 @@
     "category": "motion",
     "media": "",
     "note": "One word smoothly transforms into another word or shape, the letters bending and flowing between the two instead of cutting.",
+    "prompt": "Animate one word morphing into another by interpolating the letter shapes over 0.8s, ease power2.inOut, so the glyphs bend between the two.",
     "tags": [
       "text",
       "typography",
@@ -1785,6 +1928,7 @@
     "category": "motion",
     "media": "",
     "note": "Text is uncovered through a wipe, clipping mask, or moving shape — the letters seem to slide out from behind an edge.",
+    "prompt": "Animate a headline sliding up from behind a clipping mask over 0.7s, ease power4.out, so the letters appear to emerge from an edge.",
     "tags": [
       "text",
       "typography",
@@ -1798,6 +1942,7 @@
     "category": "motion",
     "media": "",
     "note": "Characters appear one at a time as if being typed, often with a blinking cursor — a classic for intros and terminal-style text.",
+    "prompt": "Build a typewriter effect typing out a line one character at a time at ~45ms each, with a blinking cursor that keeps pulsing at the end.",
     "tags": [
       "text",
       "typography",
@@ -1811,6 +1956,7 @@
     "category": "motion",
     "media": "",
     "note": "Letters flicker, shift, and distort with digital-glitch artefacts — RGB split, jitter, and static — for a broken-signal, cyber look.",
+    "prompt": "Animate a heading with a glitch effect: rapid RGB channel split, horizontal jitter, and flickering static bursts for a broken-signal cyber look.",
     "tags": [
       "text",
       "typography",
@@ -1824,6 +1970,7 @@
     "category": "motion",
     "media": "",
     "note": "A springy move that overshoots its target and wobbles back into place, giving elements a playful, rubbery feel. For the exact GSAP easings, see 'elastic ease' and 'bounce ease'.",
+    "prompt": "Animate an element into place with an elastic overshoot that wobbles and settles, ease elastic.out(1, 0.4) over 1s, for a playful rubbery feel.",
     "tags": [
       "motion",
       "spring",
