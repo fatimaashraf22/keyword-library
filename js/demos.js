@@ -247,6 +247,115 @@ window.KEYWORD_DEMOS = {
       .to(spans, { opacity: 0, scale: 1.5, duration: 0.35, stagger: 0.1, delay: 0.6 });
   },
 
+  // ---- Text Animation (live) ----
+
+  // Each letter animates in on its own — flipping up from its baseline.
+  "character-animation"(container) {
+    container.classList.add("demo-stage", "demo-textline");
+    const letters = "MOTION".split("").map((ch) => {
+      const s = document.createElement("span");
+      s.className = "tl-char";
+      s.textContent = ch;
+      container.appendChild(s);
+      return s;
+    });
+    gsap.set(letters, { transformOrigin: "50% 100%" });
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 0.7 })
+      .fromTo(
+        letters,
+        { rotationX: -95, y: 12, opacity: 0 },
+        { rotationX: 0, y: 0, opacity: 1, duration: 0.5, stagger: 0.09, ease: "back.out(2)" }
+      )
+      .to(letters, { y: -12, opacity: 0, duration: 0.35, stagger: 0.05, delay: 0.8 });
+  },
+
+  // A line built one word at a time, in reading order.
+  "word-by-word"(container) {
+    container.classList.add("demo-stage", "demo-textline");
+    const words = ["read", "it", "word", "by", "word"].map((w) => {
+      const s = document.createElement("span");
+      s.className = "tl-word";
+      s.textContent = w;
+      container.appendChild(s);
+      return s;
+    });
+    gsap.set(words, { opacity: 0, y: 12 });
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 0.7 })
+      .to(words, { opacity: 1, y: 0, duration: 0.4, stagger: 0.18, ease: "power2.out" })
+      .to(words, { opacity: 0, y: -12, duration: 0.35, stagger: 0.08, delay: 1 });
+  },
+
+  // Letters cascade in with a small delay between each.
+  "letter-stagger"(container) {
+    container.classList.add("demo-stage", "demo-textline");
+    const letters = "STAGGER".split("").map((ch) => {
+      const s = document.createElement("span");
+      s.className = "tl-char";
+      s.textContent = ch;
+      container.appendChild(s);
+      return s;
+    });
+    gsap.set(letters, { opacity: 0, y: 20 });
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 0.7 })
+      .to(letters, { opacity: 1, y: 0, duration: 0.4, stagger: 0.06, ease: "power2.out" })
+      .to(letters, { opacity: 0, y: 20, duration: 0.3, stagger: 0.04, delay: 1 });
+  },
+
+  // One word cross-dissolves into another — letters blurring between the two.
+  "text-morph"(container) {
+    container.classList.add("demo-stage");
+    container.innerHTML = `
+      <div class="morph-text">
+        <span class="mt-word mt-a">shape</span>
+        <span class="mt-word mt-b">motion</span>
+      </div>`;
+    const a = container.querySelector(".mt-a");
+    const b = container.querySelector(".mt-b");
+    gsap.set(b, { opacity: 0, filter: "blur(8px)", scale: 1.15 });
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 0.4 })
+      .to(a, { opacity: 0, filter: "blur(8px)", scale: 0.85, duration: 0.7, ease: "power2.inOut", delay: 0.6 })
+      .to(b, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.7, ease: "power2.inOut" }, "<")
+      .to(b, { opacity: 0, filter: "blur(8px)", scale: 0.85, duration: 0.7, ease: "power2.inOut", delay: 0.6 })
+      .to(a, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.7, ease: "power2.inOut" }, "<");
+  },
+
+  // Text emerges from behind an edge as a mask slides away.
+  "mask-reveal-text"(container) {
+    container.classList.add("demo-stage");
+    container.innerHTML = `<div class="mask-text"><span>REVEAL</span></div>`;
+    const word = container.querySelector(".mask-text span");
+    gsap.set(word, { yPercent: 115 });
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 0.6 })
+      .to(word, { yPercent: 0, duration: 0.7, ease: "power4.out" })
+      .to(word, { yPercent: -115, duration: 0.6, delay: 1, ease: "power4.in" })
+      .set(word, { yPercent: 115 });
+  },
+
+  // Letters flicker and split into RGB channels — a broken-signal look.
+  "glitch-text"(container) {
+    container.classList.add("demo-stage");
+    container.innerHTML = `
+      <div class="glitch-demo">
+        <span class="gl gl-r">GLITCH</span>
+        <span class="gl gl-b">GLITCH</span>
+        <span class="gl gl-main">GLITCH</span>
+      </div>`;
+    const r = container.querySelector(".gl-r");
+    const b = container.querySelector(".gl-b");
+    const main = container.querySelector(".gl-main");
+    const jitter = () => {
+      gsap.to(r, { x: gsap.utils.random(-4, 4), y: gsap.utils.random(-2, 2), duration: 0.08 });
+      gsap.to(b, { x: gsap.utils.random(-4, 4), y: gsap.utils.random(-2, 2), duration: 0.08 });
+      gsap.to(main, { x: gsap.utils.random(-2, 2), skewX: gsap.utils.random(-6, 6), opacity: gsap.utils.random(0.75, 1), duration: 0.08 });
+    };
+    gsap.to({}, { duration: 0.09, repeat: -1, onRepeat: jitter });
+  },
+
   // One number counting up to its final value.
   "stat-card"(container) {
     container.classList.add("demo-stage");
@@ -502,6 +611,21 @@ window.KEYWORD_DEMOS = {
       .fromTo(a, { scale: 2.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power4.out" })
       .fromTo(s, { x: -5 }, { x: 0, duration: 0.5, ease: "elastic.out(1.5, 0.3)" })
       .to(a, { scale: 2.6, opacity: 0, duration: 0.3, delay: 0.8, ease: "power2.in" });
+  },
+
+  // Springs into place with an elastic overshoot, then wobbles and settles.
+  "elastic-bounce"(container) {
+    const s = scene(container);
+    const a = card2(s);
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 0.5 })
+      .fromTo(
+        a,
+        { scale: 0, y: -28 },
+        { scale: 1, y: 0, duration: 1.1, ease: "elastic.out(1, 0.35)" }
+      )
+      .to(a, { scale: 0, opacity: 0, duration: 0.35, delay: 0.9, ease: "power2.in" })
+      .set(a, { opacity: 1 });
   },
 
   // Three stacked layers drifting at different speeds = parallax depth.

@@ -1879,7 +1879,8 @@
       "typography",
       "letters"
     ],
-    "heading": "Text Animation"
+    "heading": "Text Animation",
+    "demo": "character-animation"
   },
   {
     "keyword": "word-by-word reveal",
@@ -1893,7 +1894,8 @@
       "reveal",
       "sequence"
     ],
-    "heading": "Text Animation"
+    "heading": "Text Animation",
+    "demo": "word-by-word"
   },
   {
     "keyword": "letter stagger",
@@ -1907,7 +1909,8 @@
       "stagger",
       "cascade"
     ],
-    "heading": "Text Animation"
+    "heading": "Text Animation",
+    "demo": "letter-stagger"
   },
   {
     "keyword": "text morph",
@@ -1921,7 +1924,8 @@
       "morph",
       "transform"
     ],
-    "heading": "Text Animation"
+    "heading": "Text Animation",
+    "demo": "text-morph"
   },
   {
     "keyword": "mask reveal (text)",
@@ -1935,7 +1939,8 @@
       "mask",
       "reveal"
     ],
-    "heading": "Text Animation"
+    "heading": "Text Animation",
+    "demo": "mask-reveal-text"
   },
   {
     "keyword": "typewriter effect",
@@ -1949,7 +1954,8 @@
       "typewriter",
       "typing"
     ],
-    "heading": "Text Animation"
+    "heading": "Text Animation",
+    "demo": "typewriter"
   },
   {
     "keyword": "glitch text",
@@ -1963,7 +1969,8 @@
       "glitch",
       "distortion"
     ],
-    "heading": "Text Animation"
+    "heading": "Text Animation",
+    "demo": "glitch-text"
   },
   {
     "keyword": "elastic bounce",
@@ -1977,6 +1984,7 @@
       "overshoot",
       "bounce"
     ],
-    "heading": "Animation Concepts"
+    "heading": "Animation Concepts",
+    "demo": "elastic-bounce"
   }
 ]

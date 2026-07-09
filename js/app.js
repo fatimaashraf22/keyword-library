@@ -275,6 +275,13 @@ function render() {
   $("#count").textContent = `${filtered.length} keyword${filtered.length === 1 ? "" : "s"}`;
   $("#empty").hidden = filtered.length !== 0;
 
+  // Collect the live-demo containers and run them only AFTER the whole grid is
+  // attached to the document. Some SVG demos measure stroke length with
+  // getTotalLength(), which returns 0 while the element is still detached — so
+  // running them too early leaves those cards static (they only "woke up" in the
+  // modal, which is already in the DOM). Deferring keeps every card animating.
+  const pendingDemos = [];
+
   groupEntries(filtered).forEach((group) => {
     const section = document.createElement("section");
     section.className = "group";
@@ -316,14 +323,17 @@ function render() {
             entry.role ? `<span class="card-role">${entry.role}</span>` : ""
           }</div>
         </div>`;
-      renderMedia(card.querySelector(".card-media"), entry, cardMediaHTML);
       card.onclick = () => openModal(entry);
       cards.appendChild(card);
+      pendingDemos.push({ container: card.querySelector(".card-media"), entry });
     });
     section.appendChild(cards);
 
     grid.appendChild(section);
   });
+
+  // Grid is now in the DOM — safe to build the live demos.
+  pendingDemos.forEach(({ container, entry }) => renderMedia(container, entry, cardMediaHTML));
 }
 
 // ---- Modal ----
