@@ -2,7 +2,7 @@
   {
     "keyword": "volumetric lighting",
     "category": "cinematic",
-    "media": "images/volumetric-lighting.jpg",
+    "media": "images/volumetric-lighting.png",
     "note": "God rays / light shafts cutting through atmosphere (fog, dust, haze). Adds depth and mood. Also called 'light shafts' or 'crepuscular rays'.",
     "prompt": "A lone figure walking through a misty pine forest at dawn, thick god rays streaming between the trees, volumetric lighting, cinematic.",
     "tags": [
@@ -14,23 +14,9 @@
     "heading": "Lighting"
   },
   {
-    "keyword": "rim lighting",
-    "category": "cinematic",
-    "media": "images/rim-lighting.jpg",
-    "note": "A bright outline of light along the edge of a subject, separating it from the background. Great for portraits and hero shots.",
-    "prompt": "A leather-jacketed motorcyclist standing against a dark warehouse, a bright edge of rim lighting tracing his shoulders and hair, dramatic hero portrait.",
-    "tags": [
-      "lighting",
-      "portrait",
-      "edge",
-      "contrast"
-    ],
-    "heading": "Lighting"
-  },
-  {
     "keyword": "chiaroscuro",
     "category": "cinematic",
-    "media": "images/chiaroscuro.jpg",
+    "media": "images/chiaroscuro.webp",
     "note": "Strong contrast between light and dark, deep shadows. Renaissance-painting drama. Use for moody, high-contrast scenes.",
     "prompt": "An old man reading a letter by a single candle in a dark stone room, deep chiaroscuro shadows, Renaissance-painting drama.",
     "tags": [
@@ -42,23 +28,9 @@
     "heading": "Lighting"
   },
   {
-    "keyword": "tilt-shift",
-    "category": "cinematic",
-    "media": "images/tilt-shift.jpg",
-    "note": "Shallow selective focus that makes real scenes look like tiny miniatures. Blurs top and bottom, sharp middle band.",
-    "prompt": "Top-down view of a busy intersection, tilt-shift focus making the cars and people look like tiny toy miniatures.",
-    "tags": [
-      "lens",
-      "miniature",
-      "focus",
-      "depth"
-    ],
-    "heading": "Lens Effects"
-  },
-  {
     "keyword": "bokeh",
     "category": "cinematic",
-    "media": "images/bokeh.jpg",
+    "media": "images/bokeh.jpeg",
     "note": "Soft out-of-focus background with rounded light blobs. Signals a wide aperture / shallow depth of field.",
     "prompt": "Night portrait of a woman on a city street, glowing signs melting into soft round bokeh behind her, shallow depth of field.",
     "tags": [
@@ -72,7 +44,7 @@
   {
     "keyword": "claymation / gothic clay",
     "category": "styles",
-    "media": "images/claymation.jpg",
+    "media": "images/claymation-gothic-clay.webp",
     "note": "Stop-motion clay look — sculpted, matte, slightly imperfect surfaces. Gothic clay leans dark and Tim-Burton-ish.",
     "prompt": "A lonely gothic clay figure with stitched button eyes standing in a crooked graveyard, matte sculpted claymation surfaces, Tim-Burton mood.",
     "tags": [
@@ -124,36 +96,9 @@
     "heading": "Aesthetic Styles"
   },
   {
-    "keyword": "cinematic",
-    "category": "styles",
-    "media": "images/cinematic.jpg",
-    "note": "Film-still look: dramatic lighting, wide aspect feel, color grading, depth. Reads like a movie frame.",
-    "prompt": "A detective standing in a dim rain-streaked doorway, moody color grading and shallow depth, wide film-frame composition, cinematic still.",
-    "tags": [
-      "style",
-      "film",
-      "dramatic"
-    ],
-    "heading": "Aesthetic Styles"
-  },
-  {
-    "keyword": "old cartoon",
-    "category": "styles",
-    "media": "images/old-cartoon.jpg",
-    "note": "Vintage hand-drawn animation style — 1930s–50s rubber-hose cartoons, aged paper feel.",
-    "prompt": "A grinning rubber-hose character dancing on a wobbly fence, 1930s hand-drawn animation on aged flickering paper, vintage cartoon.",
-    "tags": [
-      "style",
-      "cartoon",
-      "vintage",
-      "hand-drawn"
-    ],
-    "heading": "Aesthetic Styles"
-  },
-  {
     "keyword": "pop art",
     "category": "styles",
-    "media": "",
+    "media": "images/pop-art.jpg",
     "note": "Bold flat colors, halftone dots, comic outlines. Warhol / Lichtenstein energy.",
     "prompt": "A woman gasping in surprise rendered in bold flat colors with thick comic outlines and halftone dots, Warhol-Lichtenstein pop art.",
     "tags": [
@@ -167,7 +112,7 @@
   {
     "keyword": "surrealism",
     "category": "styles",
-    "media": "",
+    "media": "images/surrealism.jpg",
     "note": "Dreamlike, impossible juxtapositions and melting logic. Think Dalí.",
     "prompt": "A giant clock melting over a bare desert tree while fish float through a violet sky, dreamlike impossible juxtaposition, surrealism.",
     "tags": [
@@ -180,7 +125,7 @@
   {
     "keyword": "impressionism",
     "category": "styles",
-    "media": "",
+    "media": "images/impressionism.jpg",
     "note": "Loose visible brushstrokes, soft edges, emphasis on light and atmosphere over detail. Monet-style.",
     "prompt": "A sunlit garden of poppies by a pond, loose visible brushstrokes and soft edges capturing shimmering light, impressionism, Monet-style.",
     "tags": [
@@ -193,7 +138,7 @@
   {
     "keyword": "street art / graffiti",
     "category": "styles",
-    "media": "images/street-art.jpg",
+    "media": "images/street-art-graffiti.jpg",
     "note": "Spray-paint, stencils, bold urban lettering and murals. Banksy / wildstyle energy.",
     "prompt": "A crumbling brick wall covered in a vivid wildstyle mural and stencil tags, spray-paint drips and bold urban lettering, street art.",
     "tags": [
@@ -245,7 +190,7 @@
   {
     "keyword": "90s anime aesthetic",
     "category": "styles",
-    "media": "images/90s-anime.jpg",
+    "media": "images/90s-anime-aesthetic.webp",
     "note": "Retro cel animation — grainy film, muted palette, hand-painted backgrounds. Nostalgic anime look.",
     "prompt": "A schoolgirl waiting at a quiet train platform at dusk, grainy cel animation, muted palette and hand-painted background, 90s anime aesthetic.",
     "tags": [
@@ -259,26 +204,13 @@
   {
     "keyword": "retro",
     "category": "styles",
-    "media": "images/retro.jpg",
+    "media": "images/retro.webp",
     "note": "Deliberately old-fashioned styling from past decades — colors, type, and textures of the era.",
     "prompt": "A sunlit 1970s diner with pastel booths, chrome trim and period typography on the menu board, warm retro styling and colors.",
     "tags": [
       "style",
       "vintage",
       "nostalgic"
-    ],
-    "heading": "Aesthetic Styles"
-  },
-  {
-    "keyword": "vintage",
-    "category": "styles",
-    "media": "images/vintage.jpg",
-    "note": "Aged, faded, film-grain look — like an old photograph or print. Warm, worn tones.",
-    "prompt": "A couple laughing on a beach boardwalk, faded warm tones, film grain and soft light leaks like an old snapshot, vintage photograph.",
-    "tags": [
-      "style",
-      "aged",
-      "film grain"
     ],
     "heading": "Aesthetic Styles"
   },
@@ -310,7 +242,7 @@
   {
     "keyword": "closeup",
     "category": "cinematic",
-    "media": "images/closeup.jpg",
+    "media": "images/closeup.webp",
     "note": "Camera angle: tight on the subject (e.g. a face). Emphasizes emotion and detail.",
     "prompt": "A closeup of a tearful woman's face lit by soft light, emotion and skin detail emphasized, blurred background.",
     "tags": [
@@ -322,8 +254,8 @@
   {
     "keyword": "medium shot",
     "category": "cinematic",
-    "media": "images/medium-shot.jpg",
-    "note": "Camera angle: subject framed roughly waist-up. Balanced between subject and setting.",
+    "media": "images/medium-shot.webp",
+    "note": "Camera angle: subject framed roughly waist-up.",
     "prompt": "A medium shot of a chef framed from the waist up plating a dish, kitchen softly visible behind, balanced subject and setting.",
     "tags": [
       "camera angle",
@@ -340,18 +272,6 @@
     "tags": [
       "camera angle",
       "full body"
-    ],
-    "heading": "Camera Shots & Angles"
-  },
-  {
-    "keyword": "wide shot",
-    "category": "cinematic",
-    "media": "images/wide-shot.jpg",
-    "note": "Camera angle: subject is small within a broad environment. Establishes place and scale.",
-    "prompt": "A wide shot of a tiny figure crossing a vast salt flat under a huge sky, establishing scale and place.",
-    "tags": [
-      "camera angle",
-      "establishing"
     ],
     "heading": "Camera Shots & Angles"
   },
@@ -458,7 +378,7 @@
   {
     "keyword": "golden hour",
     "category": "cinematic",
-    "media": "images/golden-hour.jpg",
+    "media": "images/golden-hour.webp",
     "note": "Lighting: warm, soft, low-angle sunlight just after sunrise / before sunset. Long shadows, glow.",
     "prompt": "A couple walking a wheat field bathed in warm low sun just before sunset, long golden shadows and a soft glow, golden hour.",
     "tags": [
@@ -525,7 +445,7 @@
     "keyword": "rembrandt lighting",
     "category": "cinematic",
     "media": "images/rembrandt-lighting.jpg",
-    "note": "Lighting (portrait): one side of the face lit, the other in shadow with a small triangle of light on the cheek.",
+    "note": "Lighting (portrait): one side of the face lit, the other in shadow with a small triangle of light on the cheek. \n(part of Chiaroscuro)",
     "prompt": "A studio portrait of a bearded man, one side of his face lit with a small triangle of light on the shadowed cheek, Rembrandt lighting.",
     "tags": [
       "lighting",
@@ -538,7 +458,7 @@
     "keyword": "cinematic rim lighting",
     "category": "cinematic",
     "media": "images/cinematic-rim-lighting.jpg",
-    "note": "Lighting (portrait): a bright film-style edge of light outlining the subject against a dark background.",
+    "note": "place light behind subject to outline them",
     "prompt": "A soldier silhouetted against a dark battlefield, a bright film-style edge of light outlining his body, cinematic rim lighting.",
     "tags": [
       "lighting",
@@ -577,7 +497,7 @@
   {
     "keyword": "Tim Burton style",
     "category": "styles",
-    "media": "",
+    "media": "images/tim-burton-style.jpg",
     "note": "Specific artist: gothic, whimsical, spindly characters, dark fairy-tale mood.",
     "prompt": "A spindly wide-eyed girl in a swirling dark forest of twisted bare trees, gothic whimsical dark fairy-tale mood, Tim Burton style.",
     "tags": [
@@ -590,7 +510,7 @@
   {
     "keyword": "Picasso style",
     "category": "styles",
-    "media": "images/picasso.jpg",
+    "media": "images/picasso-style.jpg",
     "note": "Specific artist: cubism — fragmented geometric forms, multiple viewpoints at once.",
     "prompt": "A woman's face fragmented into geometric planes showing several viewpoints at once, bold flat color, cubism, Picasso style.",
     "tags": [
@@ -603,7 +523,7 @@
   {
     "keyword": "Van Gogh style",
     "category": "styles",
-    "media": "",
+    "media": "images/van-gogh-style.jpg",
     "note": "Specific artist: thick swirling expressive brushstrokes, vivid emotional color.",
     "prompt": "A moonlit village under a swirling starry sky, thick expressive impasto brushstrokes and vivid emotional color, Van Gogh style.",
     "tags": [
@@ -616,7 +536,7 @@
   {
     "keyword": "Studio Ghibli style",
     "category": "styles",
-    "media": "",
+    "media": "images/studio-ghibli-style.jpg",
     "note": "Specific artist: lush hand-painted anime — soft skies, detailed nature, gentle nostalgia.",
     "prompt": "A child running through a lush green hillside toward a lone tree under soft painted skies, gentle nostalgia, Studio Ghibli style.",
     "tags": [
@@ -629,7 +549,7 @@
   {
     "keyword": "Dalí style",
     "category": "styles",
-    "media": "",
+    "media": "images/dal-style.jpg",
     "note": "Specific artist: surrealism — melting forms, dreamlike impossible landscapes.",
     "prompt": "A barren dreamscape with melting clocks draped over rocks and impossibly long shadows at dusk, surrealism, Dalí style.",
     "tags": [
@@ -642,7 +562,7 @@
   {
     "keyword": "Monet style",
     "category": "styles",
-    "media": "images/monet.jpg",
+    "media": "images/monet-style.png",
     "note": "Specific artist: impressionism — soft light, water, gardens, loose dappled brushwork.",
     "prompt": "A lily-covered pond crossed by a green footbridge in dappled morning light, soft loose brushwork, impressionism, Monet style.",
     "tags": [
@@ -656,7 +576,7 @@
     "keyword": "baroque",
     "category": "styles",
     "media": "images/baroque.jpg",
-    "note": "Specific style/era: dramatic, ornate, high-contrast 17th-century grandeur and movement.",
+    "note": "Specific style/era: dramatic, ornate, high-contrast 17th-century grandeur and movement.\nExample: Caravaggio",
     "prompt": "An opulent 17th-century banquet hall with dramatic diagonal light, swirling fabrics and gilded ornament, ornate baroque grandeur.",
     "tags": [
       "artist",
@@ -669,8 +589,8 @@
   {
     "keyword": "romanticism",
     "category": "styles",
-    "media": "",
-    "note": "Specific style/era: emotional, sublime nature, dramatic skies and awe. 19th-century.",
+    "media": "images/romanticism.jpg",
+    "note": "Specific style/era: emotional, sublime nature, dramatic skies and awe. 19th-century.\nnatural events, divine wrath, human disaster",
     "prompt": "A lone traveler on a cliff facing a vast stormy sea and towering clouds, sublime awe and emotion, 19th-century romanticism.",
     "tags": [
       "artist",
@@ -681,16 +601,16 @@
     "heading": "Art Movements & Eras"
   },
   {
-    "keyword": "parallax scroll",
+    "keyword": "parallax",
     "category": "cinematic",
     "media": "",
-    "note": "Background and foreground layers move at different speeds to create a sense of depth as the scene pans or scrolls.",
-    "prompt": "Animate a landscape scene with three layers (background clouds, midground hills, foreground grass) moving at 0.2x, 0.5x, and 1x scroll speed for depth.",
+    "note": "As the camera tracks sideways, near objects sweep past faster than distant ones, revealing real depth in the scene. Disney's multiplane camera exploited this in the 1930s.",
+    "prompt": "A slow lateral tracking shot through a forest, foreground trunks rushing past the frame while the distant mountains barely shift, giving a strong sense of depth.",
     "tags": [
       "camera",
       "depth",
       "layers",
-      "scroll"
+      "tracking"
     ],
     "heading": "Camera Movement & Effects"
   },
@@ -1071,6 +991,21 @@
     "heading": "Motion Graphics Elements",
     "youtube": "https://www.youtube.com/watch?v=MniNS5AXoJY",
     "demo": "progress-bar"
+  },
+  {
+    "keyword": "progress ring",
+    "category": "motion",
+    "media": "",
+    "note": "A circular progress indicator — a ring that sweeps from empty to full to show completion, usually with a percentage counting up in the center. The compact, circular cousin of the progress bar.",
+    "prompt": "Build a circular progress ring that draws from 0 to 100% over 1.6s with ease power1.inOut, the stroke sweeping clockwise from the top while a percentage label counts up in the middle in sync.",
+    "tags": [
+      "motion graphics",
+      "indicator",
+      "loading",
+      "circular"
+    ],
+    "heading": "Motion Graphics Elements",
+    "demo": "progress-ring"
   },
   {
     "keyword": "timeline (motion graphic)",
@@ -1986,5 +1921,96 @@
     ],
     "heading": "Animation Concepts",
     "demo": "elastic-bounce"
+  },
+  {
+    "keyword": "cool blue color grading",
+    "category": "cinematic",
+    "heading": "Color & Grading",
+    "media": "images/cool-blue-color-grading.jpg",
+    "note": "Blueish color grading can have many styles such as \nTeal and Orange combo\nCyan/blue grade\nSteel Blue grade\nNeo Noir Blue Grade",
+    "tags": [
+      "lighting",
+      "cinema",
+      "color"
+    ]
+  },
+  {
+    "keyword": "pastel color grade",
+    "category": "cinematic",
+    "heading": "Color & Grading",
+    "media": "images/pastel-color-grade.jpg"
+  },
+  {
+    "keyword": "parallax scroll",
+    "category": "ui",
+    "media": "",
+    "note": "Background and foreground layers move at different speeds as the page scrolls, so the page feels layered rather than flat.",
+    "prompt": "Animate a landing page hero with three layers (background clouds, midground hills, foreground grass) moving at 0.2x, 0.5x, and 1x scroll speed for depth.",
+    "tags": [
+      "scroll",
+      "depth",
+      "layers",
+      "web"
+    ],
+    "heading": "UI Motion"
+  },
+  {
+    "keyword": "halftone texture",
+    "category": "styles",
+    "media": "images/halftone-texture.webp",
+    "note": "An image built from a grid of dots that vary in size — the printing trick behind newsprint and comic books, giving a tactile, screen-printed feel.",
+    "prompt": "Render the portrait as a halftone texture, a coarse grid of black dots on off-white paper, dot size varying with tone like a 1960s newspaper print.",
+    "tags": [
+      "texture",
+      "print",
+      "dots",
+      "retro"
+    ],
+    "heading": "Visual Styles"
+  },
+  {
+    "keyword": "dotted graph paper",
+    "category": "styles",
+    "media": "images/dotted-graph-paper.png",
+    "note": "A pale grid of evenly spaced dots behind the content, like a bullet journal page — structure without the heaviness of ruled lines.",
+    "prompt": "A dotted graph paper background, small grey dots on a warm off-white field spaced evenly, subtle enough to sit behind text.",
+    "tags": [
+      "background",
+      "grid",
+      "dots",
+      "pattern"
+    ],
+    "heading": "Backgrounds"
+  },
+  {
+    "keyword": "andy pop art",
+    "category": "styles",
+    "heading": "Iconic Artists",
+    "media": "images/andy-pop-art.jpg",
+    "note": "andy worhol pop art"
+  },
+  {
+    "keyword": "aerial shot",
+    "category": "cinematic",
+    "heading": "Camera Shots & Angles",
+    "media": "images/aerial-shot.webp"
+  },
+  {
+    "keyword": "high angle shot",
+    "category": "cinematic",
+    "heading": "Camera Shots & Angles",
+    "media": "images/high-angle-shot.webp"
+  },
+  {
+    "keyword": "low angle shot",
+    "category": "cinematic",
+    "heading": "Camera Shots & Angles",
+    "media": "images/low-angle-shot.webp"
+  },
+  {
+    "keyword": "collage newspaper",
+    "category": "styles",
+    "heading": "Visual Styles",
+    "media": "images/collage-newspaper.webp"
   }
 ]

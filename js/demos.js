@@ -466,6 +466,33 @@ window.KEYWORD_DEMOS = {
       .to(fill, { width: "0%", duration: 0.5, delay: 0.6 });
   },
 
+  // A circular ring that draws from 0 to 100% while the % counts up in the middle.
+  "progress-ring"(container) {
+    container.classList.add("demo-stage");
+    const r = 34; // radius
+    const circ = 2 * Math.PI * r; // full circumference
+    container.innerHTML = `
+      <div class="pr-scene">
+        <svg class="pr-svg" viewBox="0 0 80 80">
+          <circle class="pr-bg" cx="40" cy="40" r="${r}"></circle>
+          <circle class="pr-fill" cx="40" cy="40" r="${r}"
+            stroke-dasharray="${circ}" stroke-dashoffset="${circ}"></circle>
+        </svg>
+        <span class="pr-num">0%</span>
+      </div>`;
+    const ring = container.querySelector(".pr-fill");
+    const num = container.querySelector(".pr-num");
+    const obj = { v: 0 };
+    const write = () => {
+      num.textContent = Math.round(obj.v) + "%";
+      ring.setAttribute("stroke-dashoffset", circ * (1 - obj.v / 100));
+    };
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 1 })
+      .to(obj, { v: 100, duration: 1.6, ease: "power1.inOut", onUpdate: write })
+      .to(obj, { v: 0, duration: 0.4, delay: 1.1, onUpdate: write });
+  },
+
   // A line draws across and event nodes pop on along it.
   "mg-timeline"(container) {
     container.classList.add("demo-stage");

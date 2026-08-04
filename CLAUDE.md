@@ -13,6 +13,7 @@ Vanilla web, no framework, no build step, no dependencies, no backend:
 - `js/app.js` — all logic: fetches `data.json`, renders cards, filters/search, modal/lightbox.
 - `data.json` — the entire content of the library (array of keyword entries).
 - `images/` — example media referenced by `data.json` entries.
+- `scripts/serve.js` — local dev server (see below). Dev-only, never part of the published site.
 
 ## data.json entry schema
 
@@ -48,15 +49,53 @@ Vanilla web, no framework, no build step, no dependencies, no backend:
 Must be served over HTTP (fetch of `data.json` fails via `file://`):
 
 ```bash
-python -m http.server 8000   # http://localhost:8000
-npx serve
+node scripts/serve.js   # http://localhost:8000 — serves the site AND enables the "+" cards
 ```
+
+Any static server (`python -m http.server 8000`, `npx serve`) also works for browsing; only
+`serve.js` can save new keywords.
 
 ## Adding a new keyword
 
-1. Drop an image/gif/video in `images/`.
-2. Add an entry to `data.json` (see schema above).
-3. Refresh — no build step.
+Through the UI, with `serve.js` running: click the **+** card at the end of any section. The form
+takes a keyword, an image/video file *or* a YouTube URL, a description, and tags. On save the
+server writes the file into `images/` (named from a slug of the keyword, never overwriting) and
+appends the entry to `data.json`; the card appears immediately.
+
+By hand: drop media in `images/`, add an entry to `data.json`, refresh.
+
+## Editing an existing keyword
+
+Open any card and click **Edit** (again, `serve.js` must be running). The same form opens
+pre-filled, showing the current picture. Choosing a new file replaces it; **Remove picture** drops
+it back to the "No media yet" placeholder. A file and a YouTube URL are mutually exclusive — picking
+one clears the other, since a card can only show one.
+
+Keys the form doesn't expose (`demo`, `role`, `prompt`, `types`) are carried through untouched, so
+editing a live-demo card's description won't strip its demo.
+
+## Deleting a keyword
+
+Hover a card and click the bin in its top-right corner. It asks for confirmation, naming the
+keyword and the picture file that goes with it. The entry leaves `data.json` and its picture leaves
+`images/`. Nothing is kept.
+
+### Save API (`scripts/serve.js`)
+
+- `GET /api/status` → `{ok:true}`. `js/app.js` probes this on load and only renders the **+** and
+  **Edit** buttons when it answers, so the published GitHub Pages site degrades to browse-only on
+  its own.
+- `POST /api/add` → JSON body with `keyword`, `category`, `heading`, optional `note`, `tags[]`,
+  `youtube`, and `file: {name, data}` where `data` is base64. Media extensions are whitelisted.
+- `POST /api/update` → same fields plus `index` (position in `data.json`), `originalKeyword`, and
+  `clearMedia`.
+- `POST /api/delete` → `index` and `originalKeyword` only.
+- Both refuse the write unless the entry at `index` still carries `originalKeyword`, so a stale tab
+  can't overwrite or delete the wrong row.
+- Deleting an entry deletes its picture. Replacing a picture deletes the old file first, so the
+  replacement takes the same filename rather than accumulating `-2`, `-3` suffixes.
+- Bound to `127.0.0.1`. `data.json` is rewritten with `JSON.stringify(…, null, 2)`, matching the
+  file's existing formatting so diffs stay one-entry-sized.
 
 ## Deploying
 

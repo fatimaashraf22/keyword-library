@@ -20,6 +20,13 @@
     <div class="filters" id="filters">
       <!-- category buttons injected by app.js -->
     </div>
+    <div class="section-jump" id="section-jump-wrap" hidden>
+      <button type="button" class="menu-btn" id="menu-btn" aria-haspopup="true" aria-expanded="false">
+        <span>Menu</span>
+        <span class="menu-btn-chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="menu-panel" id="menu-panel" role="menu" hidden></div>
+    </div>
     <div class="search-box">
       <input type="search" id="search" placeholder="Search keywords or tags…" autocomplete="off" />
     </div>
@@ -35,7 +42,8 @@
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>Add a keyword: drop an image in <code>images/</code> and add an entry to <code>data.json</code>.
+      <p>Add a keyword with the <strong>+</strong> card in any section (run <code>node scripts/serve.js</code>),
+        or by hand: drop an image in <code>images/</code> and add an entry to <code>data.json</code>.
         See the <a href="glossary.html">full glossary</a> for every term in one list.</p>
     </div>
   </footer>
@@ -51,7 +59,66 @@
         <h2 id="modal-keyword"></h2>
         <p id="modal-note"></p>
         <div class="modal-tags" id="modal-tags"></div>
-        <button class="copy-btn" id="modal-copy">Copy keyword</button>
+        <div class="form-actions">
+          <button class="copy-btn" id="modal-copy">Copy keyword</button>
+          <button class="ghost-btn" id="modal-edit" hidden>Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add / edit form. Only reachable via the "+" card or a card's Edit button,
+       both of which appear only when the local save server (scripts/serve.js)
+       is running. -->
+  <div class="modal" id="add-modal" hidden>
+    <div class="modal-backdrop" data-add-close></div>
+    <div class="modal-card modal-card-form" role="dialog" aria-modal="true" aria-labelledby="add-title">
+      <button class="modal-close" data-add-close aria-label="Close">×</button>
+      <div class="modal-body">
+        <span class="badge" id="add-section"></span>
+        <h2 id="add-title">Add a keyword</h2>
+        <form id="add-form">
+          <div class="form-row">
+            <label class="form-label" for="add-keyword">Keyword</label>
+            <input class="form-input" id="add-keyword" required autocomplete="off" placeholder="e.g. lens flare" />
+          </div>
+
+          <div class="form-row">
+            <label class="form-label" for="add-file">Image or video</label>
+            <input class="form-input form-file" id="add-file" type="file"
+                   accept=".jpg,.jpeg,.png,.gif,.webp,.svg,.mp4,.webm" />
+            <p class="form-help">JPG, PNG, GIF, WEBP, SVG, MP4 or WEBM — saved into <code>images/</code>.</p>
+          </div>
+
+          <div class="form-row">
+            <label class="form-label" for="add-youtube">…or a YouTube URL</label>
+            <input class="form-input" id="add-youtube" autocomplete="off" placeholder="https://youtu.be/…" />
+          </div>
+
+          <div class="add-preview" id="add-preview" hidden></div>
+          <p class="form-preview-note" id="add-preview-note" hidden>
+            <span id="add-preview-label"></span>
+            <button type="button" class="link-btn" id="add-remove-media">Remove picture</button>
+          </p>
+
+          <div class="form-row">
+            <label class="form-label" for="add-note">Description</label>
+            <textarea class="form-input" id="add-note" rows="3" placeholder="What this technique looks like."></textarea>
+          </div>
+
+          <div class="form-row">
+            <label class="form-label" for="add-tags">Tags</label>
+            <input class="form-input" id="add-tags" autocomplete="off" placeholder="lighting, lens, cinematic" />
+            <p class="form-help">Comma separated. These feed the search box.</p>
+          </div>
+
+          <p class="form-error" id="add-error" hidden></p>
+
+          <div class="form-actions">
+            <button type="submit" class="copy-btn" id="add-submit">Save keyword</button>
+            <button type="button" class="ghost-btn" data-add-close>Cancel</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
