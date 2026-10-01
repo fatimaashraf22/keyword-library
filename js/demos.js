@@ -13,6 +13,17 @@ function dot(container, extraClass) {
   return d;
 }
 
+// Sends a looping demo back to its start position without the jump-cut being
+// visible: hold on the finished pose for a beat, fade out, teleport, fade in.
+// The ease demos all need this — they animate one way only, so every loop has
+// to reset somehow, and a bare .set() reads as a glitch.
+function loopReset(tl, targets, startProps, hold = 0.3) {
+  return tl
+    .to(targets, { opacity: 0, duration: 0.2 }, "+=" + hold)
+    .set(targets, startProps)
+    .to(targets, { opacity: 1, duration: 0.2 });
+}
+
 // A centered "stage" with an inner fixed-size scene, used by the concept demos
 // (entrances, exits, transitions) so a coloured card can be animated inside it.
 function scene(container, extraClass) {
@@ -73,11 +84,11 @@ window.KEYWORD_DEMOS = {
     container.appendChild(rowLinear);
     container.appendChild(rowEased);
 
-    gsap
-      .timeline({ repeat: -1, repeatDelay: 0.5 })
+    const tl = gsap
+      .timeline({ repeat: -1, repeatDelay: 0.3 })
       .fromTo(dotA, { x: 0 }, { x: 110, duration: 1.3, ease: "none" }, 0)
-      .fromTo(dotB, { x: 0 }, { x: 110, duration: 1.3, ease: "power2.inOut" }, 0)
-      .set([dotA, dotB], { x: 0 }, "+=0.5");
+      .fromTo(dotB, { x: 0 }, { x: 110, duration: 1.3, ease: "power2.inOut" }, 0);
+    loopReset(tl, [dotA, dotB], { x: 0 });
   },
 
   stagger(container) {
@@ -113,28 +124,44 @@ window.KEYWORD_DEMOS = {
   "elastic-ease"(container) {
     container.classList.add("demo-stage");
     const d = dot(container);
-    gsap
-      .timeline({ repeat: -1, repeatDelay: 0.8 })
-      .fromTo(d, { x: -70 }, { x: 70, duration: 1.2, ease: "elastic.out(1, 0.4)" })
-      .set(d, { x: -70 }, "+=0.4");
+    const tl = gsap
+      .timeline({ repeat: -1, repeatDelay: 0.3 })
+      .fromTo(d, { x: -70 }, { x: 70, duration: 1.2, ease: "elastic.out(1, 0.4)" });
+    loopReset(tl, d, { x: -70 });
   },
 
+  // Things travelling at full speed that pile up against a wall — each one is
+  // stopped dead by whatever is already in front of it, recoiling on impact.
+  // bounce.out spends its first third covering the whole distance and the rest
+  // rebounding, so a collision is the motion it actually describes.
   "bounce-ease"(container) {
     container.classList.add("demo-stage");
-    const d = dot(container);
-    gsap
-      .timeline({ repeat: -1, repeatDelay: 0.8 })
-      .fromTo(d, { y: -50 }, { y: 50, duration: 1, ease: "bounce.out" })
-      .set(d, { y: -50 }, "+=0.4");
+    const track = document.createElement("div");
+    track.className = "pileup-track";
+    const wall = document.createElement("span");
+    wall.className = "pileup-wall";
+    track.appendChild(wall);
+    container.appendChild(track);
+
+    const START = -24; // off the left edge, clipped by the track
+    const REST = 182; // right edge of the leading dot, flush against the wall
+    const dots = [0, 1, 2, 3].map(() => dot(track));
+
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.3 });
+    dots.forEach((d, i) =>
+      // Each starts only once the one ahead has landed, so nothing overlaps.
+      tl.fromTo(d, { x: START }, { x: REST - i * 16, duration: 0.75, ease: "bounce.out" }, i * 0.38)
+    );
+    loopReset(tl, dots, { x: START });
   },
 
   "back-ease"(container) {
     container.classList.add("demo-stage");
     const d = dot(container);
-    gsap
-      .timeline({ repeat: -1, repeatDelay: 0.8 })
-      .fromTo(d, { x: -70 }, { x: 70, duration: 1, ease: "back.out(3)" })
-      .set(d, { x: -70 }, "+=0.4");
+    const tl = gsap
+      .timeline({ repeat: -1, repeatDelay: 0.3 })
+      .fromTo(d, { x: -70 }, { x: 70, duration: 1, ease: "back.out(3)" });
+    loopReset(tl, d, { x: -70 });
   },
 
   keyframes(container) {
@@ -226,25 +253,6 @@ window.KEYWORD_DEMOS = {
       .to(tip, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(2)" });
     trigger.addEventListener("mouseenter", () => tl.play());
     trigger.addEventListener("mouseleave", () => tl.reverse());
-  },
-
-  // ---- Motion Graphics Elements (live) ----
-
-  // Text that IS the animation — words pop in one by one, then blow out.
-  "kinetic-typography"(container) {
-    container.classList.add("demo-stage", "demo-kinetic");
-    const spans = ["MAKE", "IT", "MOVE"].map((w) => {
-      const s = document.createElement("span");
-      s.className = "kt-word";
-      s.textContent = w;
-      container.appendChild(s);
-      return s;
-    });
-    gsap.set(spans, { opacity: 0, scale: 0.3, y: 18 });
-    gsap
-      .timeline({ repeat: -1, repeatDelay: 0.5 })
-      .to(spans, { opacity: 1, scale: 1, y: 0, duration: 0.4, stagger: 0.22, ease: "back.out(2)" })
-      .to(spans, { opacity: 0, scale: 1.5, duration: 0.35, stagger: 0.1, delay: 0.6 });
   },
 
   // ---- Text Animation (live) ----
@@ -807,11 +815,11 @@ window.KEYWORD_DEMOS = {
       container.appendChild(row);
       return d;
     });
-    const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.5 });
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.3 });
     eases.forEach((label, i) =>
       tl.fromTo(dots[i], { x: 0 }, { x: 110, duration: 1.3, ease: "power2." + label }, 0)
     );
-    tl.set(dots, { x: 0 }, "+=0.5");
+    loopReset(tl, dots, { x: 0 });
   },
 
   // A dot tracing the x then y axes (an L-shaped path).

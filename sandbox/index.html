@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sandbox — keyword practice</title>
+<style>
+  :root {
+    --bg: #0e0f13;
+    --surface: #171922;
+    --surface-2: #1f222e;
+    --text: #e9eaf0;
+    --muted: #9aa0b0;
+    --accent: #7c8cff;
+    --border: #2a2e3c;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 32px 20px 80px; }
+
+  header h1 { margin: 0 0 4px; font-size: 1.6rem; letter-spacing: -0.02em; }
+  header p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+  .ask {
+    margin: 22px 0 10px;
+    padding: 12px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    font-size: 0.95rem;
+  }
+  .ask b { color: var(--accent); font-weight: 600; }
+
+  /* The stage: everything the demo draws lives inside here. */
+  #stage {
+    position: relative;
+    min-height: 340px;
+    display: grid;
+    place-items: center;
+    padding: 40px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .bar { display: flex; gap: 10px; margin: 14px 0 26px; }
+  button {
+    font: inherit;
+    color: var(--text);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 7px 16px;
+    cursor: pointer;
+  }
+  button:hover { border-color: var(--accent); color: var(--accent); }
+
+  .notes { color: var(--muted); font-size: 0.92rem; }
+  .notes h2 { color: var(--text); font-size: 1rem; margin: 0 0 8px; }
+  .notes code {
+    background: var(--surface-2);
+    padding: 1px 6px;
+    border-radius: 5px;
+    color: var(--text);
+    font-size: 0.88em;
+  }
+  .notes li { margin-bottom: 6px; }
+
+  /* ===================== DEMO CSS — replaced each request ===================== */
+  .stack {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 20px;
+  }
+  /* The wall the first box slams into. */
+  .wall {
+    position: absolute;
+    left: 0;
+    top: -30px;
+    bottom: -30px;
+    width: 4px;
+    border-radius: 2px;
+    background: var(--accent);
+    opacity: 0.5;
+  }
+  .box {
+    width: 150px;
+    height: 100px;
+    display: grid;
+    place-items: center;
+    gap: 2px;
+    border-radius: 18px;
+    background: var(--surface-2);
+    border: 1px solid var(--accent);
+  }
+  .box b { font-size: 1rem; }
+  .box span { color: var(--muted); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; }
+  /* =================== END DEMO CSS =================== */
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Sandbox</h1>
+    <p>Practice ground for the keyword library. Say a keyword, this page shows it.</p>
+  </header>
+
+  <!-- ===================== DEMO — replaced each request ===================== -->
+  <div class="ask">Showing: three rounded rectangles in a <b>slow stagger</b>. Each travels at
+    <b>full speed</b>, hits the thing in front of it, and <em>settles</em> with a
+    <b>bounce ease</b>.</div>
+
+  <div id="stage">
+    <div class="stack">
+      <div class="wall"></div>
+      <div class="box"><b>one</b><span>bounce</span></div>
+      <div class="box"><b>two</b><span>bounce</span></div>
+      <div class="box"><b>three</b><span>bounce</span></div>
+    </div>
+  </div>
+
+  <div class="bar">
+    <button id="replay">Replay</button>
+  </div>
+
+  <div class="notes">
+    <h2>What you're looking at</h2>
+    <ul>
+      <li>The move you described is <b>two tweens per box</b>, not one. A single ease can't be
+        "fast, then bouncy" — so you split it: a travel tween, then a settle tween that picks up
+        where the first left off. That's the technique to remember.</li>
+      <li><b>Travel</b> — <code>ease: "none"</code> over 1.2s, covering everything except the last
+        34px. Constant speed all the way in: a box that eases into its own collision looks like it
+        stopped on its own and then got hit, which is the wrong story.</li>
+      <li><b>Settle</b> — that final 34px on <code>bounce.out</code>. Short distance, long duration
+        (1.6s), which is what makes it read as <em>settling</em> rather than travelling. Bounce
+        never passes its resting spot, so the boxes never overlap.</li>
+      <li><b>Slow stagger</b> — 2.1s between each box starting, so one lands before the next is
+        halfway across.</li>
+      <li>The <b>impact</b> is a third tween: whatever gets hit squashes to 93% width for 0.14s
+        and springs back (<code>yoyo: true, repeat: 1</code> plays it forwards then reverses it).
+        <code>transformOrigin: "left center"</code> pins its left edge so it compresses away from
+        the blow rather than shrinking evenly.</li>
+      <li>Box one has nothing in front of it, so it hits the wall instead — the accent bar.</li>
+    </ul>
+  </div>
+  <!-- =================== END DEMO =================== -->
+
+</div>
+
+<!-- GSAP: the animation library the "motion" keywords are named after.
+     ScrollTrigger is its add-on for animations driven by scroll position. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+  const stage = document.getElementById("stage");
+
+  // ===================== DEMO JS — replaced each request =====================
+  // Build the animation and hand back the timeline. Replay re-runs this from scratch.
+  function runDemo() {
+    const tl = gsap.timeline();
+    const boxes = gsap.utils.toArray(".box");
+
+    const GAP = 2.1;    // seconds between one box starting and the next — the slow stagger
+    const SHORT = 34;   // how far short of home the travel phase stops, leaving room to settle
+
+    boxes.forEach((box, i) => {
+      const start = i * GAP;
+      const impact = start + 1.2;   // the moment the travel phase ends and it makes contact
+
+      // Where the box has to start to be just off the right edge of the stage.
+      const offRight = stage.getBoundingClientRect().right - box.getBoundingClientRect().left + 30;
+
+      // PHASE 1 — travel. Flat out, no deceleration, right up to the moment of
+      // contact. Any easing here reads as the box slowing down before it's hit,
+      // which kills the collision.
+      tl.fromTo(box,
+        { x: offRight },
+        { x: SHORT, duration: 1.2, ease: "none" },
+        start
+      );
+
+      // PHASE 2 — settle. Covers the last 34px with a springy ease. This is the "hit".
+      tl.to(box,
+        { x: 0, duration: 1.6, ease: "bounce.out" },
+        impact
+      );
+
+      // The thing it hits reacts. A box squashes; the wall can't squash, so it flares instead.
+      const reaction = i === 0
+        ? { scaleX: 3, opacity: 1 }
+        : { scaleX: 0.93 };
+
+      tl.to(i === 0 ? ".wall" : boxes[i - 1],
+        {
+          ...reaction,
+          duration: 0.14,
+          yoyo: true,
+          repeat: 1,
+          transformOrigin: "left center",
+          ease: "power2.out"
+        },
+        impact
+      );
+    });
+
+    return tl;
+  }
+  // =================== END DEMO JS ===================
+
+  // Replay: wipe anything GSAP left on the stage, clear old ScrollTriggers,
+  // then build the timeline again from a clean slate.
+  let current;
+  function play() {
+    if (current) current.kill();
+    ScrollTrigger.getAll().forEach(t => t.kill());
+    gsap.set("#stage *", { clearProps: "all" });
+    current = runDemo();
+  }
+  document.getElementById("replay").addEventListener("click", play);
+  play();
+</script>
+</body>
+</html>

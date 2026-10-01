@@ -177,7 +177,7 @@
   {
     "keyword": "oil painting on canvas",
     "category": "styles",
-    "media": "images/oil-painting.jpg",
+    "media": "images/oil-painting-on-canvas.png",
     "note": "Thick textured brushwork, canvas grain, rich blended color. Classic fine-art medium.",
     "prompt": "A bowl of ripe peaches on a linen cloth, thick textured brushwork and visible canvas grain, rich blended color, oil painting on canvas.",
     "tags": [
@@ -445,7 +445,7 @@
     "keyword": "rembrandt lighting",
     "category": "cinematic",
     "media": "images/rembrandt-lighting.jpg",
-    "note": "Lighting (portrait): one side of the face lit, the other in shadow with a small triangle of light on the cheek. \n(part of Chiaroscuro)",
+    "note": "Low-key Lighting (portrait): one side of the face lit, the other in shadow with a small triangle of light on the cheek. \n(part of Chiaroscuro)",
     "prompt": "A studio portrait of a bearded man, one side of his face lit with a small triangle of light on the shadowed cheek, Rembrandt lighting.",
     "tags": [
       "lighting",
@@ -679,7 +679,7 @@
     "heading": "Editing Transitions"
   },
   {
-    "keyword": "draw-on stroke",
+    "keyword": "self drawing stroke",
     "category": "ui",
     "media": "",
     "note": "An SVG path animates as if it's being drawn by a pen (animate stroke-dashoffset from full length to 0). Classic line-art reveal.",
@@ -749,7 +749,7 @@
   },
   {
     "keyword": "tween",
-    "category": "motion",
+    "category": "libraries",
     "media": "images/tween.png",
     "note": "The basic building block of GSAP: a single animation that moves one or more properties (position, opacity, scale, etc.) from a start value to an end value over a set duration.",
     "prompt": "Create a GSAP tween moving a box from x:0 to x:300 and opacity 0 to 1 over 0.8s with ease power2.out.",
@@ -763,7 +763,7 @@
   },
   {
     "keyword": "timeline",
-    "category": "motion",
+    "category": "libraries",
     "media": "images/timeline.png",
     "note": "A container that lines up multiple tweens in sequence (or overlapping), so you can control a whole group of animations together — play, pause, reverse, or scrub all at once.",
     "prompt": "Build a GSAP timeline sequencing three tweens (logo fade-in, then title slide-up, then button pop) so the whole group can play, pause, and reverse together.",
@@ -777,7 +777,7 @@
   },
   {
     "keyword": "easing",
-    "category": "motion",
+    "category": "libraries",
     "media": "images/easing.png",
     "note": "Controls the 'rhythm' of a tween — whether it speeds up, slows down, or moves at a constant rate. This is what makes motion feel natural instead of robotic.",
     "prompt": "Animate the same box across the screen three times comparing ease none, power2.out, and power4.inOut to show how easing changes the feel.",
@@ -791,7 +791,7 @@
   },
   {
     "keyword": "stagger",
-    "category": "motion",
+    "category": "libraries",
     "media": "images/stagger.png",
     "note": "Applies a small delay between animations on a group of elements, so they animate one after another instead of all at once — e.g. list items fading in top to bottom.",
     "prompt": "Animate a vertical list of six items fading in from y:20, staggered 0.1s apart top to bottom, ease power1.out.",
@@ -806,9 +806,9 @@
   },
   {
     "keyword": "ScrollTrigger",
-    "category": "motion",
+    "category": "libraries",
     "media": "images/scrolltrigger.png",
-    "note": "A GSAP plugin that ties animations to scrolling — trigger, scrub, pin, or snap an animation based on where the user has scrolled on the page.",
+    "note": "A GSAP plugin that ties animations to scrolling — trigger, scrub, pin, or snap an animation based on where the user has scrolled on the page.\n\n  - trigger — fire the animation once, when an element scrolls into view. The most common use: cards sliding up as you reach them.   \n  - scrub — tie the animation's progress directly to scroll progress. Scroll down, it plays; scroll up, it rewinds. You're dragging  \n  the animation with your finger. This is how those \"the product rotates as you scroll\" pages work.\n  - pin — freeze an element in place while the page keeps scrolling past it. The section sticks to the screen, the animation runs,   \n  then it releases and normal scrolling resumes. Apple product pages, constantly.\n  - snap — after scrolling stops, glide to the nearest defined point rather than settling wherever the user let go. Gives a\n  section-by-section feel.",
     "prompt": "Use GSAP ScrollTrigger to scrub a hero image's scale from 1 to 1.3 as the user scrolls through its section, with pin enabled.",
     "tags": [
       "gsap",
@@ -820,9 +820,9 @@
   },
   {
     "keyword": "elastic ease",
-    "category": "motion",
+    "category": "libraries",
     "media": "images/elastic-ease.png",
-    "note": "An easing style that makes an animation overshoot its target and spring back, like a rubber band — springy and playful.",
+    "note": "An easing style that makes an animation overshoot its target and spring back, like a rubber band (several times)— springy and playful.",
     "prompt": "Animate a button scaling from 0 to 1 with ease elastic.out(1, 0.3) over 1s so it overshoots and springs back like a rubber band.",
     "tags": [
       "gsap",
@@ -834,9 +834,9 @@
   },
   {
     "keyword": "bounce ease",
-    "category": "motion",
+    "category": "libraries",
     "media": "images/bounce-ease.png",
-    "note": "An easing style that makes an element rebound like a dropped ball settling into place, instead of stopping abruptly.",
+    "note": "An easing style that makes an element rebound like a dropped ball settling into place, instead of stopping abruptly. \ncan't cross the line, immediately bounces back",
     "prompt": "Animate a ball dropping from y:-200 to y:0 with ease bounce.out over 1.2s so it rebounds and settles like a dropped ball.",
     "tags": [
       "gsap",
@@ -848,7 +848,7 @@
   },
   {
     "keyword": "back ease",
-    "category": "motion",
+    "category": "libraries",
     "media": "images/back-ease.png",
     "note": "An easing style where the animation pulls back slightly before moving forward to its destination — like winding up before a throw.",
     "prompt": "Animate a card sliding up from y:60 to y:0 with ease back.out(1.7) so it pulls back slightly before settling into place.",
@@ -862,7 +862,7 @@
   },
   {
     "keyword": "keyframes (GSAP)",
-    "category": "motion",
+    "category": "libraries",
     "media": "images/keyframes-gsap.png",
     "note": "A way to define several animation states at specific points in time within one tween, instead of writing separate tweens for each step.",
     "prompt": "Animate one element through several states in a single tween using GSAP keyframes: move right, then up, then scale to 1.2, each step 0.4s.",
@@ -876,7 +876,7 @@
   },
   {
     "keyword": "from / fromTo",
-    "category": "motion",
+    "category": "libraries",
     "media": "images/from-fromto.png",
     "note": "Ways of writing a tween: 'from' animates FROM a given state to the element's current state; 'fromTo' explicitly sets both the start and end states.",
     "prompt": "Animate a headline into place with gsap.from (y:40, opacity:0, 0.6s) and a logo with gsap.fromTo setting explicit start and end states.",
@@ -887,20 +887,6 @@
     ],
     "heading": "GSAP Animation",
     "demo": "from-fromto"
-  },
-  {
-    "keyword": "kinetic typography",
-    "category": "motion",
-    "media": "images/kinetic-typography.png",
-    "note": "Text as the animation itself — words that move, scale, rotate, or fly in/out to add energy and emphasis to a message.",
-    "prompt": "Animate the words 'BOLD IDEAS' flying in, scaling and rotating on the beat so the moving text itself carries the energy, kinetic typography.",
-    "tags": [
-      "motion graphics",
-      "text",
-      "typography"
-    ],
-    "heading": "Text Animation",
-    "demo": "kinetic-typography"
   },
   {
     "keyword": "stat card",
@@ -1187,7 +1173,7 @@
     "keyword": "Transparent overlay / alpha channel",
     "category": "motion",
     "media": "",
-    "note": "Exporting a video with transparency built in, so it can be layered on top of other footage instead of having a solid background.",
+    "note": "Exporting a video with transparency built in, so it can be layered on top of other footage instead of having a solid background.\n\nNo Background has 2 forms\n\n● Alpha channel/Transparent Bcgd — every pixel can be partly there, so edges fade out softly.\n  vs \n  1-bit transparency/Hard Matte — every pixel is all-there or all-gone, so edges cut hard.",
     "prompt": "Export the animation as a WebM or ProRes with an alpha channel so the moving graphic can be composited over other footage with no background.",
     "tags": [
       "motion",
@@ -1319,7 +1305,7 @@
   },
   {
     "keyword": "power ease",
-    "category": "motion",
+    "category": "libraries",
     "media": "",
     "note": "GSAP's default, most-used easing family (power1 up to power4 — the higher the number, the sharper the speed change). '.in' = starts slow then speeds up; '.out' = starts fast then slows to a stop; '.inOut' = slow–fast–slow. Compare with bounce, elastic, and back for more playful feels.",
     "prompt": "Animate the same box three times with ease power1.out, power2.out, and power4.out to compare how the sharpness of the speed change differs.",
@@ -1334,7 +1320,7 @@
   },
   {
     "keyword": "x / y (position)",
-    "category": "motion",
+    "category": "libraries",
     "media": "",
     "note": "The properties GSAP animates to move an element horizontally (x) or vertically (y) from its current spot. Positive x moves right, positive y moves down.",
     "prompt": "Animate an element with GSAP x from 0 to 200 (moving right) and y from 0 to -80 (moving up) over 0.7s, ease power2.out.",
@@ -1349,7 +1335,7 @@
   },
   {
     "keyword": "scale",
-    "category": "motion",
+    "category": "libraries",
     "media": "",
     "note": "The property that grows or shrinks an element — scale 1 is normal size, above 1 zooms in, below 1 zooms out. Great for pop and emphasis.",
     "prompt": "Animate a card scaling from 1 to 1.15 and back on hover over 0.3s, ease power2.out, for a subtle zoom emphasis.",
@@ -1364,7 +1350,7 @@
   },
   {
     "keyword": "rotation",
-    "category": "motion",
+    "category": "libraries",
     "media": "",
     "note": "The property that spins an element, measured in degrees (360 = one full turn). Positive values turn clockwise.",
     "prompt": "Animate an element rotating from 0 to 360 degrees clockwise over 1s with ease power1.inOut for a full spin.",
@@ -1379,7 +1365,7 @@
   },
   {
     "keyword": "opacity",
-    "category": "motion",
+    "category": "libraries",
     "media": "",
     "note": "The property that controls how see-through an element is — 1 is fully visible, 0 is invisible. The basis of every fade.",
     "prompt": "Animate an element's opacity from 0 to 1 over 0.5s, ease power1.out, as the basis of a simple fade.",
@@ -1394,7 +1380,7 @@
   },
   {
     "keyword": "transform origin",
-    "category": "motion",
+    "category": "libraries",
     "media": "",
     "note": "The pivot point an element scales or rotates around — its centre by default, but you can move it to a corner or edge so it swings from there instead.",
     "prompt": "Animate a card rotating 8 degrees with transformOrigin set to bottom-left so it swings from that corner instead of its center.",
@@ -1609,6 +1595,85 @@
     "demo": "svg-diagram"
   },
   {
+    "keyword": "infinite canvas",
+    "category": "ui",
+    "media": "images/infinite-canvas.png",
+    "note": "A boundless workspace you pan and zoom around, with cards, notes and shapes placed freely instead of stacked in a page. The Figma / Miro / tldraw layout.",
+    "prompt": "Design an infinite canvas workspace: sticky notes, image cards and connector lines scattered across a dotted-grid surface, with a small zoom control in the corner.",
+    "tags": [
+      "ui component",
+      "layout",
+      "canvas",
+      "workspace",
+      "zoom",
+      "pan"
+    ],
+    "heading": "UI Components"
+  },
+  {
+    "keyword": "card",
+    "category": "ui",
+    "media": "images/card.jpg",
+    "note": "The basic content container: a rounded rectangle with padding and a soft border or shadow that lifts a block of content off the background. The building block underneath stat cards, bento grids and feed items.",
+    "prompt": "A single content card on a dark background — rounded corners, generous padding, thin border and a soft drop shadow, with a small image, a title and two lines of body text.",
+    "tags": [
+      "ui component",
+      "container",
+      "layout",
+      "rounded",
+      "shadow"
+    ],
+    "heading": "UI Components"
+  },
+  {
+    "keyword": "pill",
+    "category": "ui",
+    "media": "images/pill.webp",
+    "note": "A fully rounded rectangle where both ends are perfect half-circles (border-radius cranked past half the height). The standard shape for tags, filters, status labels and small buttons.",
+    "prompt": "A row of pill-shaped filter tags with fully rounded ends and a thin border, one filled in as the active state.",
+    "tags": [
+      "ui component",
+      "shape",
+      "tag",
+      "chip",
+      "button",
+      "rounded"
+    ],
+    "heading": "UI Components"
+  },
+  {
+    "keyword": "UI mockup",
+    "category": "ui",
+    "media": "images/ui-mockup.png",
+    "note": "A polished fake app or website screen presented as a finished design — full styling, realistic content, nothing actually clickable. Its low-fidelity cousin is a wireframe (grey boxes, layout only); sitting it inside a phone or laptop frame makes it a device mockup.",
+    "prompt": "A hi-fi UI mockup of an analytics dashboard — left sidebar, top bar, three stat cards and a line chart, clean modern styling, shown flat like a design file.",
+    "tags": [
+      "ui component",
+      "mockup",
+      "screen",
+      "app design",
+      "wireframe"
+    ],
+    "heading": "UI Components"
+  },
+  {
+    "keyword": "disc (vinyl / CD)",
+    "category": "ui",
+    "media": "images/disc-vinyl-cd.png",
+    "note": "A round record or CD rendered as an object — concentric grooves, a printed centre label and a light sheen sweeping across the surface. Turns up as album art in music-player UIs, usually slowly spinning.",
+    "prompt": "A vinyl disc seen straight on — fine concentric grooves, a circular centre label with a small spindle hole, and a soft highlight sweeping across the black surface as it slowly rotates.",
+    "tags": [
+      "ui component",
+      "disc",
+      "vinyl",
+      "record",
+      "cd",
+      "music player",
+      "circle"
+    ],
+    "heading": "UI Components"
+  },
+  {
     "keyword": "glassmorphism (frosted glass)",
     "category": "ui",
     "media": "",
@@ -1626,7 +1691,7 @@
   {
     "keyword": "neumorphism",
     "category": "ui",
-    "media": "",
+    "media": "images/neumorphism.png",
     "note": "A soft, same-colour look where buttons and cards appear gently pressed into or raised out of the background using subtle inner and outer shadows.",
     "prompt": "Build a neumorphic button in the same color as its background, using a soft outer shadow and inner highlight so it looks gently raised, pressing inward on click.",
     "tags": [
@@ -1789,7 +1854,7 @@
     "demo": "motion-blur"
   },
   {
-    "keyword": "floating / idle bob",
+    "keyword": "floating / idle bob /idle motion",
     "category": "motion",
     "media": "",
     "note": "A gentle up-and-down drift that keeps elements subtly alive even when nothing is happening — the 'floating UI' look for cards, badges, and 3D objects.",
@@ -1814,7 +1879,7 @@
       "typography",
       "letters"
     ],
-    "heading": "Text Animation",
+    "heading": "Text Animation (Kinetic Typography)",
     "demo": "character-animation"
   },
   {
@@ -1829,7 +1894,7 @@
       "reveal",
       "sequence"
     ],
-    "heading": "Text Animation",
+    "heading": "Text Animation (Kinetic Typography)",
     "demo": "word-by-word"
   },
   {
@@ -1844,7 +1909,7 @@
       "stagger",
       "cascade"
     ],
-    "heading": "Text Animation",
+    "heading": "Text Animation (Kinetic Typography)",
     "demo": "letter-stagger"
   },
   {
@@ -1859,7 +1924,7 @@
       "morph",
       "transform"
     ],
-    "heading": "Text Animation",
+    "heading": "Text Animation (Kinetic Typography)",
     "demo": "text-morph"
   },
   {
@@ -1874,7 +1939,7 @@
       "mask",
       "reveal"
     ],
-    "heading": "Text Animation",
+    "heading": "Text Animation (Kinetic Typography)",
     "demo": "mask-reveal-text"
   },
   {
@@ -1889,7 +1954,7 @@
       "typewriter",
       "typing"
     ],
-    "heading": "Text Animation",
+    "heading": "Text Animation (Kinetic Typography)",
     "demo": "typewriter"
   },
   {
@@ -1904,7 +1969,7 @@
       "glitch",
       "distortion"
     ],
-    "heading": "Text Animation",
+    "heading": "Text Animation (Kinetic Typography)",
     "demo": "glitch-text"
   },
   {
@@ -2012,5 +2077,240 @@
     "category": "styles",
     "heading": "Visual Styles",
     "media": "images/collage-newspaper.webp"
+  },
+  {
+    "keyword": "GSAP",
+    "category": "libraries",
+    "media": "",
+    "note": "The JavaScript animation engine most polished web motion is built with. You write the movement in code, so it can be sequenced, scrubbed, and driven by scroll. Its own features have their own section below.",
+    "prompt": "Build this with GSAP — a timeline sequencing each element in, eased with power2.out.",
+    "tags": [
+      "library",
+      "runtime",
+      "javascript",
+      "gsap"
+    ],
+    "heading": "Animation Runtimes"
+  },
+  {
+    "keyword": "Lottie",
+    "category": "libraries",
+    "media": "",
+    "note": "A player, not an engine. A designer animates in After Effects, exports the file as JSON, and the web plays it back as crisp vectors at any size. You don't write the motion — you play something that was drawn.",
+    "prompt": "Play a Lottie JSON animation of an illustrated character waving, looping, sized to 240px.",
+    "tags": [
+      "library",
+      "runtime",
+      "after effects",
+      "vector",
+      "lottie"
+    ],
+    "heading": "Animation Runtimes"
+  },
+  {
+    "keyword": "Three.js",
+    "category": "libraries",
+    "media": "",
+    "note": "Real 3D in the browser, rendered by the graphics card (WebGL). Gives you geometry, cameras, lights, materials and shaders, so surfaces catch highlights and reflect their surroundings as they turn. Nothing else here fakes that convincingly.",
+    "prompt": "Build a Three.js scene with a rotating product model, studio lighting, an environment map for reflections, and subtle depth of field.",
+    "tags": [
+      "library",
+      "runtime",
+      "3d",
+      "webgl",
+      "threejs"
+    ],
+    "heading": "Animation Runtimes"
+  },
+  {
+    "keyword": "Anime.js",
+    "category": "libraries",
+    "media": "",
+    "note": "A smaller, simpler alternative to GSAP doing the same job — moving elements over time. The output is indistinguishable; the difference is a lighter file and less to learn. Rarely worth adding if GSAP is already there.",
+    "prompt": "Animate the cards in with anime.js, staggered 80ms apart, easing easeOutExpo.",
+    "tags": [
+      "library",
+      "runtime",
+      "javascript",
+      "lightweight"
+    ],
+    "heading": "Animation Runtimes"
+  },
+  {
+    "keyword": "CSS keyframes",
+    "category": "libraries",
+    "media": "",
+    "note": "Animation built into the browser, no library at all. You name the frames in @keyframes and attach them with the animation property. Ideal for small loops like spinners and pulses; painful once things have to happen in a specific order.",
+    "prompt": "Animate this with pure CSS @keyframes — a 2s infinite pulse, no JavaScript.",
+    "tags": [
+      "css",
+      "runtime",
+      "no-dependency",
+      "keyframes"
+    ],
+    "heading": "Animation Runtimes"
+  },
+  {
+    "keyword": "Web Animations API",
+    "category": "libraries",
+    "media": "",
+    "note": "The browser's own animation engine, reachable from JavaScript via element.animate(). Same power as CSS keyframes, but you can play, pause, reverse and seek it from code. Nothing to load; weaker than GSAP once sequencing gets complicated.",
+    "prompt": "Animate this using the Web Animations API — element.animate() with a 400ms ease-out, no libraries.",
+    "tags": [
+      "waapi",
+      "runtime",
+      "javascript",
+      "no-dependency"
+    ],
+    "heading": "Animation Runtimes"
+  },
+  {
+    "keyword": "TypeGPU",
+    "category": "libraries",
+    "media": "",
+    "note": "Runs the animation on the graphics card itself through WebGPU. That buys raw scale — hundreds of thousands of particles, or real fluid and smoke simulation, at full frame rate. The newest of these and the least widely supported.",
+    "prompt": "Use TypeGPU to run a WebGPU compute shader driving 200,000 particles that swirl around the cursor.",
+    "tags": [
+      "webgpu",
+      "runtime",
+      "gpu",
+      "simulation",
+      "typegpu"
+    ],
+    "heading": "Animation Runtimes"
+  },
+  {
+    "keyword": "3D product spin",
+    "category": "motion",
+    "media": "",
+    "note": "An object turning slowly in real 3D — highlights slide across its surface and the shape reveals itself with true perspective, rather than a flat image being rotated. The staple of product pages.",
+    "prompt": "A matte-black wireless speaker rotating slowly on a neutral backdrop, studio lighting with a soft specular highlight travelling across its surface as it turns.",
+    "tags": [
+      "3d",
+      "product",
+      "threejs",
+      "rotation"
+    ],
+    "heading": "3D Scenes (Three.js)"
+  },
+  {
+    "keyword": "shader gradient",
+    "category": "motion",
+    "media": "",
+    "note": "A colour field that flows and folds continuously, generated per-pixel on the graphics card rather than drawn. Deeper and more organic than a CSS gradient, which is fixed once painted. Compare 'gradient mesh'.",
+    "prompt": "A slow-flowing shader gradient in violet, teal and coral, colours folding into each other like liquid, filling the frame.",
+    "tags": [
+      "3d",
+      "gradient",
+      "shader",
+      "threejs",
+      "background"
+    ],
+    "heading": "3D Scenes (Three.js)"
+  },
+  {
+    "keyword": "wireframe globe",
+    "category": "motion",
+    "media": "",
+    "note": "A sphere drawn as a mesh of lines or points, usually with arcs connecting locations on its surface. Reads instantly as 'network' or 'global', which is why every data and infrastructure site has one.",
+    "prompt": "A dark globe built from fine glowing wireframe lines, thin arcs connecting points on its surface, slowly rotating.",
+    "tags": [
+      "3d",
+      "globe",
+      "wireframe",
+      "threejs",
+      "data"
+    ],
+    "heading": "3D Scenes (Three.js)"
+  },
+  {
+    "keyword": "GPU particle system",
+    "category": "motion",
+    "media": "",
+    "note": "Hundreds of thousands of individual points moving at once — forming shapes, dispersing, reacting to the cursor. Distinct from 'particle effects' by sheer count: a scale only the graphics card can sustain.",
+    "prompt": "200,000 glowing particles forming a human silhouette, then dispersing into a slow drifting cloud when the cursor moves through them.",
+    "tags": [
+      "gpu",
+      "particles",
+      "typegpu",
+      "webgpu",
+      "simulation"
+    ],
+    "heading": "GPU Effects (TypeGPU)"
+  },
+  {
+    "keyword": "fluid simulation",
+    "category": "motion",
+    "media": "",
+    "note": "Ink, smoke or liquid that actually behaves like fluid — swirling, diffusing, and pushing back where it meets an obstacle. Every frame is computed from the last, which is why it can't be faked with a looping video.",
+    "prompt": "Coloured ink diffusing through water, swirling away from the cursor and slowly blending, real fluid simulation.",
+    "tags": [
+      "gpu",
+      "fluid",
+      "simulation",
+      "typegpu",
+      "webgpu"
+    ],
+    "heading": "GPU Effects (TypeGPU)"
+  },
+  {
+    "keyword": "metaball blobs",
+    "category": "motion",
+    "media": "",
+    "note": "Soft blobs that stretch toward each other and merge into one mass as they meet, then pull apart again. The surface is computed per-pixel, so the join is a genuine smooth bulge rather than two overlapping circles.",
+    "prompt": "Three glossy liquid blobs drifting on a dark field, stretching and merging into one another as they touch, metaball surface.",
+    "tags": [
+      "gpu",
+      "liquid",
+      "metaball",
+      "typegpu",
+      "blob"
+    ],
+    "heading": "GPU Effects (TypeGPU)"
+  },
+  {
+    "keyword": "illustrated character loop",
+    "category": "motion",
+    "media": "",
+    "note": "A flat vector character animated in After Effects and looped on the page — waving, walking, nodding. Stays razor sharp at any size because it's vectors, not video.",
+    "prompt": "A flat vector illustration of a person waving, clean line work and a limited palette, looping smoothly.",
+    "tags": [
+      "lottie",
+      "vector",
+      "character",
+      "illustration",
+      "loop"
+    ],
+    "heading": "Vector Animation (Lottie)"
+  },
+  {
+    "keyword": "confetti burst",
+    "category": "motion",
+    "media": "",
+    "note": "A shower of paper scraps thrown out from a point and tumbling down, for a success or celebration moment. Hand-designed frame by frame rather than simulated, so the shapes and colours are deliberate.",
+    "prompt": "A burst of multicoloured confetti erupting from the centre and tumbling down, flat vector shapes, one-shot celebration animation.",
+    "tags": [
+      "lottie",
+      "celebration",
+      "confetti",
+      "vector",
+      "success"
+    ],
+    "heading": "Vector Animation (Lottie)"
+  },
+  {
+    "keyword": "animated emoji",
+    "category": "motion",
+    "media": "",
+    "note": "A small expressive vector loop used as a reaction or sticker — a heart pulsing, a face laughing. Tiny file, plays at any size, which is why chat and social apps use these instead of GIFs.",
+    "prompt": "A flat vector heart emoji pulsing and sparkling, looping, small and expressive.",
+    "tags": [
+      "lottie",
+      "emoji",
+      "reaction",
+      "sticker",
+      "vector"
+    ],
+    "heading": "Vector Animation (Lottie)"
   }
 ]

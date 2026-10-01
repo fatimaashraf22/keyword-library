@@ -4,6 +4,7 @@
 const CATEGORIES = [
   { id: "all", label: "All" },
   { id: "motion", label: "Motion" },
+  { id: "libraries", label: "Libraries" },
   { id: "ui", label: "UI / Web" },
   { id: "cinematic", label: "Cinematic" },
   { id: "styles", label: "Styles" },
@@ -25,10 +26,14 @@ const HEADING_ORDER = [
   "Art Movements & Eras",
   "Iconic Artists",
   "Backgrounds",
-  "GSAP Animation",
   "Motion Graphics Elements",
-  "Text Animation",
+  "Text Animation (Kinetic Typography)",
+  "3D Scenes (Three.js)",
+  "GPU Effects (TypeGPU)",
+  "Vector Animation (Lottie)",
   "Animation Concepts",
+  "Animation Runtimes",
+  "GSAP Animation",
   "UI Styles & Surfaces",
   "UI Components",
   "UI Motion",
@@ -49,9 +54,13 @@ const HEADING_DESCRIPTIONS = {
   "Backgrounds": "Patterns and surfaces that sit behind the content.",
   "Art Movements & Eras": "Looks borrowed from art history and past periods.",
   "Iconic Artists": "The signature style of a specific well-known artist.",
+  "Animation Runtimes": "The engines that actually move the pixels — what each one is for, and when to reach for it over the others.",
   "GSAP Animation": "Building blocks of the GSAP animation library (with live demos).",
+  "3D Scenes (Three.js)": "Looks that need real 3D — geometry, lights and materials rendered by the graphics card.",
+  "GPU Effects (TypeGPU)": "Effects that only exist at GPU scale — particles by the hundred thousand, and real simulation.",
+  "Vector Animation (Lottie)": "Flat vector motion drawn in After Effects and played back on the web.",
   "Motion Graphics Elements": "Concrete things you put on screen — a chart, a lower third, a stat card.",
-  "Text Animation": "Ways letters and words move — how text enters, reveals, and transforms on screen.",
+  "Text Animation (Kinetic Typography)": "Ways letters and words move — how text enters, reveals, and transforms on screen.",
   "Animation Concepts": "Behaviors and principles — how things move, not what they are.",
   "UI Motion": "Small interface animations — buttons, menus, page bits reacting.",
   "UI Styles & Surfaces": "The look of UI surfaces and backgrounds — glass, glow, gradients, textures.",
@@ -60,6 +69,11 @@ const HEADING_DESCRIPTIONS = {
 
 // Plain-text notes shown under the "Notes" tab (not cards — just reference text).
 const NOTES = [
+  {
+    title: "Rule For Motion Graphics",
+    intro:
+      "Each object should have internal life — a reading position, a scroll, a pulse — independent of how it arrived.",
+  },
   {
     title: "High-End Keywords",
     intro:

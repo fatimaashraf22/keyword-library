@@ -485,6 +485,14 @@ body {
 
 .demo-stagger { gap: 10px; }
 
+/* Bounce ease: things travelling at speed piling up against a wall. */
+.pileup-track { position: relative; width: 200px; height: 34px; overflow: hidden; }
+.pileup-track .demo-dot { position: absolute; top: 10px; left: 0; }
+.pileup-wall {
+  position: absolute; right: 0; top: 0; width: 4px; height: 34px;
+  border-radius: 2px; background: var(--text); opacity: 0.3;
+}
+
 .demo-scroll-hint {
   position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
   font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; z-index: 1;
@@ -528,10 +536,6 @@ body {
 .demo-perspective { perspective: 460px; }
 .demo-flip { transform-style: preserve-3d; }
 .demo-bit { position: absolute; top: 50%; left: 50%; width: 8px; height: 8px; margin: -4px; border-radius: 2px; background: var(--accent); }
-
-/* Kinetic typography */
-.demo-kinetic { gap: 7px; }
-.kt-word { font-weight: 800; font-size: 1.05rem; letter-spacing: 0.04em; color: var(--text); }
 
 /* Text-animation live demos */
 .demo-textline { flex-wrap: wrap; gap: 4px 8px; padding: 0 18px; perspective: 400px; }
