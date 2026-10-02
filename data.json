@@ -2312,5 +2312,37 @@
       "vector"
     ],
     "heading": "Vector Animation (Lottie)"
+  },
+  {
+    "keyword": "photocopy",
+    "category": "styles",
+    "media": "images/photocopy.png",
+    "note": "A vintage black-and-white photo run through a photocopier — high contrast, grainy, visible halftone dots, deep blacks and blown-out whites, no colour. The degraded, gritty cousin of a clean halftone.",
+    "prompt": "A vintage black-and-white photograph of the subject, high-contrast photocopy texture, grainy with visible halftone dots, deep blacks and bright whites, no colour anywhere.",
+    "tags": [
+      "texture",
+      "black and white",
+      "photocopy",
+      "xerox",
+      "halftone",
+      "grainy",
+      "retro"
+    ],
+    "heading": "Visual Styles"
+  },
+  {
+    "keyword": "cut-paper collage",
+    "category": "styles",
+    "media": "images/cut-paper-collage.png",
+    "note": "Subjects cut out of paper with rough torn edges and pasted onto a flat background — the zine / ransom-note look. The torn white border around each object is the giveaway.",
+    "prompt": "The subjects cut out of paper with rough torn white edges, pasted as a collage onto a flat background, zine cut-out style.",
+    "tags": [
+      "collage",
+      "cut-out",
+      "torn paper",
+      "zine",
+      "composition"
+    ],
+    "heading": "Visual Styles"
   }
 ]
