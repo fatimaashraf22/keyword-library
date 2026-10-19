@@ -8,7 +8,8 @@
       "sections": [
         {
           "title": "Motion Graphics Elements",
-          "description": "Concrete things you put on screen — a chart, a lower third, a stat card."
+          "description": "Concrete things you put on screen — a chart, a lower third, a stat card.",
+          "hidden": true
         },
         {
           "title": "Text Animation (Kinetic Typography)",
