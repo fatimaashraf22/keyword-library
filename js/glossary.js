@@ -1,45 +1,46 @@
 // ---- Glossary ----
-// Every keyword in data.json, grouped by category into collapsible lists.
-
-const CATEGORY_LABELS = { cinematic: "Cinematic", styles: "Styles", motion: "Motion" };
-// Order the sections appear in. Any unknown category is appended after these.
-const CATEGORY_ORDER = ["cinematic", "styles", "motion"];
+// Every visible keyword in data.json, grouped by tab (from site.json) into
+// collapsible lists.
 
 const $ = (sel) => document.querySelector(sel);
 
-fetch("data.json")
-  .then((r) => r.json())
-  .then((data) => render(data))
+Promise.all(["data.json", "site.json"].map((f) => fetch(f).then((r) => r.json())))
+  .then(([data, site]) => render(data, site))
   .catch((err) => {
     $("#glossary-list").innerHTML =
-      '<p class="empty">Could not load data.json. If opening the file directly, run a local server (see README).</p>';
+      '<p class="empty">Could not load the library. If opening the file directly, run a local server (see README).</p>';
     console.error(err);
   });
 
-function render(entries) {
-  $("#count").textContent = `${entries.length} keyword${entries.length === 1 ? "" : "s"}`;
+function escapeHTML(s) {
+  return String(s || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
 
-  // Group entries by category.
-  const groups = {};
-  for (const e of entries) {
-    (groups[e.category] || (groups[e.category] = [])).push(e);
-  }
+function render(entries, site) {
+  // Leave out anything hidden on the main page: the card itself, or the tab or
+  // section it sits in.
+  const tabs = site.tabs.filter((t) => !t.hidden);
+  const visible = entries.filter((e) => {
+    const tab = tabs.find((t) => t.id === e.category);
+    const sec = tab && tab.sections.find((s) => s.title === (e.heading || "Other"));
+    return !e.hidden && tab && !(sec && sec.hidden);
+  });
 
-  // Ordered list of categories: known ones first, then any extras alphabetically.
-  const categories = [
-    ...CATEGORY_ORDER.filter((c) => groups[c]),
-    ...Object.keys(groups).filter((c) => !CATEGORY_ORDER.includes(c)).sort(),
-  ];
+  $("#count").textContent = `${visible.length} keyword${visible.length === 1 ? "" : "s"}`;
 
-  const list = $("#glossary-list");
-  list.innerHTML = categories
-    .map((cat) => {
-      const items = groups[cat].sort((a, b) => a.keyword.localeCompare(b.keyword));
-      const label = CATEGORY_LABELS[cat] || cat;
+  $("#glossary-list").innerHTML = tabs
+    .map((tab) => {
+      const items = visible
+        .filter((e) => e.category === tab.id)
+        .sort((a, b) => a.keyword.localeCompare(b.keyword));
+      if (!items.length) return "";
       return `
       <details class="glossary-group" open>
         <summary class="glossary-summary">
-          <span class="glossary-group-title">${label}</span>
+          <span class="glossary-group-title">${escapeHTML(tab.label)}</span>
           <span class="glossary-group-count">${items.length}</span>
         </summary>
         <ul class="glossary-items">
@@ -47,8 +48,8 @@ function render(entries) {
             .map(
               (e) => `
             <li class="glossary-item">
-              <span class="glossary-keyword">${e.keyword}</span>
-              <p class="glossary-note">${e.note || ""}</p>
+              <span class="glossary-keyword">${escapeHTML(e.keyword)}</span>
+              <p class="glossary-note">${escapeHTML(e.note)}</p>
             </li>`
             )
             .join("")}

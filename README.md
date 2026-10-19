@@ -8,41 +8,35 @@ Not a prompt library: a searchable dictionary of keywords + pictures.
 
 ## How it works
 
-- **`data.json`** — the whole library. One entry per keyword.
-- **`images/`** — your example pictures / GIFs.
-- **`index.html` + `css/` + `js/`** — a single-page gallery with category filters
-  and search. No build step, no dependencies.
+- **`data.json`** — every keyword card.
+- **`site.json`** — the title, the tabs, and the sections inside each tab (Notes included).
+- **`images/`** — example pictures, GIFs and videos.
+- **`index.html` + `css/` + `js/`** — a single-page gallery with tabs and search.
+  No build step, no dependencies, no server.
 
-## Add a new keyword
+## Editing
 
-1. Drop an image in `images/` (e.g. `images/lens-flare.jpg`).
-2. Add an entry to `data.json`:
+Everything is edited on the site itself. Click **Sign in** in the footer and paste a
+GitHub token:
 
-   ```json
-   {
-     "keyword": "lens flare",
-     "category": "image",
-     "media": "images/lens-flare.jpg",
-     "note": "Bright streaks/halos from light hitting the lens.",
-     "tags": ["lighting", "lens", "cinematic"]
-   }
-   ```
+1. Go to GitHub → Settings → Developer settings → **Fine-grained tokens** → Generate new token.
+2. Repository access: **Only select repositories** → `keyword-library`.
+3. Permissions: **Contents → Read and write**.
 
-   `category` must be one of: `image`, `video`, `svg`.
-3. Save. Refresh the page. Done. (No image yet? It still works — shows a placeholder.)
+Signed in, you get a **+** to add cards, sections and tabs, plus edit / hide / delete
+on everything. Each save is a commit to this repo; visitors see it about a minute
+later, once GitHub Pages republishes.
 
 ## Run it locally
 
-Because it loads `data.json`, open it through a tiny local server (not by
+Because it loads JSON files, open it through a tiny local server (not by
 double-clicking the file):
 
 ```bash
-# from this folder — pick one:
 python -m http.server 8000      # then visit http://localhost:8000
-npx serve                       # if you have Node
 ```
 
 ## Publish (GitHub Pages)
 
-After pushing to GitHub: **Settings → Pages → Branch: `main` / root → Save.**
-Your site goes live at `https://<your-username>.github.io/<repo-name>/`.
+**Settings → Pages → Branch: `main` / root → Save.**
+The site goes live at `https://<your-username>.github.io/<repo-name>/`.

@@ -193,6 +193,9 @@ body {
   color: var(--muted, #9aa);
   line-height: 1.4;
 }
+.group-sub p { margin: 0 0 6px; }
+.group-sub ul { margin: 0 0 6px; padding-left: 20px; }
+.group-sub a, .notes-text a { color: var(--accent); }
 .group-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -209,12 +212,27 @@ body {
 }
 .card:hover { transform: translateY(-3px); border-color: var(--accent); }
 
-/* Bin — hidden until the card is hovered, so it never competes with the picture */
-.card-delete {
+/* Edit / hide / delete. On cards they sit top-right, revealed on hover so they
+   never compete with the picture; on section headings they sit after the title. */
+.tools { display: inline-flex; gap: 6px; vertical-align: middle; }
+.group-heading .tools,
+.notes-heading .tools { margin-left: 12px; }
+.card-tools {
   position: absolute;
   top: 8px;
   right: 8px;
   z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+.card:hover .card-tools,
+.card-tools:focus-within { opacity: 1; pointer-events: auto; }
+/* Touch screens have no hover to reveal them, so keep them visible but quiet. */
+@media (hover: none) {
+  .card-tools { opacity: 0.75; pointer-events: auto; }
+}
+.tool-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -227,19 +245,19 @@ body {
   backdrop-filter: blur(3px);
   color: var(--muted);
   cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s ease, background 0.15s ease, color 0.15s ease;
+  transition: background 0.15s ease, color 0.15s ease;
 }
-.card:hover .card-delete,
-.card-delete:focus-visible { opacity: 1; pointer-events: auto; }
-.card-delete:hover { background: rgba(226, 74, 74, 0.92); color: #fff; }
-.card-delete:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.card-delete svg { width: 15px; height: 15px; display: block; }
-/* Touch screens have no hover to reveal it, so keep it visible but quiet. */
-@media (hover: none) {
-  .card-delete { opacity: 0.65; pointer-events: auto; }
-}
+.group-heading .tool-btn,
+.notes-heading .tool-btn { width: 26px; height: 26px; background: var(--surface-2); }
+.tool-btn:hover { background: var(--accent); color: #fff; }
+.tool-btn.tool-danger:hover { background: rgba(226, 74, 74, 0.92); }
+.tool-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tool-btn svg { width: 15px; height: 15px; display: block; }
+
+/* Hidden items only appear while "Show hidden" is on. */
+.is-hidden { opacity: 0.45; }
+.is-hidden:hover { opacity: 0.8; }
+
 .card-media {
   aspect-ratio: 4 / 3;
   background: linear-gradient(135deg, #2a2e3c, #171922);
@@ -288,8 +306,42 @@ body {
 .notes-block a { color: var(--accent); text-decoration: none; word-break: break-all; }
 .notes-block a:hover { text-decoration: underline; }
 
+.section-add {
+  display: block;
+  width: 100%;
+  margin: 0 0 36px;
+  padding: 18px;
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+}
+.section-add:hover { color: var(--text); border-color: var(--accent); }
+
+/* Editing bar — only while signed in */
+.admin-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+  margin-top: 14px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  font-size: 0.85rem;
+}
+.admin-bar[hidden] { display: none; }
+.admin-status { color: var(--muted); flex: 1 1 260px; }
+.admin-toggle { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.admin-actions { display: inline-flex; flex-wrap: wrap; gap: 6px 14px; }
+.filter-add { border: 1.5px dashed var(--border); box-shadow: none; }
+
 /* Footer */
 .site-footer { border-top: 1px solid var(--border); padding: 24px 0; color: var(--muted); font-size: 0.85rem; }
+.footer-sign-in { margin-left: 10px; font-size: inherit; }
 .site-footer code { background: var(--surface-2); padding: 2px 6px; border-radius: 6px; color: var(--text); }
 
 /* Modal */

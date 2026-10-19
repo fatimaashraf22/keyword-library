@@ -1,171 +1,270 @@
 // ---- Keyword Library ----
-// All content lives in data.json. This file just renders + filters it.
+// Cards live in data.json; tabs, sections, notes and the site title live in
+// site.json. This file renders them, filters them, and (when signed in with a
+// GitHub token, see js/github.js) edits them.
+//
+// A card belongs to the section whose tab id matches its "category" and whose
+// title matches its "heading".
 
-const CATEGORIES = [
-  { id: "all", label: "All" },
-  { id: "motion", label: "Motion" },
-  { id: "libraries", label: "Libraries" },
-  { id: "ui", label: "UI / Web" },
-  { id: "cinematic", label: "Cinematic" },
-  { id: "styles", label: "Styles" },
-  { id: "notes", label: "Notes" },
-];
-
-// Controls the order headings appear in within a category (unlisted headings
-// fall to the end, in whatever order they're first seen).
-const HEADING_ORDER = [
-  "Lighting",
-  "Lens Effects",
-  "Camera Shots & Angles",
-  "Camera Movement & Effects",
-  "Composition",
-  "Color & Grading",
-  "Editing Transitions",
-  "Visual Styles",
-  "Aesthetic Styles",
-  "Art Movements & Eras",
-  "Iconic Artists",
-  "Backgrounds",
-  "Motion Graphics Elements",
-  "Text Animation (Kinetic Typography)",
-  "3D Scenes (Three.js)",
-  "GPU Effects (TypeGPU)",
-  "Vector Animation (Lottie)",
-  "Animation Concepts",
-  "Animation Runtimes",
-  "GSAP Animation",
-  "UI Styles & Surfaces",
-  "UI Components",
-  "UI Motion",
-];
-
-// One-line description shown under each section heading, so it's clear what
-// kind of thing lives in that section (a look, a thing, a behavior, etc.).
-const HEADING_DESCRIPTIONS = {
-  "Lighting": "How a scene is lit — the mood and direction of light.",
-  "Lens Effects": "Looks created by the camera lens itself (flares, blur, distortion).",
-  "Camera Shots & Angles": "Where the camera sits and how tightly it frames the subject.",
-  "Camera Movement & Effects": "How the camera itself moves through the scene.",
-  "Composition": "How elements are arranged within the frame.",
-  "Color & Grading": "The overall color treatment and mood of the image.",
-  "Editing Transitions": "How one shot or scene cuts to the next.",
-  "Visual Styles": "Surface treatments and textures applied to an image — how it's rendered, not what it depicts.",
-  "Aesthetic Styles": "Recognizable overall visual styles or vibes.",
-  "Backgrounds": "Patterns and surfaces that sit behind the content.",
-  "Art Movements & Eras": "Looks borrowed from art history and past periods.",
-  "Iconic Artists": "The signature style of a specific well-known artist.",
-  "Animation Runtimes": "The engines that actually move the pixels — what each one is for, and when to reach for it over the others.",
-  "GSAP Animation": "Building blocks of the GSAP animation library (with live demos).",
-  "3D Scenes (Three.js)": "Looks that need real 3D — geometry, lights and materials rendered by the graphics card.",
-  "GPU Effects (TypeGPU)": "Effects that only exist at GPU scale — particles by the hundred thousand, and real simulation.",
-  "Vector Animation (Lottie)": "Flat vector motion drawn in After Effects and played back on the web.",
-  "Motion Graphics Elements": "Concrete things you put on screen — a chart, a lower third, a stat card.",
-  "Text Animation (Kinetic Typography)": "Ways letters and words move — how text enters, reveals, and transforms on screen.",
-  "Animation Concepts": "Behaviors and principles — how things move, not what they are.",
-  "UI Motion": "Small interface animations — buttons, menus, page bits reacting.",
-  "UI Styles & Surfaces": "The look of UI surfaces and backgrounds — glass, glow, gradients, textures.",
-  "UI Components": "Concrete website/app pieces — chat bubbles, dashboards, cards, cursors.",
-};
-
-// Plain-text notes shown under the "Notes" tab (not cards — just reference text).
-const NOTES = [
-  {
-    title: "Rule For Motion Graphics",
-    intro:
-      "Each object should have internal life — a reading position, a scroll, a pulse — independent of how it arrived.",
-  },
-  {
-    title: "High-End Keywords",
-    intro:
-      "When prompting models like Claude Code, Cursor, or GPT for implementation, sprinkle in terms like:",
-    items: [
-      "premium editorial",
-      "award-winning portfolio",
-      "Awwwards-inspired",
-      "GSAP-quality motion",
-      "Framer-level interactions",
-      "cinematic scroll experience",
-      "immersive storytelling",
-      "kinetic typography",
-      "SVG-first animation",
-      "sophisticated motion system",
-      "visual rhythm",
-      "modular grid",
-      "motion choreography",
-      "interaction design",
-      "premium creative agency aesthetic",
-      "Apple-style polish",
-      "smooth 120 FPS animations",
-      "buttery scrolling",
-      "responsive motion design",
-      "tasteful microinteractions",
-    ],
-    outro:
-      "These descriptors communicate the feel of the experience without instructing the model to imitate a specific website. They tend to produce designs that share the same polished, motion-driven aesthetic while remaining original.",
-  },
-  {
-    title: "React Bits — Component Links",
-    intro:
-      "Each component has its own URL following a simple pattern: reactbits.dev/&lt;category&gt;/&lt;component&gt;. Some saved links:",
-    items: [
-      `<a href="https://reactbits.dev/text-animations/split-text" target="_blank" rel="noopener">reactbits.dev/text-animations/split-text</a>`,
-      `<a href="https://reactbits.dev/backgrounds/aurora" target="_blank" rel="noopener">reactbits.dev/backgrounds/aurora</a>`,
-      `<a href="https://reactbits.dev/animations/splash-cursor" target="_blank" rel="noopener">reactbits.dev/animations/splash-cursor</a>`,
-      `<a href="https://reactbits.dev/components/tilted-card" target="_blank" rel="noopener">reactbits.dev/components/tilted-card</a>`,
-    ],
-  },
-];
-
+let SITE = { title: "", tagline: "", tabs: [] };
 let ENTRIES = [];
 let activeCategory = "all";
 let searchTerm = "";
-// True only when the local save server (scripts/serve.js) is answering. Adding
-// keywords writes real files, so it can't work on the published static site —
-// there the "+" cards simply never appear.
-let SAVE_ENABLED = false;
+// True once signed in and the data has loaded from the repo.
+let EDITING = false;
+let showHidden = false;
+// Pictures uploaded this session, shown from memory until GitHub Pages has
+// published them.
+const localMedia = {};
 
 const $ = (sel) => document.querySelector(sel);
 
-// Ask the save server whether it's there. Silence (404 / connection refused) is
-// the normal answer on GitHub Pages, so failures are ignored.
-fetch("api/status")
-  .then((r) => (r.ok ? r.json() : null))
-  .then((d) => {
-    if (d && d.ok) {
-      SAVE_ENABLED = true;
-      if (ENTRIES.length) render();
-    }
-  })
-  .catch(() => {});
+load();
 
-// Fetch the data
-fetch("data.json")
-  .then((r) => r.json())
-  .then((data) => {
-    ENTRIES = data;
-    buildFilters();
-    render();
-  })
-  .catch((err) => {
+async function load() {
+  try {
+    if (GH.signedIn()) {
+      try {
+        const files = await GH.readJSON(["data.json", "site.json"]);
+        ENTRIES = files["data.json"];
+        SITE = files["site.json"];
+        EDITING = true;
+      } catch (err) {
+        if (err.status === 401) GH.signOut();
+        else window.alert(`Couldn't load from GitHub, showing the published copy instead.\n\n${err.message}`);
+      }
+    }
+    if (!EDITING) {
+      const [data, site] = await Promise.all(["data.json", "site.json"].map((f) => fetch(f).then((r) => r.json())));
+      ENTRIES = data;
+      SITE = site;
+    }
+    adoptStrays();
+    renderAll();
+  } catch (err) {
     $("#grid").innerHTML =
-      '<p class="empty">Could not load data.json. If opening the file directly, run a local server (see README).</p>';
+      '<p class="empty">Could not load the library. If opening the file directly, run a local server (see README).</p>';
     console.error(err);
+  }
+}
+
+// Cards whose tab or section isn't in site.json (added by hand) still need a
+// home, so they get one at the end. It's written to site.json on the next save.
+function adoptStrays() {
+  ENTRIES.forEach((e) => {
+    let tab = SITE.tabs.find((t) => t.id === e.category);
+    if (!tab) {
+      tab = { id: e.category, label: e.category, sections: [] };
+      SITE.tabs.push(tab);
+    }
+    const heading = e.heading || "Other";
+    if (!tab.sections.some((s) => s.title === heading)) tab.sections.push({ title: heading, description: "" });
   });
+}
+
+// ---- Small helpers ----
+
+const isShown = (item) => !item.hidden || (EDITING && showHidden);
+const findTab = (id) => SITE.tabs.find((t) => t.id === id);
+const tabLabel = (id) => (findTab(id) || { label: id }).label;
+const inSection = (tab, sec) => (e) => e.category === tab.id && (e.heading || "Other") === sec.title;
+
+function slugify(str) {
+  return String(str)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+// Pull a YouTube video id out of a full URL, short link, or a raw id.
+function youtubeId(val) {
+  if (!val) return null;
+  const m = val.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([A-Za-z0-9_-]{11})/);
+  if (m) return m[1];
+  if (/^[A-Za-z0-9_-]{11}$/.test(val)) return val; // already a bare id
+  return null;
+}
+
+function ext(path) {
+  return (path || "").split(".").pop().toLowerCase();
+}
+
+// Escape user text before dropping it into innerHTML.
+function escapeHTML(s) {
+  return String(s || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function linkify(text) {
+  return escapeHTML(text).replace(
+    /https?:\/\/[^\s<]+/g,
+    (u) => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`
+  );
+}
+
+// Plain text → HTML. Blank lines start a new paragraph, lines starting "- "
+// become a bullet list, and web addresses become links.
+function richText(text) {
+  const out = [];
+  let para = [];
+  let list = [];
+  const flushPara = () => para.length && out.push(`<p>${para.join("<br>")}</p>`) && (para = []);
+  const flushList = () => list.length && out.push(`<ul>${list.join("")}</ul>`) && (list = []);
+  String(text || "")
+    .split(/\r?\n/)
+    .forEach((line) => {
+      const bullet = line.match(/^\s*[-•]\s+(.*)$/);
+      if (bullet) {
+        flushPara();
+        list.push(`<li>${linkify(bullet[1])}</li>`);
+      } else if (!line.trim()) {
+        flushPara();
+        flushList();
+      } else {
+        flushList();
+        para.push(linkify(line));
+      }
+    });
+  flushPara();
+  flushList();
+  return out.join("");
+}
+
+const mediaSrc = (path) => localMedia[path] || path;
+
+const placeholder = (kw) => `<div class="placeholder">No media yet<br>${escapeHTML(kw)}</div>`;
+const onErrorPlaceholder = (kw) =>
+  `onerror="this.parentNode.innerHTML='${placeholder(kw).replace(/'/g, "\\'").replace(/"/g, "&quot;")}'"`;
+
+const ICONS = {
+  trash: `<path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v6M14 11v6"/>`,
+  edit: `<path d="M4 20h4L19 9l-4-4L4 16v4zM14 6l4 4"/>`,
+  eye: `<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>`,
+  eyeOff: `<path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.1M6.6 6.6C3.8 8.4 2 12 2 12s3.5 7 10 7c1.9 0 3.6-.6 5-1.4M9.9 9.9a3 3 0 0 0 4.2 4.2"/>`,
+};
+
+function iconButton(icon, label, onClick, extraClass = "") {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = `tool-btn ${extraClass}`.trim();
+  b.title = label;
+  b.setAttribute("aria-label", label);
+  b.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[icon]}</svg>`;
+  b.onclick = (ev) => {
+    ev.stopPropagation(); // don't open the card behind it
+    onClick();
+  };
+  return b;
+}
+
+// Edit / hide / delete, as used on cards and section headings.
+function toolButtons(name, item, { onEdit, onToggleHidden, onDelete }) {
+  const wrap = document.createElement("span");
+  wrap.className = "tools";
+  wrap.append(
+    iconButton("edit", `Edit ${name}`, onEdit),
+    iconButton(item.hidden ? "eye" : "eyeOff", item.hidden ? `Unhide ${name}` : `Hide ${name}`, onToggleHidden),
+    iconButton("trash", `Delete ${name}`, onDelete, "tool-danger")
+  );
+  return wrap;
+}
+
+// ---- Rendering ----
+
+function renderAll() {
+  const active = findTab(activeCategory);
+  if (activeCategory !== "all" && (!active || !isShown(active))) activeCategory = "all";
+  document.title = `${SITE.title || "Keyword Library"} — Visual Reference`;
+  $("#site-title").textContent = SITE.title || "Keyword Library";
+  $("#site-tagline").textContent = SITE.tagline || "";
+  $("#sign-in-btn").hidden = EDITING;
+  buildFilters();
+  buildAdminBar();
+  render();
+}
 
 function buildFilters() {
   const el = $("#filters");
   el.innerHTML = "";
-  CATEGORIES.forEach((cat) => {
+  const tabs = [{ id: "all", label: "All" }, ...SITE.tabs.filter(isShown)];
+  tabs.forEach((tab) => {
     const btn = document.createElement("button");
-    btn.className = "filter-btn" + (cat.id === activeCategory ? " active" : "");
-    btn.textContent = cat.label;
+    btn.className =
+      "filter-btn" + (tab.id === activeCategory ? " active" : "") + (tab.hidden ? " is-hidden" : "");
+    btn.textContent = tab.label;
     btn.onclick = () => {
-      activeCategory = cat.id;
+      activeCategory = tab.id;
       buildFilters();
+      buildAdminBar();
       render();
     };
     el.appendChild(btn);
   });
+  if (EDITING) {
+    const add = document.createElement("button");
+    add.className = "filter-btn filter-add";
+    add.textContent = "+ Tab";
+    add.onclick = openTabForm;
+    el.appendChild(add);
+  }
+}
+
+function buildAdminBar() {
+  const bar = $("#admin-bar");
+  bar.hidden = !EDITING;
+  if (!EDITING) return;
+  bar.innerHTML = "";
+
+  const status = document.createElement("span");
+  status.className = "admin-status";
+  status.id = "admin-status";
+  status.textContent = "Editing. Saves go to GitHub; visitors see them about a minute later.";
+
+  const toggle = document.createElement("label");
+  toggle.className = "admin-toggle";
+  toggle.innerHTML = `<input type="checkbox" ${showHidden ? "checked" : ""}> Show hidden`;
+  toggle.querySelector("input").onchange = (e) => {
+    showHidden = e.target.checked;
+    renderAll();
+  };
+
+  const actions = document.createElement("span");
+  actions.className = "admin-actions";
+  const link = (label, fn) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "link-btn";
+    b.textContent = label;
+    b.onclick = fn;
+    actions.appendChild(b);
+  };
+  const tab = findTab(activeCategory);
+  if (tab) {
+    link(`Rename tab`, () => openTabForm(tab));
+    link(tab.hidden ? "Unhide tab" : "Hide tab", () =>
+      persistOrAlert(`${tab.hidden ? "Unhide" : "Hide"} tab "${tab.label}"`, { site: true }, () => {
+        if (tab.hidden) delete tab.hidden;
+        else tab.hidden = true;
+      })
+    );
+    link("Delete tab", () => deleteTab(tab));
+  }
+  link("Edit title & tagline", openSiteForm);
+  link("Sign out", () => {
+    GH.signOut();
+    location.reload();
+  });
+
+  bar.append(status, toggle, actions);
+}
+
+function setStatus(msg) {
+  const el = $("#admin-status");
+  if (el) el.textContent = msg;
 }
 
 // Fill the "Menu" dropdown panel with whatever sections are currently on
@@ -208,56 +307,23 @@ function closeMenu() {
   }
 }
 
-function categoryLabel(id) {
-  const c = CATEGORIES.find((c) => c.id === id);
-  return c ? c.label : id;
-}
-
-// Pull a YouTube video id out of a full URL, short link, or a raw id.
-function youtubeId(val) {
-  if (!val) return null;
-  const m = val.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([A-Za-z0-9_-]{11})/);
-  if (m) return m[1];
-  if (/^[A-Za-z0-9_-]{11}$/.test(val)) return val; // already a bare id
-  return null;
-}
-
-function ext(path) {
-  return (path || "").split(".").pop().toLowerCase();
-}
-
-// Escape user text before dropping it into innerHTML.
-function escapeHTML(s) {
-  return (s || "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-}
-
-const placeholder = (kw) => `<div class="placeholder">No media yet<br>${kw}</div>`;
-
-const TRASH_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-  <path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v6M14 11v6"/></svg>`;
-
 // Card view: lightweight. Local video/svg/gif auto-loop to show the motion at a
 // glance; YouTube shows its thumbnail with a play badge (player opens in modal).
 function cardMediaHTML(entry) {
   const yt = youtubeId(entry.youtube);
   if (yt) {
-    return `<img src="https://img.youtube.com/vi/${yt}/hqdefault.jpg" alt="${entry.keyword}" loading="lazy"
-      onerror="this.parentNode.innerHTML='${placeholder(entry.keyword).replace(/"/g, "&quot;")}'">
+    return `<img src="https://img.youtube.com/vi/${yt}/hqdefault.jpg" alt="${escapeHTML(entry.keyword)}" loading="lazy"
+      ${onErrorPlaceholder(entry.keyword)}>
       <span class="play-badge">▶</span>`;
   }
   if (entry.media) {
+    const src = escapeHTML(mediaSrc(entry.media));
     const e = ext(entry.media);
     if (e === "mp4" || e === "webm") {
-      return `<video src="${entry.media}" muted loop autoplay playsinline
-        onerror="this.parentNode.innerHTML='${placeholder(entry.keyword).replace(/"/g, "&quot;")}'"></video>`;
+      return `<video src="${src}" muted loop autoplay playsinline ${onErrorPlaceholder(entry.keyword)}></video>`;
     }
     // images, gif, webp, and animated svg all render fine via <img>
-    return `<img src="${entry.media}" alt="${entry.keyword}" loading="lazy"
-      onerror="this.parentNode.innerHTML='${placeholder(entry.keyword).replace(/"/g, "&quot;")}'">`;
+    return `<img src="${src}" alt="${escapeHTML(entry.keyword)}" loading="lazy" ${onErrorPlaceholder(entry.keyword)}>`;
   }
   return placeholder(entry.keyword);
 }
@@ -266,16 +332,17 @@ function cardMediaHTML(entry) {
 function modalMediaHTML(entry) {
   const yt = youtubeId(entry.youtube);
   if (yt) {
-    return `<iframe src="https://www.youtube.com/embed/${yt}" title="${entry.keyword}"
+    return `<iframe src="https://www.youtube.com/embed/${yt}" title="${escapeHTML(entry.keyword)}"
       frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>`;
   }
   if (entry.media) {
+    const src = escapeHTML(mediaSrc(entry.media));
     const e = ext(entry.media);
     if (e === "mp4" || e === "webm") {
-      return `<video src="${entry.media}" controls muted loop autoplay playsinline></video>`;
+      return `<video src="${src}" controls muted loop autoplay playsinline></video>`;
     }
-    return `<img src="${entry.media}" alt="${entry.keyword}">`;
+    return `<img src="${src}" alt="${escapeHTML(entry.keyword)}">`;
   }
   return placeholder(entry.keyword);
 }
@@ -298,75 +365,43 @@ function renderMedia(container, entry, fallbackHTML) {
   }
 }
 
-function getFiltered() {
+function matchesSearch(e) {
   const term = searchTerm.trim().toLowerCase();
-  return ENTRIES.filter((e) => {
-    const catOk = activeCategory === "all" || e.category === activeCategory;
-    if (!catOk) return false;
-    if (!term) return true;
-    const haystack = (e.keyword + " " + (e.tags || []).join(" ") + " " + (e.note || "")).toLowerCase();
-    return haystack.includes(term);
-  });
+  if (!term) return true;
+  const haystack = (e.keyword + " " + (e.tags || []).join(" ") + " " + (e.note || "")).toLowerCase();
+  return haystack.includes(term);
 }
 
-// Group entries into sections: heading within a category tab, or
-// "Category — Heading" when browsing "All". Sections are ordered by
-// HEADING_ORDER (falling back to first-seen order for unlisted headings).
-function groupEntries(filtered) {
-  const groups = new Map();
-  filtered.forEach((entry) => {
-    const heading = entry.heading || "Other";
-    const key = activeCategory === "all" ? `${categoryLabel(entry.category)} — ${heading}` : heading;
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(entry);
+// Sections to draw, in site.json order. "All" shows every section that has
+// cards, labelled "Tab — Section"; a single tab also shows its text-only
+// sections (notes). While searching, sections without a match drop out.
+function getGroups() {
+  const groups = [];
+  const tabs = activeCategory === "all" ? SITE.tabs.filter(isShown) : [findTab(activeCategory)];
+  tabs.forEach((tab) => {
+    tab.sections.filter(isShown).forEach((sec) => {
+      const all = ENTRIES.filter(inSection(tab, sec)).filter(isShown);
+      const entries = all.filter(matchesSearch);
+      if (!entries.length && (activeCategory === "all" || searchTerm.trim())) return;
+      groups.push({
+        tab,
+        sec,
+        entries,
+        label: activeCategory === "all" ? `${tab.label} — ${sec.title}` : sec.title,
+      });
+    });
   });
-
-  const keys = [...groups.keys()].sort((a, b) => {
-    const ha = a.split(" — ").pop();
-    const hb = b.split(" — ").pop();
-    const ia = HEADING_ORDER.indexOf(ha);
-    const ib = HEADING_ORDER.indexOf(hb);
-    if (ia === -1 && ib === -1) return a.localeCompare(b);
-    if (ia === -1) return 1;
-    if (ib === -1) return -1;
-    return ia - ib;
-  });
-
-  return keys.map((key) => ({ key, entries: groups.get(key) }));
-}
-
-// The "Notes" tab is plain reference text, not a card grid.
-function renderNotes(grid) {
-  grid.innerHTML = "";
-  $("#count").textContent = "";
-  $("#empty").hidden = true;
-  const sections = [];
-  NOTES.forEach((n, i) => {
-    const sec = document.createElement("section");
-    sec.className = "notes-block";
-    sec.id = `sec-${i}`;
-    sections.push({ id: sec.id, label: n.title });
-    sec.innerHTML = `
-      <h2>${n.title}</h2>
-      ${n.intro ? `<p>${n.intro}</p>` : ""}
-      ${n.items ? `<ul>${n.items.map((i) => `<li>${i}</li>`).join("")}</ul>` : ""}
-      ${n.outro ? `<p>${n.outro}</p>` : ""}`;
-    grid.appendChild(sec);
-  });
-  buildSectionJump(sections);
+  return groups;
 }
 
 function render() {
   const grid = $("#grid");
-  if (activeCategory === "notes") {
-    renderNotes(grid);
-    return;
-  }
-  const filtered = getFiltered();
+  const groups = getGroups();
+  const total = groups.reduce((n, g) => n + g.entries.length, 0);
   grid.innerHTML = "";
 
-  $("#count").textContent = `${filtered.length} keyword${filtered.length === 1 ? "" : "s"}`;
-  $("#empty").hidden = filtered.length !== 0;
+  $("#count").textContent = total ? `${total} keyword${total === 1 ? "" : "s"}` : "";
+  $("#empty").hidden = groups.length !== 0;
 
   // Collect the live-demo containers and run them only AFTER the whole grid is
   // attached to the document. Some SVG demos measure stroke length with
@@ -376,65 +411,79 @@ function render() {
   const pendingDemos = [];
   const sections = [];
 
-  groupEntries(filtered).forEach((group, i) => {
+  groups.forEach((group, i) => {
+    const { tab, sec, entries } = group;
     const section = document.createElement("section");
-    section.className = "group";
     section.id = `sec-${i}`;
-    sections.push({ id: section.id, label: group.key });
+    sections.push({ id: section.id, label: group.label });
+
+    // A section with no cards is a block of reference text (the Notes tab).
+    const isText = !entries.length && !ENTRIES.some(inSection(tab, sec));
+    section.className = (isText ? "notes-block" : "group") + (sec.hidden ? " is-hidden" : "");
 
     const heading = document.createElement("h2");
-    heading.className = "group-heading";
-    heading.textContent = group.key;
-    // For the GSAP Animation section, add a link to the GSAP resources page.
-    if (group.key.split(" — ").pop() === "GSAP Animation") {
+    heading.className = isText ? "notes-heading" : "group-heading";
+    heading.textContent = group.label;
+    if (sec.linkUrl) {
       const link = document.createElement("a");
       link.className = "group-heading-link";
-      link.href = "https://gsap.com/resources/";
+      link.href = sec.linkUrl;
       link.target = "_blank";
       link.rel = "noopener";
-      link.textContent = "GSAP resources ↗";
+      link.textContent = sec.linkLabel || "Link ↗";
       heading.appendChild(link);
+    }
+    if (EDITING) {
+      heading.appendChild(
+        toolButtons(`section ${sec.title}`, sec, {
+          onEdit: () => openSectionForm(tab, sec),
+          onToggleHidden: () =>
+            persistOrAlert(`${sec.hidden ? "Unhide" : "Hide"} section "${sec.title}"`, { site: true }, () => {
+              if (sec.hidden) delete sec.hidden;
+              else sec.hidden = true;
+            }),
+          onDelete: () => deleteSection(tab, sec),
+        })
+      );
     }
     section.appendChild(heading);
 
-    // One-line description of what this section is about.
-    const desc = HEADING_DESCRIPTIONS[group.key.split(" — ").pop()];
-    if (desc) {
-      const sub = document.createElement("p");
-      sub.className = "group-sub";
-      sub.textContent = desc;
-      section.appendChild(sub);
+    if (sec.description) {
+      const desc = document.createElement("div");
+      desc.className = isText ? "notes-text" : "group-sub";
+      desc.innerHTML = richText(sec.description);
+      section.appendChild(desc);
     }
 
     const cards = document.createElement("div");
     cards.className = "group-cards";
-    group.entries.forEach((entry) => {
+    entries.forEach((entry) => {
       const card = document.createElement("article");
-      card.className = "card";
+      card.className = "card" + (entry.hidden ? " is-hidden" : "");
       card.innerHTML = `
         <div class="card-media"></div>
         <div class="card-body">
-          <div class="card-keyword">${entry.keyword}</div>
-          <div class="card-category">${categoryLabel(entry.category)}${
-            entry.role ? `<span class="card-role">${entry.role}</span>` : ""
+          <div class="card-keyword">${escapeHTML(entry.keyword)}</div>
+          <div class="card-category">${escapeHTML(tabLabel(entry.category))}${
+            entry.role ? `<span class="card-role">${escapeHTML(entry.role)}</span>` : ""
           }</div>
         </div>`;
       card.onclick = () => openModal(entry);
 
-      // Bin, revealed on hover. Lives on the card rather than inside
-      // .card-media, because live demos overwrite that container's contents.
-      if (SAVE_ENABLED) {
-        const del = document.createElement("button");
-        del.type = "button";
-        del.className = "card-delete";
-        del.title = `Delete "${entry.keyword}"`;
-        del.setAttribute("aria-label", `Delete ${entry.keyword}`);
-        del.innerHTML = TRASH_ICON;
-        del.onclick = (ev) => {
-          ev.stopPropagation(); // don't open the card behind it
-          deleteEntry(entry);
-        };
-        card.appendChild(del);
+      // Tools live on the card rather than inside .card-media, because live
+      // demos overwrite that container's contents.
+      if (EDITING) {
+        const tools = toolButtons(entry.keyword, entry, {
+          onEdit: () => openEditModal(entry),
+          onToggleHidden: () =>
+            persistOrAlert(`${entry.hidden ? "Unhide" : "Hide"} "${entry.keyword}"`, { data: true }, () => {
+              if (entry.hidden) delete entry.hidden;
+              else entry.hidden = true;
+            }),
+          onDelete: () => deleteEntry(entry),
+        });
+        tools.classList.add("card-tools");
+        card.appendChild(tools);
       }
 
       cards.appendChild(card);
@@ -443,23 +492,29 @@ function render() {
 
     // "+" tile at the end of every section, pre-filled with that section so a
     // new keyword lands in the right place.
-    if (SAVE_ENABLED) {
-      const sectionHeading = group.key.split(" — ").pop();
-      const sectionCategory = group.entries[0] ? group.entries[0].category : activeCategory;
+    if (EDITING) {
       const add = document.createElement("button");
       add.type = "button";
       add.className = "card-add";
       add.innerHTML =
         `<span class="card-add-plus" aria-hidden="true">+</span>` +
-        `<span class="card-add-label">Add to ${escapeHTML(sectionHeading)}</span>`;
-      add.onclick = () => openAddModal(sectionCategory, sectionHeading);
+        `<span class="card-add-label">Add to ${escapeHTML(sec.title)}</span>`;
+      add.onclick = () => openAddModal(tab, sec);
       cards.appendChild(add);
     }
 
-    section.appendChild(cards);
-
+    if (cards.children.length) section.appendChild(cards);
     grid.appendChild(section);
   });
+
+  if (EDITING && activeCategory !== "all" && !searchTerm.trim()) {
+    const addSec = document.createElement("button");
+    addSec.type = "button";
+    addSec.className = "section-add";
+    addSec.textContent = "+ Add section";
+    addSec.onclick = () => openSectionForm(findTab(activeCategory), null);
+    grid.appendChild(addSec);
+  }
 
   buildSectionJump(sections);
 
@@ -467,40 +522,306 @@ function render() {
   pendingDemos.forEach(({ container, entry }) => renderMedia(container, entry, cardMediaHTML));
 }
 
-// ---- Add / edit a keyword ----
-// One form serves both. It posts to the local save server, which writes any
-// media file into images/ and adds or rewrites the entry in data.json. The card
-// then updates immediately without a reload.
-//
-// Entries are addressed by their position in ENTRIES, which mirrors data.json.
-// The original keyword rides along so the server can confirm it's rewriting the
-// row the page meant.
-let formContext = { mode: "add", category: null, heading: null, entry: null, index: -1 };
+// ---- Saving ----
+// Every change is made to the in-memory data first, then committed to GitHub.
+// If the commit fails, the change is rolled back so the page never shows
+// something that isn't saved.
+// `files` may be a promise, so looking up which pictures to delete fails
+// through the same error path as the save itself.
+async function persist(message, { data = false, site = false, files = {} }, mutate) {
+  files = await files;
+  const before = { entries: structuredClone(ENTRIES), site: structuredClone(SITE) };
+  mutate();
+  const out = { ...files };
+  if (data) out["data.json"] = JSON.stringify(ENTRIES, null, 2) + "\n";
+  if (site) out["site.json"] = JSON.stringify(SITE, null, 2) + "\n";
+  renderAll();
+  setStatus("Saving…");
+  try {
+    await GH.commit(message, out);
+    setStatus(`Saved: ${message}. Visitors see it in about a minute.`);
+  } catch (err) {
+    ENTRIES = before.entries;
+    SITE = before.site;
+    renderAll();
+    setStatus("Not saved.");
+    throw err;
+  }
+}
 
-function openAddModal(category, heading) {
-  formContext = { mode: "add", category, heading, entry: null, index: -1 };
+// persist() for buttons with no form to show the error in.
+function persistOrAlert(...args) {
+  return persist(...args).catch((err) => window.alert(`Not saved.\n\n${err.message}`));
+}
+
+// Media files of the given cards that really exist in the repo (some demo
+// cards name a picture that was never added).
+async function mediaToDelete(entries) {
+  const paths = entries.map((e) => e.media).filter((m) => m && m.startsWith("images/"));
+  if (!paths.length) return {};
+  const present = new Set((await GH.listFolder("images")).map((n) => `images/${n}`));
+  return Object.fromEntries(paths.filter((p) => present.has(p)).map((p) => [p, null]));
+}
+
+// ---- Generic form (tabs, sections, site text, sign-in) ----
+
+let formSubmit = null;
+
+function openForm({ badge = "", title, submit = "Save", fields, onSubmit }) {
+  $("#form-badge").textContent = badge;
+  $("#form-badge").hidden = !badge;
+  $("#form-title").textContent = title;
+  $("#form-submit").textContent = submit;
+  const box = $("#form-fields");
+  box.innerHTML = "";
+  fields.forEach((f) => {
+    const row = document.createElement("div");
+    row.className = "form-row";
+    const input = document.createElement(f.type === "textarea" ? "textarea" : "input");
+    input.className = "form-input";
+    input.id = `field-${f.id}`;
+    input.autocomplete = "off";
+    if (f.type === "textarea") input.rows = f.rows || 4;
+    else input.type = f.type || "text";
+    if (f.placeholder) input.placeholder = f.placeholder;
+    if (f.required) input.required = true;
+    input.value = f.value || "";
+    row.innerHTML = `<label class="form-label" for="${input.id}">${escapeHTML(f.label)}</label>`;
+    row.appendChild(input);
+    if (f.help) row.insertAdjacentHTML("beforeend", `<p class="form-help">${f.help}</p>`);
+    box.appendChild(row);
+  });
+  setFormError("");
+  formSubmit = async () => {
+    const values = {};
+    fields.forEach((f) => (values[f.id] = $(`#field-${f.id}`).value.trim()));
+    await onSubmit(values);
+  };
+  $("#form-modal").hidden = false;
+  const first = box.querySelector("input, textarea");
+  if (first) first.focus();
+}
+
+function closeForm() {
+  $("#form-modal").hidden = true;
+}
+
+function setFormError(msg) {
+  $("#form-error").textContent = msg;
+  $("#form-error").hidden = !msg;
+}
+
+$("#form-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const btn = $("#form-submit");
+  const label = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "Saving…";
+  setFormError("");
+  try {
+    await formSubmit();
+    closeForm();
+  } catch (err) {
+    setFormError(err.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = label;
+  }
+});
+document.addEventListener("click", (e) => {
+  if (e.target.hasAttribute("data-form-close")) closeForm();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeForm();
+});
+
+// ---- Sign in ----
+
+$("#sign-in-btn").addEventListener("click", () =>
+  openForm({
+    title: "Sign in to edit",
+    submit: "Sign in",
+    fields: [
+      {
+        id: "token",
+        label: "GitHub token",
+        type: "password",
+        required: true,
+        help:
+          `Make one at <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → Fine-grained tokens</a>: ` +
+          `only the <code>${escapeHTML(window.REPO.name)}</code> repo, with Contents set to Read and write. ` +
+          `It stays in this browser.`,
+      },
+    ],
+    onSubmit: async ({ token }) => {
+      await GH.signIn(token);
+      location.reload();
+    },
+  })
+);
+
+// ---- Tabs ----
+
+function openTabForm(tab) {
+  const editing = Boolean(tab && tab.id);
+  openForm({
+    title: editing ? "Rename tab" : "Add a tab",
+    fields: [{ id: "label", label: "Tab name", value: editing ? tab.label : "", required: true }],
+    onSubmit: async ({ label }) => {
+      if (!label) throw new Error("Give the tab a name.");
+      if (editing) {
+        await persist(`Rename tab "${tab.label}" to "${label}"`, { site: true }, () => (tab.label = label));
+        return;
+      }
+      // The id is what cards store as their "category", so it never changes
+      // after the tab is made, even if the tab is renamed.
+      const base = slugify(label) || "tab";
+      let id = base;
+      for (let n = 2; id === "all" || findTab(id); n++) id = `${base}-${n}`;
+      await persist(`Add tab "${label}"`, { site: true }, () => {
+        SITE.tabs.push({ id, label, sections: [] });
+        activeCategory = id;
+      });
+    },
+  });
+}
+
+async function deleteTab(tab) {
+  const cards = ENTRIES.filter((e) => e.category === tab.id);
+  const warning =
+    `Delete the "${tab.label}" tab?\n\n` +
+    `This removes its ${tab.sections.length} section${tab.sections.length === 1 ? "" : "s"}` +
+    (cards.length ? ` and ${cards.length} card${cards.length === 1 ? "" : "s"} with their pictures` : "") +
+    `. It can't be undone from this page.`;
+  if (!window.confirm(warning)) return;
+  await persistOrAlert(`Delete tab "${tab.label}"`, { data: true, site: true, files: mediaToDelete(cards) }, () => {
+    ENTRIES = ENTRIES.filter((e) => e.category !== tab.id);
+    SITE.tabs = SITE.tabs.filter((t) => t !== tab);
+    activeCategory = "all";
+  });
+}
+
+// ---- Sections ----
+
+function openSectionForm(tab, sec) {
+  openForm({
+    badge: tab.label,
+    title: sec ? "Edit section" : "Add a section",
+    fields: [
+      { id: "title", label: "Section title", value: sec ? sec.title : "", required: true },
+      {
+        id: "description",
+        label: "Description",
+        type: "textarea",
+        rows: 6,
+        value: sec ? sec.description : "",
+        help:
+          "Shown under the title. A section with no cards shows as a block of notes. " +
+          "Leave a blank line for a new paragraph, start a line with “- ” for a bullet point, and web addresses become links.",
+      },
+      { id: "linkUrl", label: "Link (optional)", value: sec ? sec.linkUrl : "", placeholder: "https://…" },
+      { id: "linkLabel", label: "Link text", value: sec ? sec.linkLabel : "", placeholder: "Resources ↗" },
+    ],
+    onSubmit: async ({ title, description, linkUrl, linkLabel }) => {
+      if (!title) throw new Error("Give the section a title.");
+      // Cards find their section by title, so titles must be unique in a tab.
+      if (tab.sections.some((s) => s !== sec && s.title === title)) {
+        throw new Error(`"${tab.label}" already has a section called "${title}".`);
+      }
+      const apply = (s) => {
+        s.title = title;
+        s.description = description;
+        if (linkUrl) {
+          s.linkUrl = linkUrl;
+          s.linkLabel = linkLabel;
+        } else {
+          delete s.linkUrl;
+          delete s.linkLabel;
+        }
+      };
+      if (!sec) {
+        await persist(`Add section "${title}" to ${tab.label}`, { site: true }, () => {
+          const s = {};
+          apply(s);
+          tab.sections.push(s);
+        });
+        return;
+      }
+      const renamed = sec.title !== title;
+      await persist(`Edit section "${sec.title}"`, { site: true, data: renamed }, () => {
+        if (renamed) {
+          ENTRIES.filter(inSection(tab, sec)).forEach((e) => (e.heading = title));
+        }
+        apply(sec);
+      });
+    },
+  });
+}
+
+async function deleteSection(tab, sec) {
+  const cards = ENTRIES.filter(inSection(tab, sec));
+  const warning =
+    `Delete the "${sec.title}" section?\n\n` +
+    (cards.length
+      ? `Its ${cards.length} card${cards.length === 1 ? "" : "s"} and their pictures go too. `
+      : "") +
+    `It can't be undone from this page.`;
+  if (!window.confirm(warning)) return;
+  await persistOrAlert(
+    `Delete section "${sec.title}"`,
+    { data: cards.length > 0, site: true, files: mediaToDelete(cards) },
+    () => {
+      ENTRIES = ENTRIES.filter((e) => !cards.includes(e));
+      tab.sections = tab.sections.filter((s) => s !== sec);
+    }
+  );
+}
+
+// ---- Site title ----
+
+function openSiteForm() {
+  openForm({
+    title: "Title & tagline",
+    fields: [
+      { id: "title", label: "Title", value: SITE.title, required: true },
+      { id: "tagline", label: "Tagline", value: SITE.tagline },
+    ],
+    onSubmit: ({ title, tagline }) =>
+      persist("Edit title and tagline", { site: true }, () => {
+        SITE.title = title;
+        SITE.tagline = tagline;
+      }),
+  });
+}
+
+// ---- Add / edit a keyword ----
+// One form serves both. A new picture is committed into images/ alongside the
+// data.json change, in the same commit.
+let formContext = { mode: "add", tab: null, sec: null, entry: null };
+
+function openAddModal(tab, sec) {
+  formContext = { mode: "add", tab, sec, entry: null };
   $("#add-form").reset();
   $("#add-title").textContent = "Add a keyword";
   $("#add-submit").textContent = "Save keyword";
-  $("#add-section").textContent = `${categoryLabel(category)} · ${heading}`;
+  $("#add-section").textContent = `${tab.label} · ${sec.title}`;
   finishOpeningForm();
 }
 
 function openEditModal(entry) {
-  formContext = {
-    mode: "edit",
-    category: entry.category,
-    heading: entry.heading || "Other",
-    entry,
-    index: ENTRIES.indexOf(entry),
-  };
+  const tab = findTab(entry.category);
+  const sec = tab.sections.find((s) => s.title === (entry.heading || "Other"));
+  formContext = { mode: "edit", tab, sec, entry };
   $("#add-form").reset();
   $("#add-title").textContent = "Edit keyword";
   $("#add-submit").textContent = "Save changes";
-  $("#add-section").textContent = `${categoryLabel(entry.category)} · ${formContext.heading}`;
+  $("#add-section").textContent = `${tab.label} · ${sec.title}`;
   $("#add-keyword").value = entry.keyword || "";
   $("#add-youtube").value = entry.youtube || "";
   $("#add-note").value = entry.note || "";
+  $("#add-prompt").value = entry.prompt || "";
+  $("#add-role").value = entry.role || "";
+  $("#add-types").value = (entry.types || []).join(", ");
   $("#add-tags").value = (entry.tags || []).join(", ");
   finishOpeningForm();
 }
@@ -551,9 +872,10 @@ function renderAddPreview() {
   } else if (yt) {
     html = `<img src="https://img.youtube.com/vi/${yt}/hqdefault.jpg" alt="">`;
   } else if (current) {
+    const src = escapeHTML(mediaSrc(current));
     html = /\.(mp4|webm)$/i.test(current)
-      ? `<video src="${current}" muted loop autoplay playsinline></video>`
-      : `<img src="${current}" alt="">`;
+      ? `<video src="${src}" muted loop autoplay playsinline></video>`
+      : `<img src="${src}" alt="">`;
     label = "Current picture — pick a file above to replace it.";
   }
 
@@ -567,7 +889,7 @@ function renderAddPreview() {
   note.hidden = !label && !canRemove;
 }
 
-// Strip the "data:…;base64," prefix — the server wants the raw base64 only.
+// Strip the "data:…;base64," prefix — GitHub wants the raw base64 only.
 function fileToBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -576,6 +898,12 @@ function fileToBase64(file) {
     reader.readAsDataURL(file);
   });
 }
+
+const MEDIA_EXTS = ["jpg", "jpeg", "png", "gif", "webp", "svg", "mp4", "webm"];
+// GitHub refuses single files over 100 MB.
+const MAX_BYTES = 100 * 1024 * 1024;
+
+const commaList = (s) => s.split(",").map((t) => t.trim()).filter(Boolean);
 
 async function submitAdd(e) {
   e.preventDefault();
@@ -588,44 +916,63 @@ async function submitAdd(e) {
 
   if (!keyword) return setAddError("Give it a keyword first.");
   if (youtube && !youtubeId(youtube)) return setAddError("That doesn't look like a YouTube link.");
-  if (editing && formContext.index < 0) {
-    return setAddError("Lost track of that keyword. Refresh the page and try again.");
+  if (file && !MEDIA_EXTS.includes(ext(file.name))) {
+    return setAddError("That file type isn't supported. Use JPG, PNG, GIF, WEBP, SVG, MP4 or WEBM.");
   }
+  if (file && file.size > MAX_BYTES) return setAddError("That file is over 100 MB, which GitHub won't take.");
 
   setAddError("");
   btn.disabled = true;
   btn.textContent = "Saving…";
 
   try {
-    const payload = {
-      keyword,
-      category: formContext.category,
-      heading: formContext.heading,
-      youtube,
+    const { tab, sec, entry: old } = formContext;
+    // Keys the form doesn't show (demo, hidden, …) carry through untouched.
+    const entry = editing ? { ...old } : {};
+    entry.keyword = keyword;
+    entry.category = tab.id;
+    entry.heading = sec.title;
+    const text = {
       note: $("#add-note").value.trim(),
-      tags: $("#add-tags").value.split(",").map((t) => t.trim()).filter(Boolean),
+      prompt: $("#add-prompt").value.trim(),
+      role: $("#add-role").value.trim(),
+      youtube,
+      types: commaList($("#add-types").value),
+      tags: commaList($("#add-tags").value),
     };
-    if (file) payload.file = { name: file.name, data: await fileToBase64(file) };
-    if (editing) {
-      payload.index = formContext.index;
-      payload.originalKeyword = formContext.entry.keyword;
-      payload.clearMedia = mediaCleared;
+    for (const [k, v] of Object.entries(text)) {
+      if (v.length) entry[k] = v;
+      else delete entry[k];
     }
 
-    const res = await fetch(editing ? "api/update" : "api/add", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-    const out = await res.json();
-    if (!res.ok || !out.ok) throw new Error(out.error || "Save failed.");
+    const files = {};
+    const oldMedia = old && old.media;
+    // A card shows one thing: a new file, a YouTube video, or neither.
+    const dropOld = oldMedia && (file || youtube || mediaCleared);
+    if (dropOld) Object.assign(files, await mediaToDelete([old]));
+    if (dropOld) delete entry.media;
 
-    if (editing) ENTRIES[formContext.index] = out.entry;
-    else ENTRIES.push(out.entry);
+    if (file) {
+      // Named after the keyword, never overwriting another card's file. A
+      // replaced picture is deleted in the same commit, so its name is free.
+      const taken = new Set((await GH.listFolder("images")).map((n) => `images/${n}`));
+      if (oldMedia) taken.delete(oldMedia);
+      const base = slugify(keyword) || "media";
+      const fileExt = ext(file.name);
+      let name = `images/${base}.${fileExt}`;
+      for (let n = 2; taken.has(name); n++) name = `images/${base}-${n}.${fileExt}`;
+      files[name] = { base64: await fileToBase64(file) };
+      localMedia[name] = URL.createObjectURL(file);
+      entry.media = name;
+    }
+
+    await persist(editing ? `Edit "${keyword}"` : `Add "${keyword}" to ${sec.title}`, { data: true, files }, () => {
+      if (editing) ENTRIES[ENTRIES.indexOf(old)] = entry;
+      else ENTRIES.push(entry);
+    });
 
     closeAddModal();
     closeModal(); // the detail view behind an edit is now stale
-    render();
   } catch (err) {
     setAddError(err.message);
   } finally {
@@ -634,34 +981,19 @@ async function submitAdd(e) {
   }
 }
 
-// Deleting rewrites data.json and bins the picture, so it asks first and names
+// Deleting removes the entry and bins its picture, so it asks first and names
 // what's going.
 async function deleteEntry(entry) {
-  const index = ENTRIES.indexOf(entry);
-  if (index < 0) return;
-
   const warning =
     `Delete "${entry.keyword}"?\n\n` +
-    `This removes it from data.json` +
+    `This removes the card` +
     (entry.media ? ` and deletes ${entry.media}` : "") +
     `. It can't be undone from this page.`;
   if (!window.confirm(warning)) return;
-
-  try {
-    const res = await fetch("api/delete", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ index, originalKeyword: entry.keyword }),
-    });
-    const out = await res.json();
-    if (!res.ok || !out.ok) throw new Error(out.error || "Delete failed.");
-
-    ENTRIES.splice(index, 1);
+  await persistOrAlert(`Delete "${entry.keyword}"`, { data: true, files: mediaToDelete([entry]) }, () => {
+    ENTRIES = ENTRIES.filter((e) => e !== entry);
     closeModal();
-    render();
-  } catch (err) {
-    window.alert(err.message);
-  }
+  });
 }
 
 $("#add-form").addEventListener("submit", submitAdd);
@@ -693,13 +1025,12 @@ document.addEventListener("keydown", (e) => {
 // ---- Modal ----
 function openModal(entry) {
   renderMedia($("#modal-media"), entry, modalMediaHTML);
-  $("#modal-category").textContent =
-    categoryLabel(entry.category) + (entry.role ? ` · ${entry.role}` : "");
+  $("#modal-category").textContent = tabLabel(entry.category) + (entry.role ? ` · ${entry.role}` : "");
   $("#modal-keyword").textContent = entry.keyword;
   // Description area: the note, then (if present) a "Types" list and a
   // "Sample Prompt", each after a line break with a bold label. Built as HTML
   // so labels can be bold; text is escaped so stray < > & can't break markup.
-  let noteHTML = escapeHTML(entry.note || "");
+  let noteHTML = linkify(entry.note || "").replace(/\n/g, "<br>");
   if (entry.types && entry.types.length) {
     noteHTML +=
       `<br><br><strong class="sample-prompt-label">Types</strong><br>` +
@@ -711,7 +1042,7 @@ function openModal(entry) {
       escapeHTML(entry.prompt);
   }
   $("#modal-note").innerHTML = noteHTML;
-  $("#modal-tags").innerHTML = (entry.tags || []).map((t) => `<span>${t}</span>`).join("");
+  $("#modal-tags").innerHTML = (entry.tags || []).map((t) => `<span>${escapeHTML(t)}</span>`).join("");
 
   const copyBtn = $("#modal-copy");
   copyBtn.textContent = "Copy keyword";
@@ -723,9 +1054,8 @@ function openModal(entry) {
     });
   };
 
-  // Editing rewrites data.json, so it's only on offer when the save server is up.
   const editBtn = $("#modal-edit");
-  editBtn.hidden = !SAVE_ENABLED;
+  editBtn.hidden = !EDITING;
   editBtn.onclick = () => openEditModal(entry);
 
   $("#modal").hidden = false;

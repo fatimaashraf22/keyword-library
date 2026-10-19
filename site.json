@@ -1,0 +1,148 @@
+{
+  "title": "Keyword Library",
+  "tagline": "A visual reference of technique keywords. See the look, grab the word.",
+  "tabs": [
+    {
+      "id": "motion",
+      "label": "Motion",
+      "sections": [
+        {
+          "title": "Motion Graphics Elements",
+          "description": "Concrete things you put on screen — a chart, a lower third, a stat card."
+        },
+        {
+          "title": "Text Animation (Kinetic Typography)",
+          "description": "Ways letters and words move — how text enters, reveals, and transforms on screen."
+        },
+        {
+          "title": "3D Scenes (Three.js)",
+          "description": "Looks that need real 3D — geometry, lights and materials rendered by the graphics card."
+        },
+        {
+          "title": "GPU Effects (TypeGPU)",
+          "description": "Effects that only exist at GPU scale — particles by the hundred thousand, and real simulation."
+        },
+        {
+          "title": "Vector Animation (Lottie)",
+          "description": "Flat vector motion drawn in After Effects and played back on the web."
+        },
+        {
+          "title": "Animation Concepts",
+          "description": "Behaviors and principles — how things move, not what they are."
+        }
+      ]
+    },
+    {
+      "id": "libraries",
+      "label": "Libraries",
+      "sections": [
+        {
+          "title": "Animation Runtimes",
+          "description": "The engines that actually move the pixels — what each one is for, and when to reach for it over the others."
+        },
+        {
+          "title": "GSAP Animation",
+          "description": "Building blocks of the GSAP animation library (with live demos).",
+          "linkUrl": "https://gsap.com/resources/",
+          "linkLabel": "GSAP resources ↗"
+        }
+      ]
+    },
+    {
+      "id": "ui",
+      "label": "UI / Web",
+      "sections": [
+        {
+          "title": "UI Styles & Surfaces",
+          "description": "The look of UI surfaces and backgrounds — glass, glow, gradients, textures."
+        },
+        {
+          "title": "UI Components",
+          "description": "Concrete website/app pieces — chat bubbles, dashboards, cards, cursors."
+        },
+        {
+          "title": "UI Motion",
+          "description": "Small interface animations — buttons, menus, page bits reacting."
+        }
+      ]
+    },
+    {
+      "id": "cinematic",
+      "label": "Cinematic",
+      "sections": [
+        {
+          "title": "Lighting",
+          "description": "How a scene is lit — the mood and direction of light."
+        },
+        {
+          "title": "Lens Effects",
+          "description": "Looks created by the camera lens itself (flares, blur, distortion)."
+        },
+        {
+          "title": "Camera Shots & Angles",
+          "description": "Where the camera sits and how tightly it frames the subject."
+        },
+        {
+          "title": "Camera Movement & Effects",
+          "description": "How the camera itself moves through the scene."
+        },
+        {
+          "title": "Composition",
+          "description": "How elements are arranged within the frame."
+        },
+        {
+          "title": "Color & Grading",
+          "description": "The overall color treatment and mood of the image."
+        },
+        {
+          "title": "Editing Transitions",
+          "description": "How one shot or scene cuts to the next."
+        }
+      ]
+    },
+    {
+      "id": "styles",
+      "label": "Styles",
+      "sections": [
+        {
+          "title": "Visual Styles",
+          "description": "Surface treatments and textures applied to an image — how it's rendered, not what it depicts."
+        },
+        {
+          "title": "Aesthetic Styles",
+          "description": "Recognizable overall visual styles or vibes."
+        },
+        {
+          "title": "Art Movements & Eras",
+          "description": "Looks borrowed from art history and past periods."
+        },
+        {
+          "title": "Iconic Artists",
+          "description": "The signature style of a specific well-known artist."
+        },
+        {
+          "title": "Backgrounds",
+          "description": "Patterns and surfaces that sit behind the content."
+        }
+      ]
+    },
+    {
+      "id": "notes",
+      "label": "Notes",
+      "sections": [
+        {
+          "title": "Rule For Motion Graphics",
+          "description": "Each object should have internal life — a reading position, a scroll, a pulse — independent of how it arrived."
+        },
+        {
+          "title": "High-End Keywords",
+          "description": "When prompting models like Claude Code, Cursor, or GPT for implementation, sprinkle in terms like:\n\n- premium editorial\n- award-winning portfolio\n- Awwwards-inspired\n- GSAP-quality motion\n- Framer-level interactions\n- cinematic scroll experience\n- immersive storytelling\n- kinetic typography\n- SVG-first animation\n- sophisticated motion system\n- visual rhythm\n- modular grid\n- motion choreography\n- interaction design\n- premium creative agency aesthetic\n- Apple-style polish\n- smooth 120 FPS animations\n- buttery scrolling\n- responsive motion design\n- tasteful microinteractions\n\nThese descriptors communicate the feel of the experience without instructing the model to imitate a specific website. They tend to produce designs that share the same polished, motion-driven aesthetic while remaining original."
+        },
+        {
+          "title": "React Bits — Component Links",
+          "description": "Each component has its own URL following a simple pattern: reactbits.dev/<category>/<component>. Some saved links:\n\n- https://reactbits.dev/text-animations/split-text\n- https://reactbits.dev/backgrounds/aurora\n- https://reactbits.dev/animations/splash-cursor\n- https://reactbits.dev/components/tilted-card"
+        }
+      ]
+    }
+  ]
+}
