@@ -24,7 +24,8 @@ GitHub token:
 3. Permissions: **Contents → Read and write**.
 
 Signed in, you get a **+** to add cards, sections and tabs, plus edit / hide / delete
-on everything. Each save is a commit to this repo; visitors see it about a minute
+on everything. Edits show on the page straight away and wait there until you press
+**Publish**, which saves them all as one commit; visitors see them about a minute
 later, once GitHub Pages republishes.
 
 ## Run it locally

@@ -12,7 +12,6 @@ let activeCategory = "all";
 let searchTerm = "";
 // True once signed in and the data has loaded from the repo.
 let EDITING = false;
-let showHidden = false;
 // Pictures uploaded this session, shown from memory until GitHub Pages has
 // published them.
 const localMedia = {};
@@ -64,7 +63,8 @@ function adoptStrays() {
 
 // ---- Small helpers ----
 
-const isShown = (item) => !item.hidden || (EDITING && showHidden);
+// Hidden things vanish for visitors; while signed in they stay in place, greyed.
+const isShown = (item) => !item.hidden || EDITING;
 const findTab = (id) => SITE.tabs.find((t) => t.id === id);
 const tabLabel = (id) => (findTab(id) || { label: id }).label;
 const inSection = (tab, sec) => (e) => e.category === tab.id && (e.heading || "Other") === sec.title;
@@ -219,18 +219,21 @@ function buildAdminBar() {
   if (!EDITING) return;
   bar.innerHTML = "";
 
+  const n = pendingCount();
   const status = document.createElement("span");
   status.className = "admin-status";
   status.id = "admin-status";
-  status.textContent = "Editing. Saves go to GitHub; visitors see them about a minute later.";
+  status.textContent = n
+    ? `${n} unpublished change${n === 1 ? "" : "s"}. Visitors see ${n === 1 ? "it" : "them"} after you publish.`
+    : "Editing. Changes wait here until you publish.";
 
-  const toggle = document.createElement("label");
-  toggle.className = "admin-toggle";
-  toggle.innerHTML = `<input type="checkbox" ${showHidden ? "checked" : ""}> Show hidden`;
-  toggle.querySelector("input").onchange = (e) => {
-    showHidden = e.target.checked;
-    renderAll();
-  };
+  const publishBtn = document.createElement("button");
+  publishBtn.type = "button";
+  publishBtn.className = "copy-btn";
+  publishBtn.id = "publish-btn";
+  publishBtn.textContent = n ? `Publish ${n} change${n === 1 ? "" : "s"}` : "Publish";
+  publishBtn.disabled = !n;
+  publishBtn.onclick = publish;
 
   const actions = document.createElement("span");
   actions.className = "admin-actions";
@@ -246,7 +249,7 @@ function buildAdminBar() {
   if (tab) {
     link(`Rename tab`, () => openTabForm(tab));
     link(tab.hidden ? "Unhide tab" : "Hide tab", () =>
-      persistOrAlert(`${tab.hidden ? "Unhide" : "Hide"} tab "${tab.label}"`, { site: true }, () => {
+      stageOrAlert(`${tab.hidden ? "Unhide" : "Hide"} tab "${tab.label}"`, { site: true }, () => {
         if (tab.hidden) delete tab.hidden;
         else tab.hidden = true;
       })
@@ -254,12 +257,18 @@ function buildAdminBar() {
     link("Delete tab", () => deleteTab(tab));
   }
   link("Edit title & tagline", openSiteForm);
+  if (n) {
+    link("Discard changes", () => {
+      if (window.confirm(`Throw away ${n} unpublished change${n === 1 ? "" : "s"}?`)) discardAndReload();
+    });
+  }
   link("Sign out", () => {
+    if (n && !window.confirm(`Sign out and lose ${n} unpublished change${n === 1 ? "" : "s"}?`)) return;
     GH.signOut();
-    location.reload();
+    discardAndReload();
   });
 
-  bar.append(status, toggle, actions);
+  bar.append(status, publishBtn, actions);
 }
 
 function setStatus(msg) {
@@ -438,7 +447,7 @@ function render() {
         toolButtons(`section ${sec.title}`, sec, {
           onEdit: () => openSectionForm(tab, sec),
           onToggleHidden: () =>
-            persistOrAlert(`${sec.hidden ? "Unhide" : "Hide"} section "${sec.title}"`, { site: true }, () => {
+            stageOrAlert(`${sec.hidden ? "Unhide" : "Hide"} section "${sec.title}"`, { site: true }, () => {
               if (sec.hidden) delete sec.hidden;
               else sec.hidden = true;
             }),
@@ -476,7 +485,7 @@ function render() {
         const tools = toolButtons(entry.keyword, entry, {
           onEdit: () => openEditModal(entry),
           onToggleHidden: () =>
-            persistOrAlert(`${entry.hidden ? "Unhide" : "Hide"} "${entry.keyword}"`, { data: true }, () => {
+            stageOrAlert(`${entry.hidden ? "Unhide" : "Hide"} "${entry.keyword}"`, { data: true }, () => {
               if (entry.hidden) delete entry.hidden;
               else entry.hidden = true;
             }),
@@ -523,44 +532,88 @@ function render() {
 }
 
 // ---- Saving ----
-// Every change is made to the in-memory data first, then committed to GitHub.
-// If the commit fails, the change is rolled back so the page never shows
-// something that isn't saved.
+// Edits change the page straight away and queue up here. "Publish" sends the
+// whole queue to GitHub as one commit, so a session of edits is one snapshot.
+const pending = { messages: [], data: false, site: false, files: {} };
+const pendingCount = () => pending.messages.length;
+
+// Picture files on GitHub, fetched once and kept in step with each publish.
+let repoImages = null;
+async function imagesInRepo() {
+  if (!repoImages) repoImages = new Set((await GH.listFolder("images")).map((n) => `images/${n}`));
+  return repoImages;
+}
+
 // `files` may be a promise, so looking up which pictures to delete fails
-// through the same error path as the save itself.
-async function persist(message, { data = false, site = false, files = {} }, mutate) {
+// through the same error path as the edit itself.
+async function stage(message, { data = false, site = false, files = {} }, mutate) {
   files = await files;
-  const before = { entries: structuredClone(ENTRIES), site: structuredClone(SITE) };
   mutate();
-  const out = { ...files };
-  if (data) out["data.json"] = JSON.stringify(ENTRIES, null, 2) + "\n";
-  if (site) out["site.json"] = JSON.stringify(SITE, null, 2) + "\n";
+  pending.messages.push(message);
+  pending.data = pending.data || data;
+  pending.site = pending.site || site;
+  for (const [path, content] of Object.entries(files)) {
+    // A picture added and removed again before publishing never reaches GitHub.
+    if (content === null && !repoImages.has(path)) delete pending.files[path];
+    else pending.files[path] = content;
+  }
   renderAll();
-  setStatus("Saving…");
+}
+
+// stage() for buttons with no form to show the error in.
+function stageOrAlert(...args) {
+  return stage(...args).catch((err) => window.alert(`Couldn't make that change.\n\n${err.message}`));
+}
+
+async function publish() {
+  const n = pendingCount();
+  if (!n) return;
+  const files = { ...pending.files };
+  if (pending.data) files["data.json"] = JSON.stringify(ENTRIES, null, 2) + "\n";
+  if (pending.site) files["site.json"] = JSON.stringify(SITE, null, 2) + "\n";
+  const message =
+    n === 1 ? pending.messages[0] : `${n} changes\n\n` + pending.messages.map((m) => `- ${m}`).join("\n");
+
+  $("#publish-btn").disabled = true;
+  setStatus("Publishing…");
   try {
-    await GH.commit(message, out);
-    setStatus(`Saved: ${message}. Visitors see it in about a minute.`);
+    await GH.commit(message, files);
+    for (const [path, content] of Object.entries(pending.files)) {
+      if (content === null) repoImages.delete(path);
+      else repoImages.add(path);
+    }
+    Object.assign(pending, { messages: [], data: false, site: false, files: {} });
+    buildAdminBar();
+    setStatus(`Published ${n} change${n === 1 ? "" : "s"}. Visitors see ${n === 1 ? "it" : "them"} in about a minute.`);
   } catch (err) {
-    ENTRIES = before.entries;
-    SITE = before.site;
-    renderAll();
-    setStatus("Not saved.");
-    throw err;
+    buildAdminBar();
+    setStatus(`Not published: ${err.message}`);
   }
 }
 
-// persist() for buttons with no form to show the error in.
-function persistOrAlert(...args) {
-  return persist(...args).catch((err) => window.alert(`Not saved.\n\n${err.message}`));
+// Leaving the page would lose anything not yet published.
+let leaving = false;
+window.addEventListener("beforeunload", (e) => {
+  if (pendingCount() && !leaving) {
+    e.preventDefault();
+    e.returnValue = "";
+  }
+});
+
+function discardAndReload() {
+  leaving = true;
+  location.reload();
 }
 
-// Media files of the given cards that really exist in the repo (some demo
-// cards name a picture that was never added).
+// Media files of the given cards that exist on GitHub or are waiting to be
+// published (some demo cards name a picture that was never added).
 async function mediaToDelete(entries) {
   const paths = entries.map((e) => e.media).filter((m) => m && m.startsWith("images/"));
   if (!paths.length) return {};
-  const present = new Set((await GH.listFolder("images")).map((n) => `images/${n}`));
-  return Object.fromEntries(paths.filter((p) => present.has(p)).map((p) => [p, null]));
+  const present = await imagesInRepo();
+  return Object.fromEntries(
+    paths.filter((p) => present.has(p) || pending.files[p]).map((p) => [p, null])
+  );
 }
 
 // ---- Generic form (tabs, sections, site text, sign-in) ----
@@ -670,7 +723,7 @@ function openTabForm(tab) {
     onSubmit: async ({ label }) => {
       if (!label) throw new Error("Give the tab a name.");
       if (editing) {
-        await persist(`Rename tab "${tab.label}" to "${label}"`, { site: true }, () => (tab.label = label));
+        await stage(`Rename tab "${tab.label}" to "${label}"`, { site: true }, () => (tab.label = label));
         return;
       }
       // The id is what cards store as their "category", so it never changes
@@ -678,7 +731,7 @@ function openTabForm(tab) {
       const base = slugify(label) || "tab";
       let id = base;
       for (let n = 2; id === "all" || findTab(id); n++) id = `${base}-${n}`;
-      await persist(`Add tab "${label}"`, { site: true }, () => {
+      await stage(`Add tab "${label}"`, { site: true }, () => {
         SITE.tabs.push({ id, label, sections: [] });
         activeCategory = id;
       });
@@ -694,7 +747,7 @@ async function deleteTab(tab) {
     (cards.length ? ` and ${cards.length} card${cards.length === 1 ? "" : "s"} with their pictures` : "") +
     `. It can't be undone from this page.`;
   if (!window.confirm(warning)) return;
-  await persistOrAlert(`Delete tab "${tab.label}"`, { data: true, site: true, files: mediaToDelete(cards) }, () => {
+  await stageOrAlert(`Delete tab "${tab.label}"`, { data: true, site: true, files: mediaToDelete(cards) }, () => {
     ENTRIES = ENTRIES.filter((e) => e.category !== tab.id);
     SITE.tabs = SITE.tabs.filter((t) => t !== tab);
     activeCategory = "all";
@@ -740,7 +793,7 @@ function openSectionForm(tab, sec) {
         }
       };
       if (!sec) {
-        await persist(`Add section "${title}" to ${tab.label}`, { site: true }, () => {
+        await stage(`Add section "${title}" to ${tab.label}`, { site: true }, () => {
           const s = {};
           apply(s);
           tab.sections.push(s);
@@ -748,7 +801,7 @@ function openSectionForm(tab, sec) {
         return;
       }
       const renamed = sec.title !== title;
-      await persist(`Edit section "${sec.title}"`, { site: true, data: renamed }, () => {
+      await stage(`Edit section "${sec.title}"`, { site: true, data: renamed }, () => {
         if (renamed) {
           ENTRIES.filter(inSection(tab, sec)).forEach((e) => (e.heading = title));
         }
@@ -767,7 +820,7 @@ async function deleteSection(tab, sec) {
       : "") +
     `It can't be undone from this page.`;
   if (!window.confirm(warning)) return;
-  await persistOrAlert(
+  await stageOrAlert(
     `Delete section "${sec.title}"`,
     { data: cards.length > 0, site: true, files: mediaToDelete(cards) },
     () => {
@@ -787,7 +840,7 @@ function openSiteForm() {
       { id: "tagline", label: "Tagline", value: SITE.tagline },
     ],
     onSubmit: ({ title, tagline }) =>
-      persist("Edit title and tagline", { site: true }, () => {
+      stage("Edit title and tagline", { site: true }, () => {
         SITE.title = title;
         SITE.tagline = tagline;
       }),
@@ -954,8 +1007,9 @@ async function submitAdd(e) {
 
     if (file) {
       // Named after the keyword, never overwriting another card's file. A
-      // replaced picture is deleted in the same commit, so its name is free.
-      const taken = new Set((await GH.listFolder("images")).map((n) => `images/${n}`));
+      // replaced picture is deleted in the same publish, so its name is free.
+      const taken = new Set(await imagesInRepo());
+      for (const [p, c] of Object.entries(pending.files)) c === null ? taken.delete(p) : taken.add(p);
       if (oldMedia) taken.delete(oldMedia);
       const base = slugify(keyword) || "media";
       const fileExt = ext(file.name);
@@ -966,7 +1020,7 @@ async function submitAdd(e) {
       entry.media = name;
     }
 
-    await persist(editing ? `Edit "${keyword}"` : `Add "${keyword}" to ${sec.title}`, { data: true, files }, () => {
+    await stage(editing ? `Edit "${keyword}"` : `Add "${keyword}" to ${sec.title}`, { data: true, files }, () => {
       if (editing) ENTRIES[ENTRIES.indexOf(old)] = entry;
       else ENTRIES.push(entry);
     });
@@ -990,7 +1044,7 @@ async function deleteEntry(entry) {
     (entry.media ? ` and deletes ${entry.media}` : "") +
     `. It can't be undone from this page.`;
   if (!window.confirm(warning)) return;
-  await persistOrAlert(`Delete "${entry.keyword}"`, { data: true, files: mediaToDelete([entry]) }, () => {
+  await stageOrAlert(`Delete "${entry.keyword}"`, { data: true, files: mediaToDelete([entry]) }, () => {
     ENTRIES = ENTRIES.filter((e) => e !== entry);
     closeModal();
   });

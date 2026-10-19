@@ -43,13 +43,24 @@ const GH = (() => {
     return raw ? res.text() : res.json();
   }
 
+  // The commit this page last made. GitHub can report the branch's previous
+  // commit for a few seconds after a save, so the next save builds on this
+  // instead of asking.
+  let last = null;
+
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+
   // Current commit on the branch, its root file list, and the images folder.
   async function head() {
-    const ref = await call(`git/ref/heads/${branch}`);
-    const commit = await call(`git/commits/${ref.object.sha}`);
-    const tree = await call(`git/trees/${commit.tree.sha}`);
+    let base = last;
+    if (!base) {
+      const ref = await call(`git/ref/heads/${branch}`);
+      const commit = await call(`git/commits/${ref.object.sha}`);
+      base = { commitSha: ref.object.sha, treeSha: commit.tree.sha };
+    }
+    const tree = await call(`git/trees/${base.treeSha}`);
     const entry = (p) => tree.tree.find((t) => t.path === p);
-    return { commitSha: ref.object.sha, treeSha: commit.tree.sha, entry };
+    return { ...base, entry };
   }
 
   return {
@@ -105,14 +116,7 @@ const GH = (() => {
 
     // One commit. `files` maps repo path → text, {base64}, or null to delete.
     async commit(message, files) {
-      const h = await head();
-      for (const p of Object.keys(known)) {
-        const e = h.entry(p);
-        if (p in files && e && e.sha !== known[p]) {
-          throw new Error(`${p} was changed somewhere else since this page loaded. Refresh the page and redo this edit.`);
-        }
-      }
-
+      // Pictures are uploaded once, before any retry.
       const entries = [];
       for (const [path, content] of Object.entries(files)) {
         if (content === null) {
@@ -128,14 +132,37 @@ const GH = (() => {
         }
       }
 
-      const tree = await call("git/trees", { method: "POST", body: { base_tree: h.treeSha, tree: entries } });
-      const commit = await call("git/commits", {
-        method: "POST",
-        body: { message, tree: tree.sha, parents: [h.commitSha] },
-      });
-      await call(`git/refs/heads/${branch}`, { method: "PATCH", body: { sha: commit.sha } });
+      // If the branch moved under us ("not a fast forward"), look again and
+      // retry. The check below still stops this from overwriting someone
+      // else's change to the data files.
+      for (let attempt = 1; ; attempt++) {
+        const h = await head();
+        for (const p of Object.keys(known)) {
+          const e = h.entry(p);
+          if (p in files && e && e.sha !== known[p]) {
+            last = null;
+            throw new Error(`${p} was changed somewhere else since this page loaded. Refresh the page and redo this edit.`);
+          }
+        }
 
-      for (const t of tree.tree) if (t.path in known) known[t.path] = t.sha;
+        const tree = await call("git/trees", { method: "POST", body: { base_tree: h.treeSha, tree: entries } });
+        const commit = await call("git/commits", {
+          method: "POST",
+          body: { message, tree: tree.sha, parents: [h.commitSha] },
+        });
+        try {
+          await call(`git/refs/heads/${branch}`, { method: "PATCH", body: { sha: commit.sha } });
+        } catch (err) {
+          last = null;
+          if (err.status !== 422 || attempt === 4) throw err;
+          await wait(1500 * attempt);
+          continue;
+        }
+
+        last = { commitSha: commit.sha, treeSha: tree.sha };
+        for (const t of tree.tree) if (t.path in known) known[t.path] = t.sha;
+        return;
+      }
     },
   };
 })();

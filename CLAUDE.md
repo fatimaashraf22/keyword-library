@@ -77,27 +77,30 @@ read and write). `GH.signIn` checks it can push, then keeps it in `localStorage`
 only. Visitors never see editing controls.
 
 Signed in, the page reads `data.json` and `site.json` straight from the repo via the API (the
-published copy lags each save by a minute or so), and shows:
+published copy lags each publish by a minute or so), and shows:
 
 - **+ Tab** after the tab buttons; **+ Add section** at the end of a tab; a **+** card at the end of
   every section.
 - Edit / hide / delete icons on every card (on hover) and section heading.
-- An editing bar: Show hidden switch, rename/hide/delete the current tab, edit title & tagline,
-  sign out.
+- An editing bar, pinned to the top while scrolling: **Publish**, discard, rename/hide/delete the
+  current tab, edit title & tagline, sign out.
 
-Hidden items vanish for everyone; while signed in, **Show hidden** brings them back faded. The repo
-is public, so hidden isn't secret, only out of view.
+Hidden items vanish for visitors; while signed in they stay in place, greyed, with the eye icon to
+unhide them. The repo is public, so hidden isn't secret, only out of view.
 
-### How a save works (`persist` in app.js → `GH.commit`)
+### How saving works (`stage` → `publish` in app.js → `GH.commit`)
 
-- The change is applied in memory, then committed as one commit holding `data.json`, `site.json`
-  and any added or deleted `images/` file. If the commit fails, the in-memory change is rolled back.
+- Each edit changes the page at once and joins a queue (`pending`). **Publish** sends the whole
+  queue as one commit holding `data.json`, `site.json` and any added or deleted `images/` files,
+  with each edit listed in the commit message. Leaving the page with unpublished edits warns first.
+- A picture added and deleted again before publishing never reaches GitHub.
 - `GH.commit` refuses if `data.json`/`site.json` changed on GitHub since this page loaded them, so a
-  stale tab can't overwrite newer edits.
+  stale tab can't overwrite newer edits. GitHub can report the branch's previous commit for a few
+  seconds after a commit, so `GH` builds on the commit it last made and retries if the branch moved.
 - New pictures are named from a slug of the keyword, never overwriting another file. Replacing a
-  picture deletes the old file in the same commit, so the replacement can take the same name.
+  picture deletes the old file in the same publish, so the replacement can take the same name.
   Deleting a card, section or tab deletes its pictures.
-- Renaming a section rewrites `heading` on its cards in the same commit.
+- Renaming a section rewrites `heading` on its cards.
 - Keys the form doesn't expose (`demo`, `hidden`) are carried through untouched.
 - Uploads are capped at 100 MB (GitHub's per-file limit).
 - JSON is written with `JSON.stringify(…, null, 2) + "\n"`, matching the files' formatting so diffs
@@ -117,4 +120,4 @@ python -m http.server 8000   # http://localhost:8000
 ## Deploying
 
 GitHub Pages: Settings → Pages → Branch `main` / root. No CI/build needed since it's static. Every
-save from the page is a commit to `main`, which Pages republishes in about a minute.
+publish from the page is a commit to `main`, which Pages republishes in about a minute.
