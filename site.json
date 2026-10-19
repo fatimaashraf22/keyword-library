@@ -8,8 +8,7 @@
       "sections": [
         {
           "title": "Motion Graphics Elements",
-          "description": "Concrete things you put on screen — a chart, a lower third, a stat card.",
-          "hidden": true
+          "description": "Concrete things you put on screen — a chart, a lower third, a stat card."
         },
         {
           "title": "Text Animation (Kinetic Typography)",
@@ -17,15 +16,18 @@
         },
         {
           "title": "3D Scenes (Three.js)",
-          "description": "Looks that need real 3D — geometry, lights and materials rendered by the graphics card."
+          "description": "Looks that need real 3D — geometry, lights and materials rendered by the graphics card.",
+          "hidden": true
         },
         {
           "title": "GPU Effects (TypeGPU)",
-          "description": "Effects that only exist at GPU scale — particles by the hundred thousand, and real simulation."
+          "description": "Effects that only exist at GPU scale — particles by the hundred thousand, and real simulation.",
+          "hidden": true
         },
         {
           "title": "Vector Animation (Lottie)",
-          "description": "Flat vector motion drawn in After Effects and played back on the web."
+          "description": "Flat vector motion drawn in After Effects and played back on the web.",
+          "hidden": true
         },
         {
           "title": "Animation Concepts",
@@ -39,7 +41,8 @@
       "sections": [
         {
           "title": "Animation Runtimes",
-          "description": "The engines that actually move the pixels — what each one is for, and when to reach for it over the others."
+          "description": "The engines that actually move the pixels — what each one is for, and when to reach for it over the others.",
+          "hidden": true
         },
         {
           "title": "GSAP Animation",
@@ -85,7 +88,8 @@
         },
         {
           "title": "Camera Movement & Effects",
-          "description": "How the camera itself moves through the scene."
+          "description": "How the camera itself moves through the scene.",
+          "hidden": true
         },
         {
           "title": "Composition",
@@ -97,7 +101,8 @@
         },
         {
           "title": "Editing Transitions",
-          "description": "How one shot or scene cuts to the next."
+          "description": "How one shot or scene cuts to the next.",
+          "hidden": true
         }
       ]
     },

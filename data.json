@@ -42,23 +42,8 @@
     "heading": "Lens Effects"
   },
   {
-    "keyword": "claymation / gothic clay",
-    "category": "styles",
-    "media": "images/claymation-gothic-clay.webp",
-    "note": "Stop-motion clay look — sculpted, matte, slightly imperfect surfaces. Gothic clay leans dark and Tim-Burton-ish.",
-    "prompt": "A lonely gothic clay figure with stitched button eyes standing in a crooked graveyard, matte sculpted claymation surfaces, Tim-Burton mood.",
-    "tags": [
-      "style",
-      "claymation",
-      "stop-motion",
-      "gothic"
-    ],
-    "heading": "Aesthetic Styles"
-  },
-  {
     "keyword": "photorealistic",
     "category": "styles",
-    "media": "images/photorealistic.jpg",
     "note": "Looks like a real photograph — accurate light, texture, and detail. Opposite of stylized/illustrated.",
     "prompt": "A weathered fisherman's hands holding a fresh-caught trout by a river, every scale and wrinkle sharp, photorealistic, natural daylight.",
     "tags": [
@@ -66,7 +51,8 @@
       "realistic",
       "photo"
     ],
-    "heading": "Aesthetic Styles"
+    "heading": "Aesthetic Styles",
+    "media": "images/photorealistic.jpg"
   },
   {
     "keyword": "steampunk",
@@ -373,8 +359,7 @@
       "placement",
       "composition"
     ],
-    "heading": "Composition",
-    "hidden": true
+    "heading": "Composition"
   },
   {
     "keyword": "golden hour",
@@ -2345,5 +2330,38 @@
       "composition"
     ],
     "heading": "Visual Styles"
+  },
+  {
+    "keyword": "swiss/geometric style",
+    "category": "styles",
+    "heading": "Visual Styles",
+    "tags": [
+      "ui"
+    ],
+    "media": "images/swiss-geometric-style.jpg"
+  },
+  {
+    "keyword": "neobrutalism",
+    "category": "styles",
+    "heading": "Visual Styles",
+    "media": "images/neobrutalism.jpg"
+  },
+  {
+    "keyword": "flat vector",
+    "category": "styles",
+    "heading": "Visual Styles",
+    "media": "images/flat-vector.jpg"
+  },
+  {
+    "keyword": "claymation",
+    "category": "styles",
+    "heading": "Visual Styles",
+    "media": "images/claymation.jpg"
+  },
+  {
+    "keyword": "liquid organic morphing",
+    "category": "styles",
+    "heading": "Visual Styles",
+    "media": "images/liquid-organic-morphing.png"
   }
 ]
