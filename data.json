@@ -373,7 +373,8 @@
       "placement",
       "composition"
     ],
-    "heading": "Composition"
+    "heading": "Composition",
+    "hidden": true
   },
   {
     "keyword": "golden hour",
